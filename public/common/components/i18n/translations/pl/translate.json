@@ -15,7 +15,12 @@
     "withBaggageRefugeeOption2": "Potrzebny większy samochód",
     "withBaggageRefugeeOption3": "Potrzebna ciężarówka (dostawa)",
     "contactData": "Sposoby kontaktowania się ze mną (oraz wszelkie inne informacje):",
-    "contactDataPlaceholder": "Powinno to obejmować numer telefonu, konta komunikatorów - wszystko, co może być użyte do skontaktowania się z Tobą. Opisz swoją przesyłkę (jeśli jest to dostawa)."
+    "contactDataPlaceholder": "Powinno to obejmować numer telefonu, konta komunikatorów - wszystko, co może być użyte do skontaktowania się z Tobą. Opisz swoją przesyłkę (jeśli jest to dostawa).",
+    "myRequests": "Moje aplikacje",
+    "delete": "Usuń",
+    "deleteConfirm": "Usunąć aplikację?",
+    "yes": "Tak",
+    "no": "Nie"
 
 
   }

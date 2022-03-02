@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { Button, Dialog, Form } from 'antd-mobile'
+import { useTranslation } from 'react-i18next'
 
 import { IEvacuationResponse } from '../../../../common/interfaces'
 import { Request } from '../../../../common/components'
@@ -15,9 +16,11 @@ export const MyRequestsComponent: FC<IMyRequestsComponentProps> = ({
   requests,
   onDelete,
 }) => {
+  const { t } = useTranslation()
+
   return (
     <Form className={ styles.title }>
-      <Form.Header>Мои заявки</Form.Header>
+      <Form.Header>{ t('myRequests') }</Form.Header>
       {
         requests.map((request) =>
           <div key={ request.id }>
@@ -27,13 +30,13 @@ export const MyRequestsComponent: FC<IMyRequestsComponentProps> = ({
             <Button
               onClick={
                 () => Dialog.confirm({
-                content: 'Удалить заявку?',
-                cancelText: 'Нет',
-                confirmText: 'Да',
+                content: t('deleteConfirm'),
+                cancelText: t('no'),
+                confirmText: t('yes'),
                 onConfirm: () => onDelete(request.id)
               }) }
             >
-              Удалить
+              { t('delete') }
             </Button>
           </div>
         )

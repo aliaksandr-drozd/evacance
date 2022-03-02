@@ -15,7 +15,12 @@
     "withBaggageRefugeeOption2": "Bigger car needed",
     "withBaggageRefugeeOption3": "Need a truck (delivery)",
     "contactData": "Methods of contacting me (and any other information):",
-    "contactDataPlaceholder": "Here you need to enter your phone number, accounts in Internet messengers - anything that can be used to communicate with you. Describe your shipment (if delivery)."
+    "contactDataPlaceholder": "Here you need to enter your phone number, accounts in Internet messengers - anything that can be used to communicate with you. Describe your shipment (if delivery).",
+    "myRequests": "My requests",
+    "delete": "Delete",
+    "deleteConfirm": "Delete application?",
+    "yes": "Yes",
+    "no": "No"
 
   }
 }
