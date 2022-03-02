@@ -25,7 +25,7 @@ export const LanguageSwitch: FC = () => {
           color={ i18n.language === 'ua' ? 'primary' : 'default' }
           size="small"
         >
-          Український
+          Українськa
         </Button>
 
         <Button
