@@ -15,4 +15,4 @@ You should complete next steps:
 ## Build
 1. Run `npm build`
 2. All environment variables will be prescribed in the generated files
-3. Use the `/dist` folder to deploy
+3. Run `npm serve`
