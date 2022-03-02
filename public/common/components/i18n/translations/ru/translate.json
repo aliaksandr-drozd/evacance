@@ -20,6 +20,8 @@
     "delete": "Удалить",
     "deleteConfirm": "Удалить заявку?",
     "yes": "Да",
-    "no": "Нет"
+    "no": "Нет",
+    "searchResults": "Результат поиска:",
+    "noSearchResults": "Нет результатов"
   }
 }

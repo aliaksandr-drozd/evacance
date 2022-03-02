@@ -20,8 +20,9 @@
     "delete": "Usuń",
     "deleteConfirm": "Usunąć aplikację?",
     "yes": "Tak",
-    "no": "Nie"
-
+    "no": "Nie",
+    "searchResults": "Wynik wyszukiwania:",
+    "noSearchResults": "Brak wyników"
 
   }
 }

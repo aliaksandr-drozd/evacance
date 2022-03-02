@@ -20,7 +20,9 @@
     "delete": "Видалити",
     "deleteConfirm": "Видалити заявку?",
     "yes": "Так",
-    "no": "Ні"
+    "no": "Ні",
+    "searchResults": "Результат пошуку:",
+    "noSearchResults": "Немає результатів"
 
 
   }

@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { Form } from 'antd-mobile'
+import { useTranslation } from 'react-i18next'
 
 import { Request } from '../../common/components'
 import { IEvacuationResponse } from '../../common/interfaces'
@@ -12,9 +13,11 @@ export interface ISearchScreenComponentProps {
 export const SearchScreenComponent: FC<ISearchScreenComponentProps> = ({
   results,
 }) => {
+  const { t } = useTranslation()
+
   return (
     <Form>
-      <Form.Header>Результат поиска:</Form.Header>
+      <Form.Header>{ t('searchResults') }</Form.Header>
       {
         results.map((request, index) => (
           <Form.Item
@@ -26,7 +29,7 @@ export const SearchScreenComponent: FC<ISearchScreenComponentProps> = ({
         ))
       }
       {
-        !results.length && <div>Нет результатов</div>
+        !results.length && <div>{ t('noSearchResults') }</div>
       }
     </Form>
   )

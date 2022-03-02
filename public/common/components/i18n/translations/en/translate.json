@@ -20,7 +20,8 @@
     "delete": "Delete",
     "deleteConfirm": "Delete application?",
     "yes": "Yes",
-    "no": "No"
-
+    "no": "No",
+    "searchResults": "Search Result:",
+    "noSearchResults": "No results"
   }
 }
