@@ -6,8 +6,8 @@
     "requestAdd": "Dodać wniosek",
     "continue": "Kontynuować",
     "requestAdded": "Aplikacja została dodana! Proszę czekać.",
-    "my_languages": "Mówię w tych językach:",
-    "requests_find": "Wyszukiwanie aplikacji",
+    "myLanguages": "Mówię w tych językach:",
+    "requestsFind": "Wyszukiwanie aplikacji",
     "peopleCountRefugee": "Wszyscy, razem ze mną:",
     "withPetsRefugee": "Mam/my zwierzęta domowe:",
     "withBaggageRefugee": "Nasz bagaż:",
@@ -23,7 +23,13 @@
     "no": "Nie",
     "searchResults": "Wynik wyszukiwania:",
     "noSearchResults": "Brak wyników",
-    "driverRouteDeviation": "Jestem gotowy zboczyć z trasy o {{deviation}} km"
+    "driverRouteDeviation": "Jestem gotowy zboczyć z trasy o {{deviation}} km",
+    "seatsInMyCar": "Siedzenia w moim samochodzie:",
+    "allowPets": "Nie mam nic przeciwko zwierzętom domowym:",
+    "luggage": "Co mogę zrobić z bagażem:",
+    "iHavePassengerCar": "Mam zwykły samochód osobowy",
+    "iHaveLargeCarOrBus": "Mam duży samochód lub autobus",
+    "iHaveTruck": "Mam ciężarówkę (pokaz tylko dostawy)"
 
   }
 }

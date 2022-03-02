@@ -27,14 +27,14 @@ export const FormComponent: FC<IFormProps> = ({
             color="primary"
             size="large"
           >
-            { t('requests_find') }
+            { t('requestsFind') }
           </Button>
         }
       >
-        <Form.Header>{ t('requests_find') }</Form.Header>
+        <Form.Header>{ t('requestsFind') }</Form.Header>
         <Form.Item
           name="languages"
-          label={ t('my_languages') }
+          label={ t('myLanguages') }
           initialValue={ ['PL'] }
         >
           <Selector
@@ -61,27 +61,27 @@ export const FormComponent: FC<IFormProps> = ({
         </Form.Item>
         <Form.Item
           name="peopleCount"
-          label="Мест в моей машине:"
+          label={ t('seatsInMyCar') }
           initialValue={ 1 }
         >
           <Stepper min={ 1 } />
         </Form.Item>
         <Form.Item
           name="withPets"
-          label="Я не против домашних животных:"
+          label={ t('allowPets') }
         >
           <Switch />
         </Form.Item>
         <Form.Item
           name="withBaggage"
-          label="У меня есть место для багажа:"
+          label={ t('luggage') }
           initialValue={ BaggageOption.SMALL_CAR }
         >
           <Radio.Group>
             <Space direction="vertical">
-              <Radio value={ BaggageOption.SMALL_CAR }>У меня обычная легковая машина</Radio>
-              <Radio value={ BaggageOption.BIG_CAR }>У меня большая машина</Radio>
-              <Radio value={ BaggageOption.TRUCK }>У меня грузовик (показать только доставки)</Radio>
+              <Radio value={ BaggageOption.SMALL_CAR }>{ t('iHavePassengerCar') }</Radio>
+              <Radio value={ BaggageOption.BIG_CAR }>{ t('iHaveLargeCarOrBus') }</Radio>
+              <Radio value={ BaggageOption.TRUCK }>{ t('iHaveTruck') }</Radio>
             </Space>
           </Radio.Group>
         </Form.Item>

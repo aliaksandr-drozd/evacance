@@ -6,8 +6,8 @@
     "requestAdd": "Add a new request",
     "continue": "Continue",
     "requestAdded": "Application has been added! Please wait.",
-    "my_languages": "I speak these languages:",
-    "requests_find": "Search for applications",
+    "myLanguages": "I speak these languages:",
+    "requestsFind": "Search for applications",
     "peopleCountRefugee": "All of us, with me:",
     "withPetsRefugee": "I/we have pets with us:",
     "withBaggageRefugee": "Our luggage:",
@@ -23,6 +23,12 @@
     "no": "No",
     "searchResults": "Search Result:",
     "noSearchResults": "No results",
-    "driverRouteDeviation": "I am available to deviate from the route by {{deviation}} km"
+    "driverRouteDeviation": "I am available to deviate from the route by {{deviation}} km",
+    "seatsInMyCar": "Seats in my car:",
+    "allowPets": "I don't have a problem with pets:",
+    "luggage": "What I can do with luggage:",
+    "iHavePassengerCar": "I have a regular passenger car",
+    "iHaveLargeCarOrBus": "I have a large car or bus",
+    "iHaveTruck": "I have a truck (show delivery only)"
   }
 }

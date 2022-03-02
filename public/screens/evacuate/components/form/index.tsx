@@ -39,7 +39,7 @@ export const FormComponent: FC<IFormProps> = ({
         <Form.Header>{ t('requestAdd') }</Form.Header>
         <Form.Item
           name="languages"
-          label={ t('my_languages') }
+          label={ t('myLanguages') }
           initialValue={ ['PL'] }
         >
           <Selector

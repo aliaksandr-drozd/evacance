@@ -6,8 +6,8 @@
     "requestAdd": "Додати заявку",
     "continue": "Продовжити",
     "requestAdded": "Заявка додана! Будь ласка, чекайте.",
-    "my_languages": "Я розмовляю цими мовами:",
-    "requests_find": "Пошук заявок",
+    "myLanguages": "Я розмовляю цими мовами:",
+    "requestsFind": "Пошук заявок",
     "peopleCountRefugee": "Всіх нас разом зі мною:",
     "withPetsRefugee": "У мене/нас із собою домашні тварини:",
     "withBaggageRefugee": "Наш багаж:",
@@ -23,8 +23,12 @@
     "no": "Ні",
     "searchResults": "Результат пошуку:",
     "noSearchResults": "Немає результатів",
-    "driverRouteDeviation": "Я готовий відхилитися від маршруту на {{deviation}} км"
-
-
+    "driverRouteDeviation": "Я готовий відхилитися від маршруту на {{deviation}} км",
+    "seatsInMyCar": "Місць у моїй машині:",
+    "allowPets": "Я не проти домашніх тварин:",
+    "luggage": "Що я можу зробити з багажем:",
+    "iHavePassengerCar": "У мене звичайна легкова машина",
+    "iHaveLargeCarOrBus": "У мене велика машина або автобус",
+    "iHaveTruck": "У мене вантажівка (показати лише доставки)"
   }
 }
