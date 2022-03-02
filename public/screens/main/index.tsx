@@ -23,14 +23,14 @@ export const MainScreen: FC = () => {
           size="large"
           onClick={ () => navigate('/transportation') }
         >
-          { t('i_can_deliver') }
+          { t('iCanDeliver') }
         </Button>
         <Button
           color="primary"
           size="large"
           onClick={ () => navigate('/evacuate') }
         >
-          { t('i_need_to_get') }
+          { t('iNeedToGet') }
         </Button>
       </Space>
 

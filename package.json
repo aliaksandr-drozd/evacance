@@ -1,4 +1,7 @@
 {
+  "name": "evacance",
+  "author": "Alexander Drozd <itahmea@gmail.com>",
+  "version": "0.0.2",
   "scripts": {
     "start": "parcel public/index.html --port 1111"
   },

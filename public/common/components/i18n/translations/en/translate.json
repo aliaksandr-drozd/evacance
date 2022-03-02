@@ -1,15 +1,21 @@
 {
   "translation": {
-    "preferred_language": "Preferred language",
-    "i_can_deliver": "I can deliver",
-    "i_need_to_get": "Need to get there",
-    "request_add": "Add a new request",
+    "preferredLanguage": "Preferred language",
+    "iCanDeliver": "I can deliver",
+    "iNeedToGet": "Need to get there",
+    "requestAdd": "Add a new request",
     "continue": "Continue",
-    "request_added": "Application has been added! Please wait.",
+    "requestAdded": "Application has been added! Please wait.",
     "my_languages": "I speak these languages:",
     "requests_find": "Search for applications",
     "peopleCountRefugee": "All of us, with me:",
     "withPetsRefugee": "I/we have pets with us:",
-    "withBaggageRefugee": "У меня/нас много багажа:"
+    "withBaggageRefugee": "Our luggage:",
+    "withBaggageRefugeeOption1": "A little",
+    "withBaggageRefugeeOption2": "Bigger car needed",
+    "withBaggageRefugeeOption3": "Need a truck (delivery)",
+    "contactData": "Methods of contacting me (and any other information):",
+    "contactDataPlaceholder": "Here you need to enter your phone number, accounts in Internet messengers - anything that can be used to communicate with you. Describe your shipment (if delivery)."
+
   }
 }

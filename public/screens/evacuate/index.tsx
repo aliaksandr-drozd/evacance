@@ -8,7 +8,6 @@ import { useTranslation } from 'react-i18next'
 import { DEFAULT_ROUTE } from '../../common/consts'
 import { GunService, IDService } from '../../services'
 import { Form, Map } from './components'
-import styles from './styles.module.less'
 
 
 export const EvacuateScreen: FC = () => {
@@ -25,7 +24,6 @@ export const EvacuateScreen: FC = () => {
   return (
     <>
       <NavBar
-        className={ styles.nav }
         onBack={ () => navigate('/') }
       >
         <Button
@@ -53,7 +51,7 @@ export const EvacuateScreen: FC = () => {
               userId: Container.get(IDService).getUid()
             })
 
-            Toast.show({ content: t('request_added') })
+            Toast.show({ content: t('requestAdded') })
 
             navigate('/')
           } }

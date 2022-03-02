@@ -32,11 +32,11 @@ export const FormComponent: FC<IFormProps> = ({
             color="primary"
             size="large"
           >
-            { t('request_add') }
+            { t('requestAdd') }
           </Button>
         }
       >
-        <Form.Header>{ t('request_add') }</Form.Header>
+        <Form.Header>{ t('requestAdd') }</Form.Header>
         <Form.Item
           name="languages"
           label={ t('my_languages') }
@@ -80,24 +80,24 @@ export const FormComponent: FC<IFormProps> = ({
         </Form.Item>
         <Form.Item
           name="withBaggage"
-          label="Наш багаж:"
+          label={ t('withBaggageRefugee') }
           initialValue={ BaggageOption.SMALL_CAR }
         >
           <Radio.Group>
             <Space direction="vertical">
-              <Radio value={ BaggageOption.SMALL_CAR }>Немного</Radio>
-              <Radio value={ BaggageOption.BIG_CAR }>Нужна машина побольше</Radio>
-              <Radio value={ BaggageOption.TRUCK }>Нужен грузовик (доставка)</Radio>
+              <Radio value={ BaggageOption.SMALL_CAR }>{ t('withBaggageRefugeeOption1') }</Radio>
+              <Radio value={ BaggageOption.BIG_CAR }>{ t('withBaggageRefugeeOption2') }</Radio>
+              <Radio value={ BaggageOption.TRUCK }>{ t('withBaggageRefugeeOption3') }</Radio>
             </Space>
           </Radio.Group>
         </Form.Item>
         <Form.Item
           name="contactData"
-          label="Методы связи со мной (и любая другая информация):"
+          label={ t('contactData') }
           initialValue=""
         >
           <TextArea
-            placeholder="Сюда необходимо вписать ваш номер телефона, аккаунты в месенджерах - все что может быть использованно для связи с вами"
+            placeholder={ t('contactDataPlaceholder') }
             rows={ 4 }
           />
         </Form.Item>

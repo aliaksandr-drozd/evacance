@@ -1,16 +1,22 @@
 {
   "translation": {
-    "preferred_language": "Preferowany język",
-    "i_can_deliver": "Mogę dostarczyć",
-    "i_need_to_get": "Muszę dotrzeć",
-    "request_add": "Dodać wniosek",
+    "preferredLanguage": "Preferowany język",
+    "iCanDeliver": "Mogę dostarczyć",
+    "iNeedToGet": "Muszę dotrzeć",
+    "requestAdd": "Dodać wniosek",
     "continue": "Kontynuować",
-    "request_added": "Aplikacja została dodana! Proszę czekać.",
+    "requestAdded": "Aplikacja została dodana! Proszę czekać.",
     "my_languages": "Mówię w tych językach:",
     "requests_find": "Wyszukiwanie aplikacji",
     "peopleCountRefugee": "Wszyscy, razem ze mną:",
     "withPetsRefugee": "Mam/my zwierzęta domowe:",
-    "withBaggageRefugee": "У меня/нас много багажа:"
+    "withBaggageRefugee": "Nasz bagaż:",
+    "withBaggageRefugeeOption1": "Niewiele",
+    "withBaggageRefugeeOption2": "Potrzebny większy samochód",
+    "withBaggageRefugeeOption3": "Potrzebna ciężarówka (dostawa)",
+    "contactData": "Sposoby kontaktowania się ze mną (oraz wszelkie inne informacje):",
+    "contactDataPlaceholder": "Powinno to obejmować numer telefonu, konta komunikatorów - wszystko, co może być użyte do skontaktowania się z Tobą. Opisz swoją przesyłkę (jeśli jest to dostawa)."
+
 
   }
 }

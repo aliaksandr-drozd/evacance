@@ -17,7 +17,7 @@ export const LanguageSwitch: FC = () => {
 
   return (
     <div>
-      <h4>{ t('preferred_language') }</h4>
+      <h4>{ t('preferredLanguage') }</h4>
 
       <Space wrap>
         <Button

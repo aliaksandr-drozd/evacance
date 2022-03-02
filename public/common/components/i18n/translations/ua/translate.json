@@ -1,16 +1,22 @@
 {
   "translation": {
-    "preferred_language": "Переважна мова",
-    "i_can_deliver": "Я можу завезти",
-    "i_need_to_get": "Мені треба дістатися",
-    "request_add": "Додати заявку",
+    "preferredLanguage": "Переважна мова",
+    "iCanDeliver": "Я можу завезти",
+    "iNeedToGet": "Мені треба дістатися",
+    "requestAdd": "Додати заявку",
     "continue": "Продовжити",
-    "request_added": "Заявка додана! Будь ласка, чекайте.",
+    "requestAdded": "Заявка додана! Будь ласка, чекайте.",
     "my_languages": "Я розмовляю цими мовами:",
     "requests_find": "Пошук заявок",
     "peopleCountRefugee": "Всіх нас разом зі мною:",
     "withPetsRefugee": "У мене/нас із собою домашні тварини:",
-    "withBaggageRefugee": "У меня/нас много багажа:"
+    "withBaggageRefugee": "Наш багаж:",
+    "withBaggageRefugeeOption1": "Небагато",
+    "withBaggageRefugeeOption2": "Потрібна велика машина",
+    "withBaggageRefugeeOption3": "Потрібна вантажівка (доставка)",
+    "contactData": "Методи зв'язку зі мною (і будь-яка інша інформація):",
+    "contactDataPlaceholder": "Сюди необхідно вписати ваш номер телефону, акаунти в мессенджерах - все, що може бути використане для зв'язку з вами. Описати ваш вантаж (якщо це доставка)."
+
 
   }
 }
