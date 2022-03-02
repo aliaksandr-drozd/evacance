@@ -22,6 +22,7 @@
     "yes": "Да",
     "no": "Нет",
     "searchResults": "Результат поиска:",
-    "noSearchResults": "Нет результатов"
+    "noSearchResults": "Нет результатов",
+    "driverRouteDeviation": "Я готов отклониться от маршрута на {{deviation}} км"
   }
 }

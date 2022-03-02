@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { FloatingPanel, Form, Slider } from 'antd-mobile'
+import { Trans } from 'react-i18next'
 
 
 export interface IPickRouteDeviationProps {
@@ -17,7 +18,13 @@ export const PickRouteDeviation: FC<IPickRouteDeviationProps> = ({
       handleDraggingOfContent={ false }
     >
       <Form>
-        <Form.Header>Я готов отклониться от маршрута на { tolerance } км</Form.Header>
+        <Form.Header>
+          <Trans
+            i18nKey="driverRouteDeviation"
+            values={{ deviation: tolerance }}
+          />
+
+        </Form.Header>
 
         <Slider
           min={ 10 }

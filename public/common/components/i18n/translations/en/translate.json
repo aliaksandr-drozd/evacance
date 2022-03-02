@@ -22,6 +22,7 @@
     "yes": "Yes",
     "no": "No",
     "searchResults": "Search Result:",
-    "noSearchResults": "No results"
+    "noSearchResults": "No results",
+    "driverRouteDeviation": "I am available to deviate from the route by {{deviation}} km"
   }
 }

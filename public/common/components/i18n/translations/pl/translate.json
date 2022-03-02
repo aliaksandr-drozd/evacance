@@ -22,7 +22,8 @@
     "yes": "Tak",
     "no": "Nie",
     "searchResults": "Wynik wyszukiwania:",
-    "noSearchResults": "Brak wyników"
+    "noSearchResults": "Brak wyników",
+    "driverRouteDeviation": "Jestem gotowy zboczyć z trasy o {{deviation}} km"
 
   }
 }
