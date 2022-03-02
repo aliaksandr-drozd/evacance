@@ -98,21 +98,23 @@ export const TransportationScreen: FC = () => {
 
       <Popup
         visible={ isFormVisible }
-        onMaskClick={() => setIsFormVisible(false)}
+        onMaskClick={ () => setIsFormVisible(false) }
         position="bottom"
-        bodyStyle={{ minHeight: '70vh' }}
       >
-        <Form onSubmit={ (req) => {
-          const condition: ITransportationRequest = {
-            ...req,
-            segment,
-            waypoints,
-            tolerance: cTolerance,
-          }
+        <Form
+          onCancel={ () => setIsFormVisible(false) }
+          onSubmit={ (req) => {
+            const condition: ITransportationRequest = {
+              ...req,
+              segment,
+              waypoints,
+              tolerance: cTolerance,
+            }
 
-          Container.get(SearchStateService).setCondition(condition)
-          navigate('/search')
-        } } />
+            Container.get(SearchStateService).setCondition(condition)
+            navigate('/search')
+          } }
+        />
       </Popup>
 
       <PickRouteDeviation

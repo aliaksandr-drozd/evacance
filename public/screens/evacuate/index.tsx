@@ -71,11 +71,11 @@ export const EvacuateScreen: FC = () => {
       }
       <Popup
         visible={ isFormVisible }
-        onMaskClick={() => setIsFormVisible(false)}
+        onMaskClick={ () => setIsFormVisible(false) }
         position="bottom"
-        bodyStyle={{ minHeight: '70vh' }}
       >
         <Form
+          onCancel={ () => setIsFormVisible(false) }
           onSubmit={ (data) => {
             Container.get(GunService).addEvacuationRequest({
               ...data,

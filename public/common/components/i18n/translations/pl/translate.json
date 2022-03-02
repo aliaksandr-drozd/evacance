@@ -31,6 +31,7 @@
     "iHaveTruck": "Mam ciężarówkę (pokaz tylko dostawy)",
     "gdpr": "Ta witryna korzysta z plików cookie, które pomagają w jej funkcjonowaniu i ułatwiają interakcję z nią. Używamy tych plików cookie, aby zapewnić użytkownikom lepsze i dostosowane do ich potrzeb wrażenia. Jeśli użytkownik kontynuuje korzystanie z tej witryny, zakładamy, że nie ma nic przeciwko temu.",
     "accept": "Zaakceptuj",
-    "decline": "Odrzuć"
+    "decline": "Odrzuć",
+    "cancel": "Anuluj"
   }
 }

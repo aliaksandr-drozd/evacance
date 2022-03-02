@@ -9,10 +9,12 @@ import styles from './styles.module.less'
 
 export interface IFormProps {
   onSubmit: (data: IEvacuationRequestForm) => void
+  onCancel: () => void
 }
 
 export const FormComponent: FC<IFormProps> = ({
-  onSubmit
+  onSubmit,
+  onCancel,
 }) => {
   const { t } = useTranslation()
 
@@ -26,14 +28,27 @@ export const FormComponent: FC<IFormProps> = ({
           })
         } }
         footer={
-          <Button
+          <Space
             block
-            type="submit"
-            color="primary"
-            size="large"
+            direction="vertical"
           >
-            { t('requestAdd') }
-          </Button>
+            <Button
+              block
+              type="submit"
+              color="primary"
+              size="large"
+            >
+              { t('requestAdd') }
+            </Button>
+            <Button
+              block
+              onClick={ onCancel }
+              color="danger"
+              size="large"
+            >
+              { t('cancel') }
+            </Button>
+          </Space>
         }
       >
         <Form.Header>{ t('requestAdd') }</Form.Header>
