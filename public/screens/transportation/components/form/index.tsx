@@ -56,19 +56,19 @@ export const FormComponent: FC<IFormProps> = ({
             multiple={ true }
             options={[
               {
-                label: <>PL</>,
+                label: <>Polski</>,
                 value: 'PL',
               },
               {
-                label: <>UA</>,
+                label: <>Українськa</>,
                 value: 'UA',
               },
               {
-                label: <>EN</>,
+                label: <>English</>,
                 value: 'EN',
               },
               {
-                label: <>RU</>,
+                label: <>Русский</>,
                 value: 'RU',
               },
             ]}

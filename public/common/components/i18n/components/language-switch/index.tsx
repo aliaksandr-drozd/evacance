@@ -8,7 +8,7 @@ import { DEFAULT_APP_LANGUAGE, LANGUAGE_LOCAL_STORAGE_KEY } from '../../../../co
 
 export const LanguageSwitch: FC = () => {
   const [ ,setLanguageInLocalStorage ] = useLocalStorage<string>(LANGUAGE_LOCAL_STORAGE_KEY, DEFAULT_APP_LANGUAGE)
-  const { i18n, t } = useTranslation()
+  const { i18n } = useTranslation()
 
   const setLanguage = (code: string) => async () => {
     await i18n.changeLanguage(code)
@@ -17,8 +17,6 @@ export const LanguageSwitch: FC = () => {
 
   return (
     <div>
-      <h4>Переважна мова / Preferowany język / Preferred language / Предпочитаемый язык</h4>
-
       <Space wrap>
         <Button
           onClick={ setLanguage('ua') }
