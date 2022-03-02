@@ -12,21 +12,25 @@ type IMapPointProps = {
 export const MapPoint: FC<IMapPointProps> = ({ center }) => {
   return (
     <div className={ styles.screenWrapper }>
-      <MapContainer
-        center={ center }
-        zoom={ 10 }
-        scrollWheelZoom={ false }
-        className={ styles.map }
-        zoomControl={ false }
-        doubleClickZoom={ false }
-        closePopupOnClick={ false }
-        dragging={ false }
-        touchZoom={ false }
+      <a
+        target="_blank"
+        href={ `https://www.google.com/maps/place/${center[0]},${center[1]}` }
       >
-        <TileLayer url={ process.env.TILE_SERVER } />
-        <Marker position={ center } />
-      </MapContainer>
-      <div className={ styles.overlay } />
+        <MapContainer
+          center={ center }
+          zoom={ 10 }
+          scrollWheelZoom={ false }
+          className={ styles.map }
+          zoomControl={ false }
+          doubleClickZoom={ false }
+          closePopupOnClick={ false }
+          dragging={ false }
+          touchZoom={ false }
+        >
+          <TileLayer url={ process.env.TILE_SERVER } />
+          <Marker position={ center } />
+        </MapContainer>
+      </a>
     </div>
   )
 }

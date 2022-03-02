@@ -14,17 +14,6 @@ export const Request: FC<IRequestProps> = ({ request }) => {
       <table>
         <tr>
           <td>
-            Откуда:
-          </td>
-          <td>
-            Куда:
-          </td>
-          <td>
-            Информация:
-          </td>
-        </tr>
-        <tr>
-          <td>
             <MapPoint center={ request.waypoints[0] } />
           </td>
           <td>

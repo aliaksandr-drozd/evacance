@@ -26,8 +26,8 @@ export const MyRequestsComponent: FC<IMyRequestsComponentProps> = ({
           <div key={ request.id }>
             <Request request={ request } />
             <br />
-            <br />
             <Button
+              color="warning"
               onClick={
                 () => Dialog.confirm({
                 content: t('deleteConfirm'),
