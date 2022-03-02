@@ -1,1 +1,1 @@
-export const IS_GDPR_ACCEPTED = 'gdpr'
+export const IS_GDPR_ACCEPTED = 'isGDPRAccepted'
