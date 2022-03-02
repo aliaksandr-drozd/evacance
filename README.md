@@ -16,11 +16,3 @@ You should complete next steps:
 1. Run `npm build`
 2. All environment variables will be prescribed in the generated files
 3. Use the `/dist` folder to deploy
-
-You can develop relative libraries if they are a part of this
-project ( see `package.json` file). Use **npm link system** to realise it.
-
-
-## Useful links
-
-Routing - https://github.com/remix-run/react-router/blob/v6.0.0-beta.7/docs/guides/migrating-5-to-6.md
