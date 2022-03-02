@@ -1,0 +1,16 @@
+{
+  "translation": {
+    "preferred_language": "Preferowany język",
+    "i_can_deliver": "Mogę dostarczyć",
+    "i_need_to_get": "Muszę dotrzeć",
+    "request_add": "Dodać wniosek",
+    "continue": "Kontynuować",
+    "request_added": "Aplikacja została dodana! Proszę czekać.",
+    "my_languages": "Mówię w tych językach:",
+    "requests_find": "Wyszukiwanie aplikacji",
+    "peopleCountRefugee": "Wszyscy, razem ze mną:",
+    "withPetsRefugee": "Mam/my zwierzęta domowe:",
+    "withBaggageRefugee": "У меня/нас много багажа:"
+
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "translation": {
+    "preferred_language": "Preferred language",
+    "i_can_deliver": "I can deliver",
+    "i_need_to_get": "Need to get there",
+    "request_add": "Add a new request",
+    "continue": "Continue",
+    "request_added": "Application has been added! Please wait.",
+    "my_languages": "I speak these languages:",
+    "requests_find": "Search for applications",
+    "peopleCountRefugee": "All of us, with me:",
+    "withPetsRefugee": "I/we have pets with us:",
+    "withBaggageRefugee": "У меня/нас много багажа:"
+  }
+}

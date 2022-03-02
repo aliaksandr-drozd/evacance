@@ -1,0 +1,15 @@
+{
+  "translation": {
+    "preferred_language": "Предпочитаемый язык",
+    "i_can_deliver": "Я могу завезти",
+    "i_need_to_get": "Нужно добраться",
+    "request_add": "Добавить заявку",
+    "continue": "Продолжить",
+    "request_added": "Заявка добавлена! Пожалуйста, ожидайте.",
+    "my_languages": "Я разговариваю на этих языках:",
+    "requests_find": "Поиск заявок",
+    "peopleCountRefugee": "Всех нас, вместе со мной:",
+    "withPetsRefugee": "У меня/нас с собой домашние животные:",
+    "withBaggageRefugee": "У меня/нас много багажа:"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es6",
+    "lib": [
+      "es6",
+      "dom",
+      "esnext"
+    ],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "downlevelIteration": true,
+    "jsx": "react",
+    "sourceMap": true,
+    "isolatedModules": true,
+    "baseUrl": ".",
+    "rootDir": ".",
+    "declaration": true,
+    "strict": true,
+    "types": ["reflect-metadata", "node"],
+    "paths": {},
+    "typeRoots": [
+      "./public/**/*",
+      "./types",
+      "./node_modules/@types",
+      // "./node_modules/typescript/lib"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "./public/**/*",
+    "./types/environment.d.ts",
+    "./types/less-modules.d.ts",
+  ]
+}

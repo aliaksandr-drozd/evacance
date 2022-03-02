@@ -1,0 +1,33 @@
+.map {
+  position: fixed;
+  top: 65px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  user-select: none;
+
+  * {
+    user-select: none;
+  }
+}
+
+:global {
+  .leaflet-control-container .leaflet-routing-container-hide {
+    display: none;
+  }
+
+  .leaflet-marker-pane {
+    .leaflet-marker-icon:nth-child(1) {
+      filter: hue-rotate(135deg);
+    }
+
+    .leaflet-marker-icon:nth-child(2) {
+      filter: hue-rotate(-70deg);
+    }
+  }
+
+  .leaflet-overlay-pane {
+    pointer-events: none;
+    user-select: none;
+  }
+}
