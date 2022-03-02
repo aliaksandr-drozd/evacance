@@ -1,7 +1,7 @@
 {
-  "name": "evacance",
+  "name": "freeseat-frontend",
   "author": "Alexander Drozd <itahmea@gmail.com>",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "scripts": {
     "start": "parcel public/index.html --port 1111"
   },
