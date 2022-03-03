@@ -3,8 +3,14 @@ import { Container, Service } from 'typedi'
 import { API_VERSION } from '../../common/consts'
 import { ApiClientService } from '../api-client.service'
 import { IDService } from '../id.service'
-import { IEvacuationRequest, ITransportationRequest } from '../../common/interfaces'
-import { ICreateRequest, ILoginRequest } from './contracts'
+import {
+  IEvacuationRequest,
+  IEvacuationResponse,
+  ITransportationRequest,
+  ITransportationResponse
+} from '../../common/interfaces'
+import { ICreateRequest, ILoginRequest, ISearchResponse } from './contracts'
+import { DateTime } from "luxon";
 
 
 @Service<ApiService>()
@@ -87,7 +93,37 @@ export class ApiService {
     return true
   }
 
-  searchRequests = async (condition: ITransportationRequest): Promise<boolean> => {
-    return true
+  searchRequests = async (condition: ITransportationRequest, page?: number): Promise<{ pages: number, results: ITransportationResponse[] }> => {
+    const apiClient = Container.get(ApiClientService)
+    const result: { pages: number, results: ITransportationResponse[] } = {
+      pages: 0,
+      results: []
+    }
+
+    try {
+      const results = await apiClient.get<ISearchResponse>(`trips/${API_VERSION}/requested-trips`, {
+        params: {
+          ...condition,
+          page
+        }
+      })
+
+      result.pages = results.data.count
+      results.data.results.map((i) => {
+        const waypoints = i.waypoints.sort((i, j) => i.order - j.order)
+
+        result.results.push({
+          timestamp: DateTime.fromISO(i.last_active_at).toMillis(),
+          contactData: i.comment,
+          languages: i.spoken_languages,
+          peopleCount: i.number_of_people,
+          waypoints: [[waypoints[0].point[0], waypoints[0].point[1]], [waypoints[1].point[0], waypoints[1].point[1]]],
+          withBaggage: i.luggage_size,
+          withPets: i.with_pets
+        })
+      })
+    } catch (e) {}
+
+    return result
   }
 }

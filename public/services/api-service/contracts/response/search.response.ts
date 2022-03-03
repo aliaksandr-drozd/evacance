@@ -8,7 +8,7 @@ export interface ISearchResponse {
   previous: string
   results: {
     last_active_at: string
-    spoken_languages: LANGUAGE_TYPE
+    spoken_languages: LANGUAGE_TYPE[]
     number_of_people: number
     with_pets: boolean
     comment: string
