@@ -4,7 +4,7 @@ import { API_VERSION } from '../../common/consts'
 import { ApiClientService } from '../api-client.service'
 import { IDService } from '../id.service'
 import { IEvacuationRequest, ITransportationRequest } from '../../common/interfaces'
-import { ILoginRequest } from './contracts'
+import { ICreateRequest, ILoginRequest } from './contracts'
 
 
 @Service<ApiService>()
@@ -29,6 +29,39 @@ export class ApiService {
   }
 
   createRequest = async (request: IEvacuationRequest): Promise<boolean> => {
+    const apiClient = Container.get(ApiClientService)
+    const body: ICreateRequest = {
+      comment: request.contactData,
+      luggage_size: request.withBaggage,
+      number_of_people: request.peopleCount,
+      spoken_languages: request.languages,
+      user_session: Container.get(IDService).getUid(),
+      with_pets: request.withPets,
+      waypoints: [
+        {
+          order: 0,
+          point: request.waypoints[0]
+        },
+        {
+          order: 1,
+          point: request.waypoints[1]
+        }
+      ]
+    }
+
+    try {
+      const result = await apiClient.post(
+        `trips/${API_VERSION}/requested-trips/`,
+        JSON.stringify(body)
+      )
+
+      console.log(result)
+
+      debugger
+    } catch (e) {
+      return false
+    }
+
     return true
   }
 

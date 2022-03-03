@@ -76,7 +76,7 @@ export const EvacuateScreen: FC = () => {
       >
         <Form
           onCancel={ () => setIsFormVisible(false) }
-          onSubmit={ (data) => {
+          onSubmit={ async (data) => {
             /*Container.get(GunService).addEvacuationRequest({
               ...data,
               waypoints: waypoints.map(v => v.join(',')).join(','),

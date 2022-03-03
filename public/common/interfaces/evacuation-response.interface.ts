@@ -4,10 +4,11 @@ import { IUser } from './user.interface'
 import { ITS } from './ts.interface'
 import { IRecordId } from './record-id.interdace'
 import { BaggageOption } from '../enums'
+import { LANGUAGE_TYPE } from '../types'
 
 
 export interface IEvacuationResponseForm {
-  languages: string[]
+  languages: LANGUAGE_TYPE[]
   peopleCount: number
   contactData: string
   withPets: boolean

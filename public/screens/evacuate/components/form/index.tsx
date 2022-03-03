@@ -21,12 +21,7 @@ export const FormComponent: FC<IFormProps> = ({
   return (
     <div className={ styles.wrapper }>
       <Form
-        onFinish={ (data) => {
-          onSubmit({
-            ...data,
-            languages: data.languages.join(',')
-          })
-        } }
+        onFinish={ onSubmit }
         footer={
           <Space
             block
