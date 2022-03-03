@@ -13,4 +13,5 @@ export interface ICreateRequest {
     point: [number, number]
   }[]
   user_session: string
+  route_length: number
 }

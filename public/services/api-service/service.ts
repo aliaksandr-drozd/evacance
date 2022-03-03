@@ -6,6 +6,7 @@ import { ApiClientService } from '../api-client.service'
 import { IDService } from '../id.service'
 import { IEvacuationRequest, ITransportationRequest, ITransportationResponse } from '../../common/interfaces'
 import { ICreateRequest, ILoginRequest, ISearchRequest, ISearchResponse } from './contracts'
+import { GeospatialService } from "../geospatial.service";
 
 
 @Service<ApiService>()
@@ -32,6 +33,7 @@ export class ApiService {
   createRequest = async (request: IEvacuationRequest): Promise<boolean> => {
     const apiClient = Container.get(ApiClientService)
     const body: ICreateRequest = {
+      route_length: Container.get(GeospatialService).distance(request.waypoints[0], request.waypoints[1]),
       comment: request.contactData,
       luggage_size: request.withBaggage,
       number_of_people: request.peopleCount,
