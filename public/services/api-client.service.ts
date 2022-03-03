@@ -3,8 +3,11 @@ import { Service } from 'typedi'
 
 
 const axiosInstance = Axios.create({
-  url: process.env.API_SERVER,
-  withCredentials: true,
+  baseURL: process.env.API_SERVER,
+  headers: {
+    'Content-Type': 'application/json;charset=UTF-8',
+    'X-CSRFToken': 'sadasda'
+  }
 })
 
 @Service<ApiClientService>()
