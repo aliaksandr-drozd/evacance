@@ -1,1 +1,1 @@
-export const DEFAULT_APP_LANGUAGE = 'ru'
+export const DEFAULT_APP_LANGUAGE = 'en'
