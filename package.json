@@ -1,7 +1,7 @@
 {
   "name": "freeseat-frontend",
   "author": "Alexander Drozd <itahmea@gmail.com>",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "scripts": {
     "build": "rimraf ./dist && rimraf ./.parcel-cache && parcel build public/index.html --no-source-maps",
     "serve": "PORT=8000 node serve.js ",
@@ -15,6 +15,7 @@
     "@turf/helpers": "^6.5.0",
     "@turf/turf": "^6.5.0",
     "antd-mobile": "^5.2.0",
+    "axios": "^0.26.0",
     "connect-history-api-fallback": "^1.6.0",
     "express": "^4.17.3",
     "express-history-api-fallback": "^2.2.1",

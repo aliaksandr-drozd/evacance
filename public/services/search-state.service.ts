@@ -2,9 +2,8 @@ import { Container, Service } from 'typedi'
 
 import { IEvacuationResponse, ITransportationRequest } from '../common/interfaces'
 import { StateService } from './state-service'
-import { GunService } from './gun.service'
 import { GeospatialService } from './geospatial.service'
-import { BaggageOption } from "../common/enums";
+import { BaggageOption } from '../common/enums'
 
 
 export interface ISearchState {
@@ -52,7 +51,7 @@ export class SearchStateService extends StateService<ISearchState> {
       this.search.off()
     }
 
-    this.search = Container.get(GunService).map((row) => {
+    /*this.search = Container.get(GunService).map((row) => {
       if (row.peopleCount > condition.peopleCount) {
         return
       }
@@ -94,6 +93,6 @@ export class SearchStateService extends StateService<ISearchState> {
       }
 
       this.append(row)
-    })
+    })*/
   }
 }
