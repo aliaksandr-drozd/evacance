@@ -1,4 +1,5 @@
 import 'reflect-metadata'
+import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only'
 import React from 'react'
 import { render } from 'react-dom'
 import 'leaflet-arrowheads'

@@ -13,4 +13,4 @@ const run = async () => {
   await Container.get(MyRequestsStateService).get()
 }
 
-run()
+void run()
