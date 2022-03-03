@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Button, Dialog, Form } from 'antd-mobile'
+import { Button, Dialog, Form, Space } from 'antd-mobile'
 import { useTranslation } from 'react-i18next'
 
 import { IEvacuationResponse } from '../../../../common/interfaces'
@@ -8,13 +8,17 @@ import styles from './styles.module.less'
 
 
 export interface IMyRequestsComponentProps {
+  isRequestPending: boolean
   requests: IEvacuationResponse[]
   onDelete: (id: string) => void
+  onComplete: (id: string) => void
 }
 
 export const MyRequestsComponent: FC<IMyRequestsComponentProps> = ({
+  isRequestPending,
   requests,
   onDelete,
+  onComplete,
 }) => {
   const { t } = useTranslation()
 
@@ -24,21 +28,35 @@ export const MyRequestsComponent: FC<IMyRequestsComponentProps> = ({
       {
         requests.map((request) =>
           <div key={ request.id }>
-            <Request
-              request={ request }
-            >
-              <Button
-                color="warning"
-                onClick={
-                  () => Dialog.confirm({
-                    content: t('deleteConfirm'),
-                    cancelText: t('no'),
-                    confirmText: t('yes'),
-                    onConfirm: () => onDelete(request.id)
-                  }) }
-              >
-                { t('delete') }
-              </Button>
+            <Request request={ request }>
+              <Space block>
+                <Button
+                  color="primary"
+                  loading={ isRequestPending }
+                  onClick={
+                    () => Dialog.confirm({
+                      content: t('areYouSure'),
+                      cancelText: t('no'),
+                      confirmText: t('yes'),
+                      onConfirm: () => onComplete(request.id)
+                    }) }
+                >
+                  { t('transportFound') }
+                </Button>
+                <Button
+                  color="warning"
+                  loading={ isRequestPending }
+                  onClick={
+                    () => Dialog.confirm({
+                      content: t('deleteConfirm'),
+                      cancelText: t('no'),
+                      confirmText: t('yes'),
+                      onConfirm: () => onDelete(request.id)
+                    }) }
+                >
+                  { t('delete') }
+                </Button>
+              </Space>
             </Request>
           </div>
         )

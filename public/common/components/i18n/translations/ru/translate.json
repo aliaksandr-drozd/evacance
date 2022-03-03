@@ -1,5 +1,7 @@
 {
   "translation": {
+    "transportFound": "Транспорт найден",
+    "areYouSure": "Вы уверены?",
     "fieldCannotBeEmpty": "Это поле не может быть пустым.",
     "somethingWentWrong": "Что-то пошло не так.",
     "iCanDeliver": "Я могу завезти",

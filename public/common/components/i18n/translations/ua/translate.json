@@ -1,5 +1,7 @@
 {
   "translation": {
+    "transportFound": "Транспорт знайдено",
+    "areYouSure": "Ви впевнені?",
     "fieldCannotBeEmpty": "Це поле може бути порожнім.",
     "somethingWentWrong": "Щось пішло не так.",
     "iCanDeliver": "Я можу завезти",
