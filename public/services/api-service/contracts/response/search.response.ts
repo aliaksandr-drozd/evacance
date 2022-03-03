@@ -4,6 +4,7 @@ import { LANGUAGE_TYPE } from '../../../../common/types'
 
 export interface ISearchResponse {
   count: number
+  total_pages: number
   next: string
   previous: string
   results: {

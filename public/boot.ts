@@ -10,7 +10,7 @@ console.log(`User: ${userId}`)
 
 Container.get(ApiService).login()
 
-Container.get(ApiService).searchRequests({
+Container.get(ApiService).searchRequests(false,{
   tolerance: 1,
   waypoints: [[1,2], [3,4]],
   segment: [],

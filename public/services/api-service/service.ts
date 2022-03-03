@@ -1,16 +1,11 @@
 import { Container, Service } from 'typedi'
+import { DateTime } from 'luxon'
 
 import { API_VERSION } from '../../common/consts'
 import { ApiClientService } from '../api-client.service'
 import { IDService } from '../id.service'
-import {
-  IEvacuationRequest,
-  IEvacuationResponse,
-  ITransportationRequest,
-  ITransportationResponse
-} from '../../common/interfaces'
-import { ICreateRequest, ILoginRequest, ISearchResponse } from './contracts'
-import { DateTime } from "luxon";
+import { IEvacuationRequest, ITransportationRequest, ITransportationResponse } from '../../common/interfaces'
+import { ICreateRequest, ILoginRequest, ISearchRequest, ISearchResponse } from './contracts'
 
 
 @Service<ApiService>()
@@ -93,22 +88,25 @@ export class ApiService {
     return true
   }
 
-  searchRequests = async (condition: ITransportationRequest, page?: number): Promise<{ pages: number, results: ITransportationResponse[] }> => {
+  searchRequests = async (onlyMy: boolean, condition: ITransportationRequest, page?: number): Promise<{ pages: number, results: ITransportationResponse[] }> => {
     const apiClient = Container.get(ApiClientService)
     const result: { pages: number, results: ITransportationResponse[] } = {
       pages: 0,
       results: []
     }
+    const params: ISearchRequest & { user_session?: string } = {
+      luggage_size: condition.withBaggage,
+      number_of_people: condition.peopleCount,
+      spoken_languages: condition.languages.join(','),
+      with_pets: condition.withPets,
+      ...onlyMy ? { user_session: Container.get(IDService).getUid() } : {},
+      page,
+    }
 
     try {
-      const results = await apiClient.get<ISearchResponse>(`trips/${API_VERSION}/requested-trips`, {
-        params: {
-          ...condition,
-          page
-        }
-      })
+      const results = await apiClient.get<ISearchResponse>(`trips/${API_VERSION}/requested-trips`, { params })
 
-      result.pages = results.data.count
+      result.pages = results.data.total_pages
       results.data.results.map((i) => {
         const waypoints = i.waypoints.sort((i, j) => i.order - j.order)
 
