@@ -4,7 +4,7 @@ import { API_VERSION } from '../../common/consts'
 import { ApiClientService } from '../api-client.service'
 import { IDService } from '../id.service'
 import { IEvacuationRequest, ITransportationRequest } from '../../common/interfaces'
-import { ICreateRequest, ILoginRequest } from './contracts'
+import { ICompleteRequest, ICreateRequest, ILoginRequest } from './contracts'
 
 
 @Service<ApiService>()
@@ -50,14 +50,12 @@ export class ApiService {
     }
 
     try {
-      const result = await apiClient.post(
+      await apiClient.post(
         `trips/${API_VERSION}/requested-trips/`,
         JSON.stringify(body)
       )
 
-      console.log(result)
 
-      debugger
     } catch (e) {
       return false
     }
@@ -66,10 +64,26 @@ export class ApiService {
   }
 
   deleteRequest = async (requestId: string): Promise<boolean> => {
+    const apiClient = Container.get(ApiClientService)
+
+    try {
+      await apiClient.delete(`trips/${API_VERSION}/requested-trips/${requestId}/`)
+    } catch (e) {
+      return false
+    }
+
     return true
   }
 
   completeRequest = async (requestId: string): Promise<boolean> => {
+    const apiClient = Container.get(ApiClientService)
+
+    try {
+      await apiClient.post(`trips/${API_VERSION}/requested-trips/${requestId}/complete/`)
+    } catch (e) {
+      return false
+    }
+
     return true
   }
 

@@ -8,7 +8,9 @@ console.log(`User: ${userId}`)
 
 
 Container.get(ApiService).login()
-Container.get(ApiService).createRequest({
+// Container.get(ApiService).completeRequest('b3b0a356-9fa8-4b3e-b491-0daf2e6f29bc')
+
+/*Container.get(ApiService).createRequest({
   languages: ["en"],
   userId: "sfsdfsf",
   waypoints: [[1,2], [3,4]],
@@ -16,6 +18,6 @@ Container.get(ApiService).createRequest({
   peopleCount: 1,
   withBaggage: 1,
   withPets: false
-})
+})*/
 
 // Container.get(MyRequestsStateService).append
