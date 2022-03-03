@@ -8,11 +8,13 @@ import styles from './styles.module.less'
 
 
 export interface IFormProps {
+  isSubmitAvailable: boolean
   onSubmit: (data: IEvacuationRequestForm) => void
   onCancel: () => void
 }
 
 export const FormComponent: FC<IFormProps> = ({
+  isSubmitAvailable,
   onSubmit,
   onCancel,
 }) => {
@@ -32,6 +34,7 @@ export const FormComponent: FC<IFormProps> = ({
               type="submit"
               color="primary"
               size="large"
+              loading={ !isSubmitAvailable }
             >
               { t('requestAdd') }
             </Button>
@@ -40,6 +43,7 @@ export const FormComponent: FC<IFormProps> = ({
               onClick={ onCancel }
               color="danger"
               size="large"
+              loading={ !isSubmitAvailable }
             >
               { t('cancel') }
             </Button>
@@ -50,26 +54,26 @@ export const FormComponent: FC<IFormProps> = ({
         <Form.Item
           name="languages"
           label={ t('myLanguages') }
-          initialValue={ ['PL'] }
+          initialValue={ ['uk'] }
         >
           <Selector
             multiple={ true }
             options={[
               {
                 label: <>Polski</>,
-                value: 'PL',
+                value: 'pl',
               },
               {
                 label: <>Українськa</>,
-                value: 'UA',
+                value: 'uk',
               },
               {
                 label: <>English</>,
-                value: 'EN',
+                value: 'en',
               },
               {
                 label: <>Русский</>,
-                value: 'RU',
+                value: 'ru',
               },
             ]}
           />
@@ -105,6 +109,7 @@ export const FormComponent: FC<IFormProps> = ({
           name="contactData"
           label={ t('contactData') }
           initialValue=""
+          rules={[{ required: true, message: t('fieldCannotBeEmpty') }]}
         >
           <TextArea
             placeholder={ t('contactDataPlaceholder') }

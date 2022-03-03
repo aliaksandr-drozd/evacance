@@ -1,5 +1,7 @@
 {
   "translation": {
+    "fieldCannotBeEmpty": "Це поле може бути порожнім.",
+    "somethingWentWrong": "Щось пішло не так.",
     "iCanDeliver": "Я можу завезти",
     "iNeedToGet": "Потрібно дістатися / Завезти вантаж",
     "requestAdd": "Додати заявку",

@@ -1,5 +1,7 @@
 {
   "translation": {
+    "fieldCannotBeEmpty": "This field cannot be empty.",
+    "somethingWentWrong": "Something went wrong.",
     "iCanDeliver": "I can deliver",
     "iNeedToGet": "Need to get there / Need deliver cargo",
     "requestAdd": "Add a new request",
