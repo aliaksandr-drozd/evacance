@@ -58,9 +58,5 @@ export class MyRequestsStateService extends StateService<IRequestsState> {
     const requests = result.results
 
     this.push({ requests })
-
-
-    debugger
-
   }
 }

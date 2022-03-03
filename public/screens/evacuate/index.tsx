@@ -6,7 +6,7 @@ import { Container } from 'typedi'
 import { useTranslation } from 'react-i18next'
 
 import { DEFAULT_ROUTE } from '../../common/consts'
-import { ApiService, IDService } from '../../services'
+import { ApiService, IDService, MyRequestsStateService } from '../../services'
 import { LocationMarker } from '../../common/components'
 import { Form, Map } from './components'
 import styles from './styles.module.less'
@@ -87,6 +87,8 @@ export const EvacuateScreen: FC = () => {
                 waypoints: waypoints,
                 userId: Container.get(IDService).getUid()
               })
+
+              await Container.get(MyRequestsStateService).get()
 
               if (isSubmitted) {
                 Toast.show({ content: t('requestAdded') })
