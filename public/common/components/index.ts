@@ -1,4 +1,6 @@
+export * from './baggage-match'
 export * from './i18n'
+export * from './languages-match'
 export * from './location-marker'
 export * from './map'
 export * from './map-point'

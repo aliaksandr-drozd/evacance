@@ -79,7 +79,7 @@ export const FormComponent: FC<IFormProps> = ({
           label={ t('seatsInMyCar') }
           initialValue={ 1 }
         >
-          <Stepper min={ 1 } />
+          <Stepper min={ 0 } />
         </Form.Item>
         <Form.Item
           name="withPets"

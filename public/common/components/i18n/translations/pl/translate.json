@@ -32,6 +32,15 @@
     "gdpr": "Ta witryna korzysta z plików cookie, które pomagają w jej funkcjonowaniu i ułatwiają interakcję z nią. Używamy tych plików cookie, aby zapewnić użytkownikom lepsze i dostosowane do ich potrzeb wrażenia. Jeśli użytkownik kontynuuje korzystanie z tej witryny, zakładamy, że nie ma nic przeciwko temu.",
     "accept": "Zaakceptuj",
     "decline": "Odrzuć",
-    "cancel": "Anuluj"
+    "cancel": "Anuluj",
+    "peopleCount": "Liczba osób:",
+    "languages": "Języki:",
+    "withPets": "Ze zwierzętami domowymi:",
+    "description": "Opis:",
+    "cargoDelivery": "Dostawa ładunku",
+    "smallCarIsEnough": "Wystarczy mały samochód",
+    "needBigCarOrBus": "Potrzebny duży samochód lub autobus",
+    "from": "Od",
+    "to": "Do"
   }
 }

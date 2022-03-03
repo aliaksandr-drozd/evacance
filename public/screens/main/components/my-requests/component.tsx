@@ -24,20 +24,22 @@ export const MyRequestsComponent: FC<IMyRequestsComponentProps> = ({
       {
         requests.map((request) =>
           <div key={ request.id }>
-            <Request request={ request } />
-            <br />
-            <Button
-              color="warning"
-              onClick={
-                () => Dialog.confirm({
-                content: t('deleteConfirm'),
-                cancelText: t('no'),
-                confirmText: t('yes'),
-                onConfirm: () => onDelete(request.id)
-              }) }
+            <Request
+              request={ request }
             >
-              { t('delete') }
-            </Button>
+              <Button
+                color="warning"
+                onClick={
+                  () => Dialog.confirm({
+                    content: t('deleteConfirm'),
+                    cancelText: t('no'),
+                    confirmText: t('yes'),
+                    onConfirm: () => onDelete(request.id)
+                  }) }
+              >
+                { t('delete') }
+              </Button>
+            </Request>
           </div>
         )
       }

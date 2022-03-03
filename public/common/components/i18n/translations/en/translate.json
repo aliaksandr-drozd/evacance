@@ -32,6 +32,16 @@
     "gdpr": "This website uses cookies that help the website function and to help  how to interact with it. We use these cookies to provide you with improved and customised user-experience. If you continue to the use of this website, we assume that are okay with it.",
     "accept": "Accept",
     "decline": "Decline",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "peopleCount": "People count:",
+    "languages": "Languages:",
+    "withPets": "With pets:",
+    "description": "Description:",
+    "cargoDelivery": "Cargo delivery",
+    "smallCarIsEnough": "A small car is enough",
+    "needBigCarOrBus": "Need a big car or bus",
+    "from": "From",
+    "to": "To"
+
   }
 }

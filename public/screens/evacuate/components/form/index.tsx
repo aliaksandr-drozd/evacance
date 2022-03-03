@@ -24,7 +24,7 @@ export const FormComponent: FC<IFormProps> = ({
         onFinish={ (data) => {
           onSubmit({
             ...data,
-            languages: data.languages.join('')
+            languages: data.languages.join(',')
           })
         } }
         footer={
@@ -84,7 +84,7 @@ export const FormComponent: FC<IFormProps> = ({
           label={ t('peopleCountRefugee') }
           initialValue={ 1 }
         >
-          <Stepper min={ 1 } />
+          <Stepper min={ 0 } />
         </Form.Item>
         <Form.Item
           name="withPets"
