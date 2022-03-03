@@ -1,7 +1,7 @@
 import { LatLngTuple } from 'leaflet'
 
 import { ITS } from './ts.interface'
-import { IRecordId } from './record-id.interdace'
+import { IRecordId } from './record-id.interface'
 import { BaggageOption } from '../enums'
 import { LANGUAGE_TYPE } from '../types'
 

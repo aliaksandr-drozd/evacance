@@ -3,6 +3,7 @@ import { LatLngTuple } from 'leaflet'
 import { BaggageOption } from '../enums'
 import { LANGUAGE_TYPE } from '../types'
 import { ITS } from './ts.interface'
+import { IRecordId } from './record-id.interface'
 
 
 export interface ITransportationResponseForm {
@@ -17,4 +18,4 @@ export interface ITransportationResponseWaypoints {
   waypoints: [LatLngTuple, LatLngTuple]
 }
 
-export type ITransportationResponse = ITransportationResponseForm & ITransportationResponseWaypoints & ITS
+export type ITransportationResponse = ITransportationResponseForm & ITransportationResponseWaypoints & ITS & IRecordId

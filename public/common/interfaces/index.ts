@@ -1,6 +1,6 @@
 export * from './evacuation-request.interface'
 export * from './evacuation-response.interface'
-export * from './record-id.interdace'
+export * from './record-id.interface'
 export * from './transportation-request.interface'
 export * from './transportation-response.interface'
 export * from './ts.interface'

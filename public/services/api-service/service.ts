@@ -113,6 +113,7 @@ export class ApiService {
         const waypoints = i.waypoints.sort((i, j) => i.order - j.order)
 
         result.results.push({
+          id: i.id,
           timestamp: DateTime.fromISO(i.last_active_at).toMillis(),
           contactData: i.comment,
           languages: i.spoken_languages,

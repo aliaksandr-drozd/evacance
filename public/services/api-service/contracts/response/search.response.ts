@@ -8,6 +8,7 @@ export interface ISearchResponse {
   next: string
   previous: string
   results: {
+    id: string
     last_active_at: string
     spoken_languages: LANGUAGE_TYPE[]
     number_of_people: number
