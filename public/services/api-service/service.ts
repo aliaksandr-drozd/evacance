@@ -4,7 +4,7 @@ import { API_VERSION } from '../../common/consts'
 import { ApiClientService } from '../api-client.service'
 import { IDService } from '../id.service'
 import { IEvacuationRequest, ITransportationRequest } from '../../common/interfaces'
-import { ICompleteRequest, ICreateRequest, ILoginRequest } from './contracts'
+import { ICreateRequest, ILoginRequest } from './contracts'
 
 
 @Service<ApiService>()
