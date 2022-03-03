@@ -3,7 +3,7 @@ import { Service } from 'typedi'
 
 
 const axiosInstance = Axios.create({
-  baseURL: '/api',
+  url: process.env.API_SERVER,
   withCredentials: true,
 })
 

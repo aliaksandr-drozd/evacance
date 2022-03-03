@@ -2,7 +2,7 @@ declare namespace NodeJS {
   interface ProcessEnv {
       NODE_ENV: 'development' | 'production'
       ROUTING_SERVICE: string
-      GUN_PEERS: string
+      API_SERVER: string
       TILE_SERVER: string
     }
   }

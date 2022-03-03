@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { Container } from 'typedi'
 import { useObservableState } from 'observable-hooks'
 
-import { GunService, MyRequestsStateService } from '../../../../services'
+import { MyRequestsStateService } from '../../../../services'
 import { MyRequestsComponent } from './component'
 
 
@@ -17,7 +17,7 @@ export const MyRequestsContainer: FC = () => {
           onDelete={
             (id) => {
               Container.get(MyRequestsStateService).delete(id)
-              Container.get(GunService).delete(id)
+              /*Container.get(GunService).delete(id)*/
             }
           }
         />

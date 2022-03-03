@@ -6,7 +6,7 @@ import { Container } from 'typedi'
 import { useTranslation } from 'react-i18next'
 
 import { DEFAULT_ROUTE } from '../../common/consts'
-import { GunService, IDService } from '../../services'
+import { IDService } from '../../services'
 import { LocationMarker } from '../../common/components'
 import { Form, Map } from './components'
 import styles from './styles.module.less'
@@ -77,11 +77,11 @@ export const EvacuateScreen: FC = () => {
         <Form
           onCancel={ () => setIsFormVisible(false) }
           onSubmit={ (data) => {
-            Container.get(GunService).addEvacuationRequest({
+            /*Container.get(GunService).addEvacuationRequest({
               ...data,
               waypoints: waypoints.map(v => v.join(',')).join(','),
               userId: Container.get(IDService).getUid()
-            })
+            })*/
 
             Toast.show({ content: t('requestAdded') })
 

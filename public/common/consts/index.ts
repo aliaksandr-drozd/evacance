@@ -1,3 +1,4 @@
+export * from './api-version.const'
 export * from './default-app-language.const'
 export * from './default-map-center.const'
 export * from './default-route.const'
