@@ -3,6 +3,7 @@ import { Container, Service } from 'typedi'
 import { IEvacuationResponse } from '../common/interfaces'
 import { StateService } from './state-service'
 import { IDService } from './id.service'
+import { ApiService } from './api-service'
 
 
 export interface IRequestsState {
@@ -21,7 +22,7 @@ export class MyRequestsStateService extends StateService<IRequestsState> {
     super(defaultState)
   }
 
-  append = (request: IEvacuationResponse) => {
+/*  append = (request: IEvacuationResponse) => {
     if (request.userId !== this.userId) {
       return
     }
@@ -35,7 +36,7 @@ export class MyRequestsStateService extends StateService<IRequestsState> {
     requests.push(request)
 
     this.push({ requests })
-  }
+  }*/
 
   delete = (id: string) => {
     const requests = this.state.requests
@@ -48,5 +49,18 @@ export class MyRequestsStateService extends StateService<IRequestsState> {
     requests.splice(index, 1)
 
     this.push({ requests })
+  }
+
+  get = async () => {
+    const apiService = Container.get(ApiService)
+
+    const result = await apiService.searchRequests(true)
+    const requests = result.results
+
+    this.push({ requests })
+
+
+    debugger
+
   }
 }

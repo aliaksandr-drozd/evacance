@@ -2,11 +2,11 @@ import { Container, Service } from 'typedi'
 import { DateTime } from 'luxon'
 
 import { API_VERSION } from '../../common/consts'
+import { IEvacuationRequest, ITransportationRequest, ITransportationResponse } from '../../common/interfaces'
 import { ApiClientService } from '../api-client.service'
 import { IDService } from '../id.service'
-import { IEvacuationRequest, ITransportationRequest, ITransportationResponse } from '../../common/interfaces'
+import { GeospatialService } from '../geospatial.service'
 import { ICreateRequest, ILoginRequest, ISearchRequest, ISearchResponse } from './contracts'
-import { GeospatialService } from "../geospatial.service";
 
 
 @Service<ApiService>()
@@ -90,17 +90,17 @@ export class ApiService {
     return true
   }
 
-  searchRequests = async (onlyMy: boolean, condition: ITransportationRequest, page?: number): Promise<{ pages: number, results: ITransportationResponse[] }> => {
+  searchRequests = async (onlyMy: boolean, condition?: ITransportationRequest, page?: number): Promise<{ pages: number, results: ITransportationResponse[] }> => {
     const apiClient = Container.get(ApiClientService)
     const result: { pages: number, results: ITransportationResponse[] } = {
       pages: 0,
       results: []
     }
     const params: ISearchRequest & { user_session?: string } = {
-      luggage_size: condition.withBaggage,
-      number_of_people: condition.peopleCount,
-      spoken_languages: condition.languages.join(','),
-      with_pets: condition.withPets,
+      ...condition ? { luggage_size: condition.withBaggage } : {},
+      ...condition ? { number_of_people: condition.peopleCount } : {},
+      ...condition ? { spoken_languages: condition.languages.join(',') } : {},
+      ...condition ? { with_pets: condition.withPets } : {},
       ...onlyMy ? { user_session: Container.get(IDService).getUid() } : {},
       page,
     }
