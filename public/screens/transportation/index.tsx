@@ -111,7 +111,7 @@ export const TransportationScreen: FC = () => {
               tolerance: cTolerance,
             }
 
-            Container.get(SearchStateService).setCondition(condition)
+            Container.get(SearchStateService).startSearch(condition)
             navigate('/search')
           } }
         />

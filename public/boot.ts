@@ -1,11 +1,16 @@
 import { Container } from 'typedi'
-import { GunService, IDService, MyRequestsStateService } from './services'
 import './common/components/i18n/config'
+
+import { ApiService, IDService, MyRequestsStateService } from './services'
+
 
 const userId = Container.get(IDService).getUid()
 
 console.log(`User: ${userId}`)
 
-Container.get(GunService).map(
-  Container.get(MyRequestsStateService).append
-)
+const run = async () => {
+  await Container.get(ApiService).login()
+  await Container.get(MyRequestsStateService).get()
+}
+
+void run()

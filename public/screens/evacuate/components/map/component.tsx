@@ -24,8 +24,8 @@ export const MapComponent: FC<IMapComponentProps> = ({
     >
       <RoutineMachine
         key={ JSON.stringify(waypoints) }
-        onWaypointsChanges={onWaypointsChanges}
-        waypoints={waypoints}
+        onWaypointsChanges={ onWaypointsChanges }
+        waypoints={ waypoints }
       />
     </Map>
   )

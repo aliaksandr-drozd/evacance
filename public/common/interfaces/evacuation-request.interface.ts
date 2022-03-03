@@ -1,9 +1,12 @@
+import { LatLngTuple } from 'leaflet'
+
 import { IUser } from './user.interface'
 import { BaggageOption } from '../enums'
+import { LANGUAGE_TYPE } from '../types'
 
 
 export interface IEvacuationRequestForm {
-  languages: string
+  languages: LANGUAGE_TYPE[]
   peopleCount: number
   contactData: string
   withPets: boolean
@@ -11,7 +14,7 @@ export interface IEvacuationRequestForm {
 }
 
 export interface IEvacuationRequestWaypoints {
-  waypoints: string
+  waypoints: [LatLngTuple, LatLngTuple]
 }
 
 export type IEvacuationRequest = IEvacuationRequestWaypoints & IEvacuationRequestForm & IUser

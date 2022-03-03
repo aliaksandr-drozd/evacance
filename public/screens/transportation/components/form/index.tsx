@@ -50,26 +50,26 @@ export const FormComponent: FC<IFormProps> = ({
         <Form.Item
           name="languages"
           label={ t('myLanguages') }
-          initialValue={ ['PL'] }
+          initialValue={ ['pl'] }
         >
           <Selector
             multiple={ true }
             options={[
               {
                 label: <>Polski</>,
-                value: 'PL',
+                value: 'pl',
               },
               {
                 label: <>Українськa</>,
-                value: 'UA',
+                value: 'uk',
               },
               {
                 label: <>English</>,
-                value: 'EN',
+                value: 'en',
               },
               {
                 label: <>Русский</>,
-                value: 'RU',
+                value: 'ru',
               },
             ]}
           />

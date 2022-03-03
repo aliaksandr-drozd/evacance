@@ -1,10 +1,11 @@
 import { LatLngTuple } from 'leaflet'
 
 import { BaggageOption } from '../enums'
+import { LANGUAGE_TYPE } from '../types'
 
 
 export interface ITransportationRequestForm {
-  languages: string[]
+  languages: LANGUAGE_TYPE[]
   peopleCount: number
   withPets: boolean
   withBaggage: BaggageOption

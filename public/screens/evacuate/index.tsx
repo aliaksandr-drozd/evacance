@@ -6,7 +6,7 @@ import { Container } from 'typedi'
 import { useTranslation } from 'react-i18next'
 
 import { DEFAULT_ROUTE } from '../../common/consts'
-import { GunService, IDService } from '../../services'
+import { ApiService, IDService, MyRequestsStateService } from '../../services'
 import { LocationMarker } from '../../common/components'
 import { Form, Map } from './components'
 import styles from './styles.module.less'
@@ -17,6 +17,7 @@ export const EvacuateScreen: FC = () => {
   const [isGettingGeolocationPending, setIsGettingGeolocationPending] = useState(false)
   const { t } = useTranslation()
   const [isFormVisible, setIsFormVisible] = useState(false)
+  const [isSubmitAvailable, setIsSubmitAvailable] = useState(true)
   const navigate = useNavigate()
   const { lat1, lng1, lat2, lng2 } = useParams()
   const waypoints: [LatLngTuple, LatLngTuple] = (lat1 && lng1 && lat2 && lng2) ? [[+lat1, +lng1], [+lat2, +lng2]] : DEFAULT_ROUTE
@@ -75,18 +76,29 @@ export const EvacuateScreen: FC = () => {
         position="bottom"
       >
         <Form
+          isSubmitAvailable={ isSubmitAvailable }
           onCancel={ () => setIsFormVisible(false) }
-          onSubmit={ (data) => {
-            Container.get(GunService).addEvacuationRequest({
-              ...data,
-              waypoints: waypoints.map(v => v.join(',')).join(','),
-              userId: Container.get(IDService).getUid()
-            })
+          onSubmit={
+            async (data) => {
+              setIsSubmitAvailable(false)
 
-            Toast.show({ content: t('requestAdded') })
+              const isSubmitted = await Container.get(ApiService).createRequest({
+                ...data,
+                waypoints: waypoints,
+                userId: Container.get(IDService).getUid()
+              })
 
-            navigate('/')
-          } }
+              await Container.get(MyRequestsStateService).get()
+
+              if (isSubmitted) {
+                Toast.show({ content: t('requestAdded') })
+                navigate('/')
+              } else {
+                Toast.show({ content: t('somethingWentWrong') })
+              }
+              setIsSubmitAvailable(true)
+            }
+          }
         />
       </Popup>
     </>
