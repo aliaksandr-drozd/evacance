@@ -24,7 +24,9 @@ export const GDPRScreen: FC = () => {
         <LanguageSwitch />
       </Card>
       <Card>
-        <h2>{ t('gdpr') }</h2>
+        <p style={ { textAlign: 'justify' } }>{ t('gdpr') }</p>
+        <p style={ { textAlign: 'justify' } }>{ t('gdpr1') }</p>
+        <p style={ { textAlign: 'justify' } }>{ t('gdpr2') }</p>
       </Card>
       <Card>
         <Space>
