@@ -1,5 +1,6 @@
 {
   "translation": {
+    "mapUsage": "Naciśnij przycisk znajdujący się w prawym dolnym rogu ekranu. Ustawi on znacznik początku podróży (czerwony) na bieżącą pozycję użytkownika (może być konieczne uzyskanie zgody). Przesuń zielony znacznik do miasta, do którego chcesz się udać. Nie ma potrzeby wybierania dokładnego adresu lub ulicy - wystarczy umieścić znacznik mniej więcej w centrum miejscowości, do której chcesz się udać.",
     "searchInProgress": "Trwa poszukiwanie...",
     "transportFound": "Transport znaleziony",
     "areYouSure": "Czy jesteś pewien?",

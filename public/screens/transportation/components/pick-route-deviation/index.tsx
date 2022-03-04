@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
-import { FloatingPanel, Form, Slider } from 'antd-mobile'
-import { Trans } from 'react-i18next'
+import { Card, FloatingPanel, Form, Slider } from 'antd-mobile'
+import { Trans, useTranslation } from 'react-i18next'
 
 
 export interface IPickRouteDeviationProps {
@@ -12,11 +12,16 @@ export const PickRouteDeviation: FC<IPickRouteDeviationProps> = ({
   onToleranceChange,
   tolerance,
 }) => {
+  const { t } = useTranslation()
+
   return (
     <FloatingPanel
-      anchors={ [100, 100] }
+      anchors={ [200, 200] }
       handleDraggingOfContent={ false }
     >
+      <Card>
+        { t('mapUsage') }
+      </Card>
       <Form>
         <Form.Header>
           <Trans

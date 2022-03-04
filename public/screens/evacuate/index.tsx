@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react'
 import { LatLngTuple } from 'leaflet'
 import { useNavigate, useParams } from 'react-router'
-import { Button, FloatingBubble, NavBar, Popup, Toast } from 'antd-mobile'
+import { Button, Card, FloatingBubble, FloatingPanel, NavBar, Popup, Space, Toast } from 'antd-mobile'
 import { Container } from 'typedi'
 import { useTranslation } from 'react-i18next'
 
@@ -9,7 +9,6 @@ import { DEFAULT_ROUTE } from '../../common/consts'
 import { ApiService, IDService, MyRequestsStateService } from '../../services'
 import { LocationMarker } from '../../common/components'
 import { Form, Map } from './components'
-import styles from './styles.module.less'
 
 
 export const EvacuateScreen: FC = () => {
@@ -47,6 +46,14 @@ export const EvacuateScreen: FC = () => {
           { t('continue') }
         </Button>
       </NavBar>
+      <FloatingPanel
+        anchors={ [140, 140] }
+        handleDraggingOfContent={ false }
+      >
+        <Card>
+          { t('mapUsage') }
+        </Card>
+      </FloatingPanel>
       <Map
         waypoints={ waypoints }
         onWaypointsChanges={ onWaypointsChanges }
@@ -54,12 +61,8 @@ export const EvacuateScreen: FC = () => {
       {
         isGeoLocationAvailable &&
         <FloatingBubble
-          className={
-            // @ts-ignore
-            styles.marker
-          }
           style={{
-            '--initial-position-bottom': '24px',
+            '--initial-position-bottom': '154px',
             '--initial-position-right': '24px',
           }}
           onClick={ onGetGeolocation }
