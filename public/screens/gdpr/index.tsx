@@ -27,6 +27,7 @@ export const GDPRScreen: FC = () => {
         <p style={ { textAlign: 'justify' } }>{ t('gdpr') }</p>
         <p style={ { textAlign: 'justify' } }>{ t('gdpr1') }</p>
         <p style={ { textAlign: 'justify' } }>{ t('gdpr2') }</p>
+        <p style={ { textAlign: 'justify' } }>{ t('gdpr3') }</p>
       </Card>
       <Card>
         <Space>
