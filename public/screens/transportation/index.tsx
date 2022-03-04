@@ -89,10 +89,13 @@ export const TransportationScreen: FC = () => {
           }}
           onClick={ onGetGeolocation }
         >
-          <LocationMarker
-            isActive={ isGettingGeolocationPending }
-            size={ 32 }
-          />
+          {
+            isGettingGeolocationPending
+              ? <>...</>
+              : <LocationMarker
+                size={32}
+              />
+          }
         </FloatingBubble>
       }
 
