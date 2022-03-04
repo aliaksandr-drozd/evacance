@@ -9,8 +9,8 @@ import styles from './styles.module.less'
 
 
 export const HelpScreen: FC = () => {
-  const [isHelpVisible, setIsHelpVisible] = useLocalStorage(HELP_LOCALSTORAGE_KEY, false)
   const [lang] = useLocalStorage(LANGUAGE_LOCALSTORAGE_KEY, DEFAULT_APP_LANGUAGE)
+  const [isHelpVisible, setIsHelpVisible] = useLocalStorage(HELP_LOCALSTORAGE_KEY, false)
   const { t } = useTranslation()
 
   return (
@@ -31,7 +31,7 @@ export const HelpScreen: FC = () => {
         <Space>
           <Button
             color="primary"
-            onClick={ () => setIsHelpVisible(true) }
+            onClick={ () => setIsHelpVisible(false) }
           >
             { t('accept') }
           </Button>
