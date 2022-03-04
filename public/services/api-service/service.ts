@@ -43,11 +43,11 @@ export class ApiService {
       waypoints: [
         {
           order: 0,
-          point: request.waypoints[0]
+          point: [request.waypoints[0][1], request.waypoints[0][0]]
         },
         {
           order: 1,
-          point: request.waypoints[1]
+          point: [request.waypoints[1][1], request.waypoints[1][0]]
         }
       ]
     }
@@ -118,7 +118,7 @@ export class ApiService {
           contactData: i.comment,
           languages: i.spoken_languages,
           peopleCount: i.number_of_people,
-          waypoints: [[waypoints[0].point[0], waypoints[0].point[1]], [waypoints[1].point[0], waypoints[1].point[1]]],
+          waypoints: [[waypoints[0].point[1], waypoints[0].point[0]], [waypoints[1].point[1], waypoints[1].point[0]]],
           withBaggage: i.luggage_size,
           withPets: i.with_pets
         })

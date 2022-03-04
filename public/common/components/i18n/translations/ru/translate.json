@@ -1,5 +1,6 @@
 {
   "translation": {
+    "searchInProgress": "Поиск в процессе...",
     "transportFound": "Транспорт найден",
     "areYouSure": "Вы уверены?",
     "fieldCannotBeEmpty": "Это поле не может быть пустым.",

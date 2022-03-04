@@ -1,5 +1,6 @@
 {
   "translation": {
+    "searchInProgress": "Search in progress...",
     "transportFound": "Transport found",
     "areYouSure": "Are you sure?",
     "fieldCannotBeEmpty": "This field cannot be empty.",

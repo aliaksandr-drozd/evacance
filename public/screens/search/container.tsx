@@ -10,7 +10,7 @@ import { SearchStateService } from '../../services'
 
 export const SearchScreenContainer: FC = () => {
   const navigate = useNavigate()
-  const { condition, results } = useObservableState(Container.get(SearchStateService).state$)
+  const { condition, results, isSearchPending } = useObservableState(Container.get(SearchStateService).state$)
 
   if (!condition) {
     setTimeout(() => navigate('/'))
@@ -21,6 +21,7 @@ export const SearchScreenContainer: FC = () => {
       <NavBar onBack={ () => navigate('/') } />
       {
         !!condition && <SearchScreenComponent
+          isSearchPending={ isSearchPending }
           results={ results }
         />
       }
