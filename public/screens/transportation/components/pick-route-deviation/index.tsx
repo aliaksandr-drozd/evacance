@@ -19,16 +19,12 @@ export const PickRouteDeviation: FC<IPickRouteDeviationProps> = ({
       anchors={ [200, 200] }
       handleDraggingOfContent={ false }
     >
-      <Card>
-        { t('mapUsage') }
-      </Card>
       <Form>
         <Form.Header>
           <Trans
             i18nKey="driverRouteDeviation"
             values={{ deviation: tolerance }}
           />
-
         </Form.Header>
 
         <Slider
@@ -39,6 +35,10 @@ export const PickRouteDeviation: FC<IPickRouteDeviationProps> = ({
           onAfterChange={ onToleranceChange }
         />
       </Form>
+
+      <Card>
+        { t('mapUsage') }
+      </Card>
     </FloatingPanel>
   )
 }
