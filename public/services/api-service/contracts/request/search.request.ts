@@ -6,5 +6,5 @@ export interface ISearchRequest {
   number_of_people?: number
   page?: number
   spoken_languages?: string
-  with_pets?: number
+  with_pets?: string
 }

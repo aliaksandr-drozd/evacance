@@ -100,7 +100,7 @@ export class ApiService {
       ...condition ? { luggage_size: condition.withBaggage } : {},
       ...condition ? { number_of_people: condition.peopleCount } : {},
       ...condition ? { spoken_languages: condition.languages.join(',') } : {},
-      ...condition ? { with_pets: condition.withPets ? 1 : 0 } : {},
+      ...condition ? { with_pets: condition.withPets ? 'true' : 'false' } : {},
       ...onlyMy ? { user_session: Container.get(IDService).getUid() } : {},
       page,
     }
