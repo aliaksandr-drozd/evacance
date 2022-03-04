@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Button, Divider, FloatingBubble, Space } from 'antd-mobile'
+import { Button, Divider, Space } from 'antd-mobile'
 import { useNavigate } from 'react-router'
 import { useTranslation } from 'react-i18next'
 
