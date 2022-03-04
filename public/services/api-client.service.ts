@@ -4,6 +4,7 @@ import { Service } from 'typedi'
 
 const axiosInstance = Axios.create({
   baseURL: process.env.API_SERVER,
+  withCredentials: false,
   headers: {
     'Content-Type': 'application/json;charset=UTF-8',
   }
