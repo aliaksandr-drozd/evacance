@@ -21,6 +21,46 @@ export const MainScreen: FC = () => {
 
       <Divider />
 
+      <span
+        style={{
+          width: '32px',
+          height: '32px',
+          display: 'inline-block',
+          borderRadius: '50%',
+          background: 'cadetblue',
+          lineHeight: '30px',
+          textAlign: 'center',
+          fontSize: '27px',
+          cursor: "pointer",
+          color: "white"
+        }}
+        onClick={ () => setIsHelpVisible(true) }
+      >
+        ?
+      </span>
+
+      <span
+        style={{
+          width: '32px',
+          height: '32px',
+          display: 'inline-block',
+          borderRadius: '50%',
+          background: 'cadetblue',
+          lineHeight: '30px',
+          textAlign: 'center',
+          fontSize: '27px',
+          cursor: "pointer",
+          color: "white",
+          verticalAlign: 'bottom',
+          marginLeft: '10px'
+        }}
+        onClick={ () => { window.open('https://t.me/freeseat') } }
+      >
+        <TelegramIcon size={ 32 } />
+      </span>
+
+      <Divider />
+
       <Space wrap>
         <Button
           color="primary"
@@ -37,30 +77,6 @@ export const MainScreen: FC = () => {
           { t('iNeedToGet') }
         </Button>
       </Space>
-
-      <FloatingBubble
-        style={{
-          '--initial-position-top': '14px',
-          '--initial-position-right': '34px',
-          '--size': '32px'
-        }}
-        onClick={ () => setIsHelpVisible(true) }
-      >
-        <h3>?</h3>
-      </FloatingBubble>
-
-      <FloatingBubble
-        style={{
-          '--initial-position-top': '14px',
-          '--initial-position-right': '80px',
-          '--size': '32px',
-          // @ts-ignore
-          '--adm-color-primary': 'transparent'
-        }}
-        onClick={ () => { window.open('https://t.me/freeseat') } }
-      >
-        <TelegramIcon size={ 32 } />
-      </FloatingBubble>
 
       <Divider />
 
