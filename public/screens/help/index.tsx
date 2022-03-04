@@ -3,18 +3,19 @@ import { Button, Card, Popup, Space } from 'antd-mobile'
 import { useTranslation } from 'react-i18next'
 
 import { useLocalStorage } from '../../common/hooks'
-import { IS_GDPR_ACCEPTED_LOCALSTORAGE_KEY } from '../../common/consts'
+import { DEFAULT_APP_LANGUAGE, HELP_LOCALSTORAGE_KEY, LANGUAGE_LOCALSTORAGE_KEY } from '../../common/consts'
 import { LanguageSwitch } from '../../common/components'
 import styles from './styles.module.less'
 
 
-export const GDPRScreen: FC = () => {
-  const [isGdprAccepted, setGdprAccepted] = useLocalStorage(IS_GDPR_ACCEPTED_LOCALSTORAGE_KEY, false)
+export const HelpScreen: FC = () => {
+  const [isHelpVisible, setIsHelpVisible] = useLocalStorage(HELP_LOCALSTORAGE_KEY, false)
+  const [lang] = useLocalStorage(LANGUAGE_LOCALSTORAGE_KEY, DEFAULT_APP_LANGUAGE)
   const { t } = useTranslation()
 
   return (
     <Popup
-      visible={ !isGdprAccepted }
+      visible={ isHelpVisible }
       position="bottom"
       bodyStyle={{ minHeight: '80vh' }}
       destroyOnClose={ true }
@@ -24,25 +25,15 @@ export const GDPRScreen: FC = () => {
         <LanguageSwitch />
       </Card>
       <Card>
-        <p style={ { textAlign: 'justify' } }>{ t('gdpr') }</p>
-        <p style={ { textAlign: 'justify' } }>{ t('gdpr1') }</p>
-        <p style={ { textAlign: 'justify' } }>{ t('gdpr2') }</p>
-        <p style={ { textAlign: 'justify' } }>{ t('gdpr3') }</p>
+        HEPL HERE { lang }
       </Card>
       <Card>
         <Space>
           <Button
             color="primary"
-            onClick={ () => setGdprAccepted(true) }
+            onClick={ () => setIsHelpVisible(true) }
           >
             { t('accept') }
-          </Button>
-
-          <Button
-            color="danger"
-            onClick={ () => window.location.href = 'https://google.eu/' }
-          >
-            { t('decline') }
           </Button>
         </Space>
       </Card>

@@ -1,13 +1,16 @@
 import React, { FC } from 'react'
-import { Button, Divider, Space } from 'antd-mobile'
+import { Button, Divider, FloatingBubble, Space } from 'antd-mobile'
 import { useNavigate } from 'react-router'
 import { useTranslation } from 'react-i18next'
 
-import { MyRequests } from './components'
 import { LanguageSwitch } from '../../common/components'
+import { useLocalStorage } from '../../common/hooks'
+import { HELP_LOCALSTORAGE_KEY } from '../../common/consts'
+import { MyRequests } from './components'
 
 
 export const MainScreen: FC = () => {
+  const [, setIsHelpVisible] = useLocalStorage(HELP_LOCALSTORAGE_KEY, false)
   const navigate = useNavigate()
   const { t } = useTranslation()
 
@@ -33,6 +36,16 @@ export const MainScreen: FC = () => {
           { t('iNeedToGet') }
         </Button>
       </Space>
+
+      <FloatingBubble
+        style={{
+          '--initial-position-top': '24px',
+          '--initial-position-right': '24px',
+        }}
+        onClick={ () => setIsHelpVisible(true) }
+      >
+        <h3>?</h3>
+      </FloatingBubble>
 
       <Divider />
 

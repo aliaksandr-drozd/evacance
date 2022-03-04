@@ -7,6 +7,7 @@ import { MainScreen } from './main'
 import { SearchScreen } from './search'
 import { TransportationScreen } from './transportation'
 import { GDPRScreen } from './gdpr'
+import { HelpScreen } from './help'
 
 import './styles.module.less'
 
@@ -27,6 +28,7 @@ export const App: FC = () => {
         </Routes>
       </BrowserRouter>
       <GDPRScreen />
+      <HelpScreen />
     </>
   )
 }

@@ -1,0 +1,1 @@
+export const IS_GDPR_ACCEPTED_LOCALSTORAGE_KEY = 'isGDPRAccepted'

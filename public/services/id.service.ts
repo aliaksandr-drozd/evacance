@@ -1,6 +1,6 @@
 import { Service } from 'typedi'
 
-import { LOCALSTORAGE_UID_KEY } from '../common/consts'
+import { UID_LOCALSTORAGE_KEY } from '../common/consts'
 
 
 @Service<IDService>()
@@ -8,12 +8,12 @@ export class IDService {
   private readonly uid: string
 
   constructor() {
-    let id: string | null = localStorage.getItem(LOCALSTORAGE_UID_KEY)
+    let id: string | null = localStorage.getItem(UID_LOCALSTORAGE_KEY)
 
     if (!id) {
       id = this.createUid()
 
-      localStorage.setItem(LOCALSTORAGE_UID_KEY, id)
+      localStorage.setItem(UID_LOCALSTORAGE_KEY, id)
     }
 
     this.uid = id

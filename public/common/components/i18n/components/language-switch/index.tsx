@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next'
 import { Button, Space } from 'antd-mobile'
 
 import { useLocalStorage } from '../../../../hooks'
-import { DEFAULT_APP_LANGUAGE, LANGUAGE_LOCAL_STORAGE_KEY } from '../../../../consts'
+import { DEFAULT_APP_LANGUAGE, LANGUAGE_LOCALSTORAGE_KEY } from '../../../../consts'
 
 
 export const LanguageSwitch: FC = () => {
-  const [ ,setLanguageInLocalStorage ] = useLocalStorage<string>(LANGUAGE_LOCAL_STORAGE_KEY, DEFAULT_APP_LANGUAGE)
+  const [ ,setLanguageInLocalStorage ] = useLocalStorage<string>(LANGUAGE_LOCALSTORAGE_KEY, DEFAULT_APP_LANGUAGE)
   const { i18n } = useTranslation()
 
   const setLanguage = (code: string) => async () => {
