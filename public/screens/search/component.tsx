@@ -20,7 +20,7 @@ export const SearchScreenComponent: FC<ISearchScreenComponentProps> = ({
   return (
     <>
       {
-        isSearchPending &&
+        !isSearchPending &&
         <FloatingPanel
           anchors={ [100, 100] }
           handleDraggingOfContent={ false }
