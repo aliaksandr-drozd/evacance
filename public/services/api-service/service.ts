@@ -109,7 +109,7 @@ export class ApiService {
     }
 
     try {
-      const results = await apiClient.get<ISearchResponse>(`${API_VERSION}/trips/requested-trips`, { params })
+      const results = await apiClient.get<ISearchResponse>(`${API_VERSION}/trips/passenger/requested-trips/`, { params })
 
       result.pages = results.data.total_pages
       results.data.results.map((i) => {
@@ -156,7 +156,7 @@ export class ApiService {
     }
 
     try {
-      const results = await apiClient.get<ISearchResponse>(`${API_VERSION}/trips/requested-trips`, { params })
+      const results = await apiClient.get<ISearchResponse>(`${API_VERSION}/trips/driver/requested-trips/`, { params })
 
       result.pages = results.data.total_pages
       results.data.results.map((i) => {
