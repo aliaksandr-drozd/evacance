@@ -15,6 +15,7 @@ export const EvacuateScreen: FC = () => {
   const isGeoLocationAvailable = 'geolocation' in navigator
   const [isGettingGeolocationPending, setIsGettingGeolocationPending] = useState(false)
   const { t } = useTranslation()
+  const [route, setRoute] = useState<LatLngTuple[]>([])
   const [isFormVisible, setIsFormVisible] = useState(false)
   const [isSubmitAvailable, setIsSubmitAvailable] = useState(true)
   const navigate = useNavigate()
@@ -56,6 +57,7 @@ export const EvacuateScreen: FC = () => {
       </FloatingPanel>
       <Map
         waypoints={ waypoints }
+        onRoutesFound={ (route) => setRoute(route) }
         onWaypointsChanges={ onWaypointsChanges }
       />
       {
@@ -90,6 +92,7 @@ export const EvacuateScreen: FC = () => {
 
               const isSubmitted = await Container.get(ApiService).createRequest({
                 ...data,
+                route,
                 waypoints: waypoints,
                 userId: Container.get(IDService).getUid()
               })

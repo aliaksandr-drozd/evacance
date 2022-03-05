@@ -11,6 +11,7 @@ export interface IEvacuationRequestForm {
   contactData: string
   withPets: boolean
   withBaggage: BaggageOption
+  route: LatLngTuple[]
 }
 
 export interface IEvacuationRequestWaypoints {

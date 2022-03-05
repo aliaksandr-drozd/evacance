@@ -61,7 +61,7 @@ export class SearchStateService extends StateService<ISearchState> {
     this.push({ isSearchPending: true, results: [] })
 
     while (currentPage === 1 || currentPage <= totalPages) {
-      const part = await api.searchRequests(false, condition, currentPage)
+      const part = await api.searchRequests(condition, currentPage)
 
       if (signal.aborted) {
         return

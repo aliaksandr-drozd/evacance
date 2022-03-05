@@ -1,3 +1,5 @@
+import { LineString, Point } from 'geojson'
+
 import { BaggageOption } from '../../../../common/enums'
 import { LANGUAGE_TYPE } from '../../../../common/types'
 
@@ -10,8 +12,9 @@ export interface ICreateRequest {
   luggage_size: BaggageOption
   waypoints: {
     order: number
-    point: [number, number]
+    point: Point
   }[]
+  route: LineString
   user_session: string
   route_length: number
 }

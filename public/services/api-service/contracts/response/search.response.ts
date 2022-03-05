@@ -1,3 +1,5 @@
+import { Point } from 'geojson'
+
 import { BaggageOption } from '../../../../common/enums'
 import { LANGUAGE_TYPE } from '../../../../common/types'
 
@@ -17,7 +19,7 @@ export interface ISearchResponse {
     luggage_size: BaggageOption
     waypoints: {
       order: number
-      point: [number, number]
+      point: Point
     }[]
   }[]
 }

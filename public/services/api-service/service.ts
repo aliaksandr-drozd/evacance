@@ -1,5 +1,7 @@
 import { Container, Service } from 'typedi'
 import { DateTime } from 'luxon'
+import { LatLngTuple } from 'leaflet'
+import { lineString, point } from '@turf/helpers'
 
 import { API_VERSION } from '../../common/consts'
 import { IEvacuationRequest, ITransportationRequest, ITransportationResponse } from '../../common/interfaces'
@@ -40,21 +42,22 @@ export class ApiService {
       spoken_languages: request.languages,
       user_session: Container.get(IDService).getUid(),
       with_pets: request.withPets,
+      route: lineString(request.route).geometry,
       waypoints: [
         {
           order: 0,
-          point: [request.waypoints[0][1], request.waypoints[0][0]]
+          point: point(request.waypoints[0].reverse()).geometry
         },
         {
           order: 1,
-          point: [request.waypoints[1][1], request.waypoints[1][0]]
+          point: point(request.waypoints[1].reverse()).geometry
         }
       ]
     }
 
     try {
       await apiClient.post(
-        `trips/${API_VERSION}/requested-trips/`,
+        `${API_VERSION}/trips/requested-trips/`,
         JSON.stringify(body)
       )
 
@@ -70,7 +73,7 @@ export class ApiService {
     const apiClient = Container.get(ApiClientService)
 
     try {
-      await apiClient.delete(`trips/${API_VERSION}/requested-trips/${requestId}/`)
+      await apiClient.delete(`${API_VERSION}/trips/requested-trips/${requestId}/`)
     } catch (e) {
       return false
     }
@@ -82,7 +85,7 @@ export class ApiService {
     const apiClient = Container.get(ApiClientService)
 
     try {
-      await apiClient.post(`trips/${API_VERSION}/requested-trips/${requestId}/complete/`)
+      await apiClient.post(`${API_VERSION}/trips/requested-trips/${requestId}/complete/`)
     } catch (e) {
       return false
     }
@@ -90,7 +93,7 @@ export class ApiService {
     return true
   }
 
-  searchRequests = async (onlyMy: boolean, condition?: ITransportationRequest, page?: number): Promise<{ pages: number, results: ITransportationResponse[] }> => {
+  searchMyRequests = async (condition?: ITransportationRequest, page?: number): Promise<{ pages: number, results: ITransportationResponse[] }> => {
     const apiClient = Container.get(ApiClientService)
     const result: { pages: number, results: ITransportationResponse[] } = {
       pages: 0,
@@ -101,16 +104,26 @@ export class ApiService {
       ...condition ? { number_of_people: condition.peopleCount } : {},
       ...condition ? { spoken_languages: condition.languages.join(',') } : {},
       ...condition ? { with_pets: condition.withPets ? 'true' : 'false' } : {},
-      ...onlyMy ? { user_session: Container.get(IDService).getUid() } : {},
+      user_session: Container.get(IDService).getUid(),
       page,
     }
 
     try {
-      const results = await apiClient.get<ISearchResponse>(`trips/${API_VERSION}/requested-trips`, { params })
+      const results = await apiClient.get<ISearchResponse>(`${API_VERSION}/trips/requested-trips`, { params })
 
       result.pages = results.data.total_pages
       results.data.results.map((i) => {
         const waypoints = i.waypoints.sort((i, j) => i.order - j.order)
+        const point1 = waypoints[0].point.coordinates.reverse() as LatLngTuple
+        const point2 = waypoints[1].point.coordinates.reverse() as LatLngTuple
+
+        if (point1.length < 2) {
+          return
+        }
+
+        if (point2.length < 2) {
+          return
+        }
 
         result.results.push({
           id: i.id,
@@ -118,7 +131,54 @@ export class ApiService {
           contactData: i.comment,
           languages: i.spoken_languages,
           peopleCount: i.number_of_people,
-          waypoints: [[waypoints[0].point[1], waypoints[0].point[0]], [waypoints[1].point[1], waypoints[1].point[0]]],
+          waypoints: [point1, point2],
+          withBaggage: i.luggage_size,
+          withPets: i.with_pets
+        })
+      })
+    } catch (e) {}
+
+    return result
+  }
+
+  searchRequests = async (condition?: ITransportationRequest, page?: number): Promise<{ pages: number, results: ITransportationResponse[] }> => {
+    const apiClient = Container.get(ApiClientService)
+    const result: { pages: number, results: ITransportationResponse[] } = {
+      pages: 0,
+      results: []
+    }
+    const params: ISearchRequest & { user_session?: string } = {
+      ...condition ? { luggage_size: condition.withBaggage } : {},
+      ...condition ? { number_of_people: condition.peopleCount } : {},
+      ...condition ? { spoken_languages: condition.languages.join(',') } : {},
+      ...condition ? { with_pets: condition.withPets ? 'true' : 'false' } : {},
+      page,
+    }
+
+    try {
+      const results = await apiClient.get<ISearchResponse>(`${API_VERSION}/trips/requested-trips`, { params })
+
+      result.pages = results.data.total_pages
+      results.data.results.map((i) => {
+        const waypoints = i.waypoints.sort((i, j) => i.order - j.order)
+        const point1 = waypoints[0].point.coordinates.reverse() as LatLngTuple
+        const point2 = waypoints[1].point.coordinates.reverse() as LatLngTuple
+
+        if (point1.length < 2) {
+          return
+        }
+
+        if (point2.length < 2) {
+          return
+        }
+
+        result.results.push({
+          id: i.id,
+          timestamp: DateTime.fromISO(i.last_active_at).toMillis(),
+          contactData: i.comment,
+          languages: i.spoken_languages,
+          peopleCount: i.number_of_people,
+          waypoints: [point1, point2],
           withBaggage: i.luggage_size,
           withPets: i.with_pets
         })
