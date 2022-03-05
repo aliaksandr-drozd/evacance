@@ -232,7 +232,7 @@ export class ApiService {
         spoken_languages: condition.languages.join(','),
         with_pets: condition.withPets ? 'true' : 'false',
         lat: condition.location[0],
-        lot: condition.location[1],
+        lon: condition.location[1],
       } : {},
       user_session: this.idProvider.getUid(),
       page,

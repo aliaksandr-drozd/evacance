@@ -1,9 +1,8 @@
 import React, { FC } from 'react'
-import { Card, FloatingPanel, Form, Space } from 'antd-mobile'
 import { useTranslation } from 'react-i18next'
-
-import { Request } from '../../common/components'
-import { IEvacuationResponse } from '../../common/interfaces'
+import { useObservableState } from 'observable-hooks'
+import { Container } from "typedi";
+import { EvacuationStateService, SearchStateService } from "../../services";
 
 
 export interface IEvacuationMapScreenComponentProps {
@@ -11,7 +10,7 @@ export interface IEvacuationMapScreenComponentProps {
 
 export const EvacuationMapScreenComponent: FC<IEvacuationMapScreenComponentProps> = ({
 }) => {
-  const { t } = useTranslation()
+  /*const { condition, results, isSearchPending } = useObservableState(Container.get(EvacuationStateService).state$)*/
 
   return (
     <>
