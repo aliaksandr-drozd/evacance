@@ -65,7 +65,7 @@ export const MainScreen: FC = () => {
         <Button
           color="primary"
           size="large"
-          onClick={ () => navigate('/transportation') }
+          onClick={ () => navigate('/transportation-quiz') }
         >
           { t('iCanDeliver') }
         </Button>
