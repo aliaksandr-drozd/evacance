@@ -6,6 +6,8 @@ import { lineString, point } from '@turf/helpers'
 import { API_VERSION } from '../../common/consts'
 import {
   IEvacuationRequest,
+  ISearchInRadiusRequest,
+  ISearchInRadiusResponse,
   ITransportationRequest,
   ITransportationResponse,
   IWaitingPassengerResponse,
@@ -18,6 +20,7 @@ import {
   ICreateRequestContact,
   ILoginRequestContract,
   ISearchInRadiusRequestContract,
+  ISearchInRadiusResponseContract,
   ISearchRequestContract,
   ISearchResponseContract,
   IWaitingPassengerRequestContract,
@@ -211,25 +214,27 @@ export class ApiService {
     return result
   }
 
-  searchInRadius = async (location: LatLngTuple, condition?: ITransportationRequest, page?: number): Promise<{ pages: number, results: ITransportationResponse[] }> => {
-    const result: { pages: number, results: ITransportationResponse[] } = {
+  searchInRadius = async (condition?: ISearchInRadiusRequest, page?: number): Promise<{ pages: number, results: ISearchInRadiusResponse[] }> => {
+    const result: { pages: number, results: ISearchInRadiusResponse[] } = {
       pages: 0,
       results: []
     }
 
     const params: ISearchInRadiusRequestContract = {
-      ...condition ? { luggage_size: condition.withBaggage } : {},
-      ...condition ? { number_of_people: condition.peopleCount } : {},
-      ...condition ? { spoken_languages: condition.languages.join(',') } : {},
-      ...condition ? { with_pets: condition.withPets ? 'true' : 'false' } : {},
+      ...condition ? {
+        luggage_size: condition.withBaggage,
+        number_of_people: condition.peopleCount,
+        spoken_languages: condition.languages.join(','),
+        with_pets: condition.withPets ? 'true' : 'false',
+        lat: condition.location[0],
+        lot: condition.location[1],
+      } : {},
       user_session: this.idProvider.getUid(),
       page,
-      lat: location[0],
-      lon: location[1],
     }
 
     try {
-      const results = await this.apiClient.get<ISearchResponseContract>(`${API_VERSION}/trips/driver/requested-trips/`, { params })
+      const results = await this.apiClient.get<ISearchInRadiusResponseContract>(`${API_VERSION}/trips/driver/requested-trips/`, { params })
 
       result.pages = results.data.total_pages
       results.data.results.map((i) => {
@@ -247,7 +252,7 @@ export class ApiService {
 
         result.results.push({
           id: i.id,
-          timestamp: DateTime.fromISO(i.last_active_at).toMillis(),
+          distance: i.distance_in_km,
           contactData: i.comment,
           languages: i.spoken_languages,
           peopleCount: i.number_of_people,

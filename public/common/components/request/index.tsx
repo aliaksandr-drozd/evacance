@@ -2,14 +2,14 @@ import React, { FC } from 'react'
 import { Badge, Card, Divider, Space } from 'antd-mobile'
 import { useTranslation } from 'react-i18next'
 
-import { IEvacuationResponse } from '../../interfaces'
+import { IEvacuationResponse, ISearchInRadiusResponse } from '../../interfaces'
 import { MapPoint } from '../map-point'
 import { BaggageMatch } from "../baggage-match";
 import { LanguageMatch } from "../languages-match";
 
 
 export interface IRequestProps {
-  request: IEvacuationResponse
+  request: IEvacuationResponse | ISearchInRadiusResponse
 }
 
 export const Request: FC<IRequestProps> = ({

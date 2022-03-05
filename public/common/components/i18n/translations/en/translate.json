@@ -1,5 +1,6 @@
 {
   "translation": {
+    "radiusInKm": "Maximum distance from me {{ radius }} km",
     "nextToMe": "Next to me",
     "onTheMap": "On the map",
     "alongTheWay": "On my way",

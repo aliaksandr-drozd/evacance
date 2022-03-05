@@ -1,15 +1,15 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { Button, Form, Radio, Selector, Slider, Space, Stepper, Switch } from 'antd-mobile'
 import { useTranslation } from 'react-i18next'
 
-import { ITransportationNearMeRequestForm } from '../../../../common/interfaces'
+import { ISearchInRadiusRequestForm } from '../../../../common/interfaces'
 import { BaggageOption } from '../../../../common/enums'
 import styles from './styles.module.less'
 
 
 export interface IFormProps {
   isActive: boolean
-  onSubmit: (data: ITransportationNearMeRequestForm) => void
+  onSubmit: (data: ISearchInRadiusRequestForm) => void
   onCancel: () => void
 }
 
@@ -18,7 +18,9 @@ export const FormComponent: FC<IFormProps> = ({
   onSubmit,
   onCancel,
 }) => {
+  const DEFAULT_RADIUS = 40
   const { t } = useTranslation()
+  const [radius, setRadius] = useState(DEFAULT_RADIUS)
 
   return (
     <div className={ styles.wrapper }>
@@ -52,12 +54,13 @@ export const FormComponent: FC<IFormProps> = ({
         <Form.Header>{ t('requestsFind') }</Form.Header>
         <Form.Item
           name="radius"
-          label={ t('seatsInMyCar') }
-          initialValue={ 40 }
+          label={ t('radiusInKm', { replace: { radius } }) }
+          initialValue={ DEFAULT_RADIUS }
         >
           <Slider
             min={ 20 }
             max={ 200 }
+            onChange={ (value) => setRadius(value as number) }
           />
         </Form.Item>
         <Form.Item

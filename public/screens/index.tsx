@@ -10,6 +10,7 @@ import { GDPRScreen } from './gdpr'
 import { HelpScreen } from './help'
 import { TransportationQuizScreen } from './transportation-quiz'
 import { TransportationNearScreen } from './transportation-near'
+import { SearchNearScreen } from './search-near'
 
 import './styles.module.less'
 
@@ -30,6 +31,7 @@ export const App: FC = () => {
           <Route path="/evacuate/:lat1/:lng1/:lat2/:lng2" element={ <EvacuateScreen /> } />
 
           <Route path="/search" element={ <SearchScreen /> } />
+          <Route path="/search-near" element={ <SearchNearScreen /> } />
         </Routes>
       </BrowserRouter>
       <GDPRScreen />

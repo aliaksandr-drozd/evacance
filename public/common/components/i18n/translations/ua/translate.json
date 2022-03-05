@@ -1,5 +1,6 @@
 {
   "translation": {
+    "radiusInKm": "Максимальна дистанція від мене {{ radius }} км",
     "nextToMe": "Поруч",
     "onTheMap": "На карті",
     "alongTheWay": "По дорозі",
