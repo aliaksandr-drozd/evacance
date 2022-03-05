@@ -4,7 +4,7 @@ import { BaggageOption } from '../../../../common/enums'
 import { LANGUAGE_TYPE } from '../../../../common/types'
 
 
-export interface ISearchResponse {
+export interface ISearchResponseContract {
   count: number
   total_pages: number
   next: string

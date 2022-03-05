@@ -1,0 +1,13 @@
+import { Point } from 'geojson'
+
+
+export interface IWaitingPassengersResponseContract {
+  count: number
+  total_pages: number
+  next: string
+  previous: string
+  results: {
+    starting_point: Point,
+    number_of_people: number
+  }[]
+}

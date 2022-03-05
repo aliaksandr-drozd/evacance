@@ -4,11 +4,22 @@ import { LatLngTuple } from 'leaflet'
 import { lineString, point } from '@turf/helpers'
 
 import { API_VERSION } from '../../common/consts'
-import { IEvacuationRequest, ITransportationRequest, ITransportationResponse } from '../../common/interfaces'
+import {
+  IEvacuationRequest,
+  ITransportationRequest,
+  ITransportationResponse,
+  IWaitingPassengersResponse
+} from '../../common/interfaces'
 import { ApiClientService } from '../api-client.service'
 import { IDService } from '../id.service'
 import { GeospatialService } from '../geospatial.service'
-import { ICreateRequest, ILoginRequest, ISearchInRadiusRequest, ISearchRequest, ISearchResponse } from './contracts'
+import {
+  ICreateRequestContact,
+  ILoginRequestContract,
+  ISearchInRadiusRequestContract,
+  ISearchRequestContract,
+  ISearchResponseContract, IWaitingPassengersRequestContract, IWaitingPassengersResponseContract
+} from './contracts'
 
 
 @Service<ApiService>()
@@ -18,7 +29,7 @@ export class ApiService {
   private geo = Container.get(GeospatialService)
 
   login = async () => {
-    const body: ILoginRequest = {
+    const body: ILoginRequestContract = {
       id: this.idProvider.getUid()
     }
 
@@ -35,7 +46,7 @@ export class ApiService {
   }
 
   createRequest = async (request: IEvacuationRequest): Promise<boolean> => {
-    const body: ICreateRequest = {
+    const body: ICreateRequestContact = {
       route_length: this.geo.distance(request.waypoints[0], request.waypoints[1]),
       comment: request.contactData,
       luggage_size: request.withBaggage,
@@ -90,12 +101,36 @@ export class ApiService {
     return true
   }
 
+  getWaitingPassengers = async (page?: number): Promise<{ pages: number, results: IWaitingPassengersResponse[] }> => {
+    const result: { pages: number, results: IWaitingPassengersResponse[] } = {
+      pages: 0,
+      results: []
+    }
+    const params: IWaitingPassengersRequestContract = { page }
+
+    try {
+      const results = await this.apiClient.get<IWaitingPassengersResponseContract>(`${API_VERSION}/trips/driver/waiting-passengers/`, {params})
+      result.pages = results.data.total_pages
+      results.data.results.map((i) => {
+        if (i.starting_point.coordinates.length !== 2) {
+          return
+        }
+
+        result.results.push({
+          peopleCount: i.number_of_people,
+          point: i.starting_point.coordinates.reverse() as [number, number]
+        })
+      })
+    } catch (e) {}
+    return result
+  }
+
   getMyRequests = async (condition?: ITransportationRequest, page?: number): Promise<{ pages: number, results: ITransportationResponse[] }> => {
     const result: { pages: number, results: ITransportationResponse[] } = {
       pages: 0,
       results: []
     }
-    const params: ISearchRequest & { user_session?: string } = {
+    const params: ISearchRequestContract = {
       ...condition ? { luggage_size: condition.withBaggage } : {},
       ...condition ? { number_of_people: condition.peopleCount } : {},
       ...condition ? { spoken_languages: condition.languages.join(',') } : {},
@@ -105,7 +140,7 @@ export class ApiService {
     }
 
     try {
-      const results = await this.apiClient.get<ISearchResponse>(`${API_VERSION}/trips/passenger/requested-trips/`, { params })
+      const results = await this.apiClient.get<ISearchResponseContract>(`${API_VERSION}/trips/passenger/requested-trips/`, { params })
 
       result.pages = results.data.total_pages
       results.data.results.map((i) => {
@@ -137,28 +172,25 @@ export class ApiService {
     return result
   }
 
-  getMapData = async () => {
-
-  }
-
   searchInRadius = async (location: LatLngTuple, condition?: ITransportationRequest, page?: number): Promise<{ pages: number, results: ITransportationResponse[] }> => {
     const result: { pages: number, results: ITransportationResponse[] } = {
       pages: 0,
       results: []
     }
 
-    const params: ISearchInRadiusRequest & { user_session?: string } = {
+    const params: ISearchInRadiusRequestContract = {
       ...condition ? { luggage_size: condition.withBaggage } : {},
       ...condition ? { number_of_people: condition.peopleCount } : {},
       ...condition ? { spoken_languages: condition.languages.join(',') } : {},
       ...condition ? { with_pets: condition.withPets ? 'true' : 'false' } : {},
+      user_session: this.idProvider.getUid(),
       page,
       lat: location[0],
       lon: location[1],
     }
 
     try {
-      const results = await this.apiClient.get<ISearchResponse>(`${API_VERSION}/trips/driver/requested-trips/`, { params })
+      const results = await this.apiClient.get<ISearchResponseContract>(`${API_VERSION}/trips/driver/requested-trips/`, { params })
 
       result.pages = results.data.total_pages
       results.data.results.map((i) => {
@@ -195,16 +227,17 @@ export class ApiService {
       pages: 0,
       results: []
     }
-    const params: ISearchRequest & { user_session?: string } = {
+    const params: ISearchRequestContract = {
       ...condition ? { luggage_size: condition.withBaggage } : {},
       ...condition ? { number_of_people: condition.peopleCount } : {},
       ...condition ? { spoken_languages: condition.languages.join(',') } : {},
       ...condition ? { with_pets: condition.withPets ? 'true' : 'false' } : {},
+      user_session: this.idProvider.getUid(),
       page,
     }
 
     try {
-      const results = await this.apiClient.get<ISearchResponse>(`${API_VERSION}/trips/driver/requested-trips/`, { params })
+      const results = await this.apiClient.get<ISearchResponseContract>(`${API_VERSION}/trips/driver/requested-trips/`, { params })
 
       result.pages = results.data.total_pages
       results.data.results.map((i) => {
