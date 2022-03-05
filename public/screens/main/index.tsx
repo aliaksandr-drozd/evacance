@@ -3,7 +3,7 @@ import { Button, Divider, Space } from 'antd-mobile'
 import { useNavigate } from 'react-router'
 import { useTranslation } from 'react-i18next'
 
-import { LanguageSwitch, TelegramIcon } from '../../common/components'
+import { ICanHelpIcon, LanguageSwitch, TelegramIcon } from '../../common/components'
 import { useLocalStorage } from '../../common/hooks'
 import { HELP_LOCALSTORAGE_KEY } from '../../common/consts'
 import { MyRequests } from './components'

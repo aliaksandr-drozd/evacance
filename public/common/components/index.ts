@@ -1,5 +1,6 @@
 export * from './baggage-match'
 export * from './i18n'
+export * from './i-can-help-icon'
 export * from './languages-match'
 export * from './location-marker'
 export * from './map'
