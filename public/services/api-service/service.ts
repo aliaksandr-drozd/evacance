@@ -8,6 +8,7 @@ import {
   IEvacuationRequest,
   ITransportationRequest,
   ITransportationResponse,
+  IWaitingPassengerResponse,
   IWaitingPassengersResponse
 } from '../../common/interfaces'
 import { ApiClientService } from '../api-client.service'
@@ -18,7 +19,11 @@ import {
   ILoginRequestContract,
   ISearchInRadiusRequestContract,
   ISearchRequestContract,
-  ISearchResponseContract, IWaitingPassengersRequestContract, IWaitingPassengersResponseContract
+  ISearchResponseContract,
+  IWaitingPassengerRequestContract,
+  IWaitingPassengerResponseContract,
+  IWaitingPassengersRequestContract,
+  IWaitingPassengersResponseContract
 } from './contracts'
 
 
@@ -81,9 +86,9 @@ export class ApiService {
     return true
   }
 
-  deleteRequest = async (requestId: string): Promise<boolean> => {
+  deleteRequest = async (id: string): Promise<boolean> => {
     try {
-      await this.apiClient.delete(`${API_VERSION}/trips/passenger/requested-trips/${requestId}/`)
+      await this.apiClient.delete(`${API_VERSION}/trips/passenger/requested-trips/${id}/cancel/`)
     } catch (e) {
       return false
     }
@@ -91,14 +96,48 @@ export class ApiService {
     return true
   }
 
-  completeRequest = async (requestId: string): Promise<boolean> => {
+  completeRequest = async (id: string): Promise<boolean> => {
     try {
-      await this.apiClient.post(`${API_VERSION}/trips/passenger/requested-trips/${requestId}/complete/`)
+      await this.apiClient.post(`${API_VERSION}/trips/passenger/requested-trips/${id}/complete/`)
     } catch (e) {
       return false
     }
 
     return true
+  }
+
+  getWaitingPassengerData = async (id: string): Promise<IWaitingPassengerResponse | undefined> => {
+    const params: IWaitingPassengerRequestContract = { id }
+
+    try {
+      const result = await this.apiClient.get<IWaitingPassengerResponseContract>(`${API_VERSION}/trips/driver/waiting-passengers/`, {params})
+
+      const waypoints = result.data.waypoints.sort((i, j) => i.order - j.order)
+      const point1 = waypoints[0].point.coordinates.reverse() as LatLngTuple
+      const point2 = waypoints[1].point.coordinates.reverse() as LatLngTuple
+
+      if (point1.length < 2) {
+        return
+      }
+
+      if (point2.length < 2) {
+        return
+      }
+
+      return {
+        id: result.data.id,
+        withPets: !!result.data.with_pets,
+        withBaggage: result.data.luggage_size,
+        peopleCount: result.data.number_of_people,
+        languages: result.data.spoken_languages,
+        contactData: result.data.comment,
+        timestamp: DateTime.fromISO(result.data.last_active_at).toMillis(),
+        waypoints: [point1, point2],
+      }
+    } catch (e) {}
+
+
+    return undefined
   }
 
   getWaitingPassengers = async (page?: number): Promise<{ pages: number, results: IWaitingPassengersResponse[] }> => {
