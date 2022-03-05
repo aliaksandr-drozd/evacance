@@ -22,7 +22,7 @@ export class ApiService {
 
     try {
       await apiClient.post(
-        `accounts/${API_VERSION}/user-sessions/`,
+        `${API_VERSION}/accounts/user-sessions/`,
         JSON.stringify(body)
       )
     } catch (e) {
