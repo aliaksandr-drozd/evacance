@@ -91,10 +91,10 @@ export class ApiService {
   }
 
   deleteRequest = async (id: string): Promise<boolean> => {
-    const params: IUserSessionRequest = { user_session: this.idProvider.getUid() }
+    const body: IUserSessionRequest = { user_session: this.idProvider.getUid() }
 
     try {
-      await this.apiClient.delete(`${API_VERSION}/trips/passenger/requested-trips/${id}/cancel/`, { params })
+      await this.apiClient.post(`${API_VERSION}/trips/passenger/requested-trips/${id}/cancel/`, JSON.stringify(body))
     } catch (e) {
       return false
     }
@@ -103,10 +103,10 @@ export class ApiService {
   }
 
   completeRequest = async (id: string): Promise<boolean> => {
-    const params: IUserSessionRequest = { user_session: this.idProvider.getUid() }
+    const body: IUserSessionRequest = { user_session: this.idProvider.getUid() }
 
     try {
-      await this.apiClient.delete(`${API_VERSION}/trips/passenger/requested-trips/${id}/complete/`, { params })
+      await this.apiClient.post(`${API_VERSION}/trips/passenger/requested-trips/${id}/complete/`, JSON.stringify(body))
     } catch (e) {
       return false
     }
