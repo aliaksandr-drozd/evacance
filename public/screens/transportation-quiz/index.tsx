@@ -19,10 +19,10 @@ export const TransportationQuizScreen: FC = () => {
         geolocation.latitude !== null && geolocation.latitude &&
         <>
           <Card>
-            <h3>Покажите всех, кого нужно отвезти, в радиусе { radius } км от меня:</h3>
+            <h3>Найдите всех, кого нужно отвезти, в радиусе { radius } км от меня:</h3>
             <Slider
               min={ 20 }
-              max={ 500 }
+              max={ 300 }
               defaultValue={ radius }
               onAfterChange={ (v) => setRadius(v as number) }
             />
@@ -32,7 +32,7 @@ export const TransportationQuizScreen: FC = () => {
               color="primary"
               block
             >
-              Показать тех, кто рядом
+              Найти в радиусе { radius } км
             </Button>
           </Card>
           <Divider />
