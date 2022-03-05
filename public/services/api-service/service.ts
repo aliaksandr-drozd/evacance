@@ -42,7 +42,7 @@ export class ApiService {
       spoken_languages: request.languages,
       user_session: Container.get(IDService).getUid(),
       with_pets: request.withPets,
-      route: lineString(request.route).geometry,
+      route: lineString(request.route.reverse()).geometry,
       waypoints: [
         {
           order: 0,
