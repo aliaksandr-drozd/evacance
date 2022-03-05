@@ -219,21 +219,20 @@ export class ApiService {
     return result
   }
 
-  searchInRadius = async (condition?: ISearchInRadiusRequest, page?: number): Promise<{ pages: number, results: ISearchInRadiusResponse[] }> => {
+  searchInRadius = async (condition: ISearchInRadiusRequest, page?: number): Promise<{ pages: number, results: ISearchInRadiusResponse[] }> => {
     const result: { pages: number, results: ISearchInRadiusResponse[] } = {
       pages: 0,
       results: []
     }
 
     const params: ISearchInRadiusRequestContract = {
-      ...condition ? {
-        luggage_size: condition.withBaggage,
-        number_of_people: condition.peopleCount,
-        spoken_languages: condition.languages.join(','),
-        with_pets: condition.withPets ? 'true' : 'false',
-        lat: condition.location[0],
-        lon: condition.location[1],
-      } : {},
+      radius: condition.radius,
+      luggage_size: condition.withBaggage,
+      number_of_people: condition.peopleCount,
+      spoken_languages: condition.languages.join(','),
+      with_pets: condition.withPets ? 'true' : 'false',
+      lat: condition.location[0],
+      lon: condition.location[1],
       user_session: this.idProvider.getUid(),
       page,
     }
