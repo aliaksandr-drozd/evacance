@@ -21,6 +21,7 @@ export const TransportationQuizScreen: FC = () => {
             <Button
               color="primary"
               block
+              onClick={ () => navigate('/transportation-near') }
             >
               { t('nextToMe') }
             </Button>
@@ -28,6 +29,14 @@ export const TransportationQuizScreen: FC = () => {
           <Divider />
         </>
       }
+      {/*{
+        !geolocation.error && geolocation.latitude === null &&
+        <>
+
+
+          <Divider />
+        </>
+      }*/}
 
       <Card>
         <Button
