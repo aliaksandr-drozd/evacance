@@ -57,7 +57,7 @@ export class ApiService {
 
     try {
       await apiClient.post(
-        `${API_VERSION}/trips/requested-trips/`,
+        `${API_VERSION}/trips/passenger/requested-trips/`,
         JSON.stringify(body)
       )
 
@@ -73,7 +73,7 @@ export class ApiService {
     const apiClient = Container.get(ApiClientService)
 
     try {
-      await apiClient.delete(`${API_VERSION}/trips/requested-trips/${requestId}/`)
+      await apiClient.delete(`${API_VERSION}/trips/passenger/requested-trips/${requestId}/`)
     } catch (e) {
       return false
     }
@@ -85,7 +85,7 @@ export class ApiService {
     const apiClient = Container.get(ApiClientService)
 
     try {
-      await apiClient.post(`${API_VERSION}/trips/requested-trips/${requestId}/complete/`)
+      await apiClient.post(`${API_VERSION}/trips/passenger/requested-trips/${requestId}/complete/`)
     } catch (e) {
       return false
     }
