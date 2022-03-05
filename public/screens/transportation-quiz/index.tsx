@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router'
 import { Button, Card, Divider, NavBar } from 'antd-mobile'
 import { useTranslation } from 'react-i18next'
 import useGeolocation from 'react-hook-geolocation'
+import { Container } from "typedi";
+import { EvacuationStateService } from "../../services";
 
 
 export const TransportationQuizScreen: FC = () => {
@@ -42,7 +44,12 @@ export const TransportationQuizScreen: FC = () => {
         <Button
           block
           color="primary"
-          onClick={ () => navigate('/evacuation-map') }
+          onClick={
+            () => {
+              Container.get(EvacuationStateService).startSearch()
+              navigate('/evacuation-map')
+            }
+          }
         >
           { t('onTheMap') }
         </Button>

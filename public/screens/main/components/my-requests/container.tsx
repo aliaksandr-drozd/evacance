@@ -23,7 +23,7 @@ export const MyRequestsContainer: FC = () => {
             async (id: string) => {
               setRequestPending(true)
 
-              const result = Container.get(ApiService).completeRequest(id)
+              const result = await Container.get(ApiService).completeRequest(id)
 
               if (!result) {
                 Toast.show({ content: t('somethingWentWrong') })
@@ -39,7 +39,7 @@ export const MyRequestsContainer: FC = () => {
             async (id) => {
               setRequestPending(true)
 
-              const result = Container.get(ApiService).deleteRequest(id)
+              const result = await Container.get(ApiService).deleteRequest(id)
 
               if (!result) {
                 Toast.show({ content: t('somethingWentWrong') })
