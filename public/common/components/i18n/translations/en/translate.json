@@ -1,5 +1,8 @@
 {
   "translation": {
+    "nextToMe": "Next to me",
+    "onTheMap": "On the map",
+    "alongTheWay": "On my way",
     "mapUsage": "Click on the button at the bottom right of the screen. It will set the trip start marker (red) to your current position (you may need to give permission for this). Move the green marker to the city you want to go to. You don't need to select an exact address or street - just place the marker roughly in the center of the town you want to go to.",
     "searchInProgress": "Search in progress...",
     "transportFound": "Transport found",

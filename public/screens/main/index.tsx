@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import { Button, Divider, Space } from 'antd-mobile'
 import { useNavigate } from 'react-router'
 import { useTranslation } from 'react-i18next'
+import useGeolocation from 'react-hook-geolocation'
 
 import { ICanHelpIcon, LanguageSwitch, TelegramIcon } from '../../common/components'
 import { useLocalStorage } from '../../common/hooks'
@@ -13,6 +14,7 @@ export const MainScreen: FC = () => {
   const [, setIsHelpVisible] = useLocalStorage(HELP_LOCALSTORAGE_KEY, false)
   const navigate = useNavigate()
   const { t } = useTranslation()
+  useGeolocation()
 
 
   return (
