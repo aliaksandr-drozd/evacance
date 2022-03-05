@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { useNavigate } from 'react-router'
-import { Button, Card, Divider, NavBar } from 'antd-mobile'
+import { NavBar } from 'antd-mobile'
 import { useTranslation } from 'react-i18next'
 import useGeolocation from 'react-hook-geolocation'
 
@@ -19,7 +19,10 @@ export const TransportationNearScreen: FC = () => {
       <NavBar onBack={ back } />
 
       <Form
-        onSubmit={ () => {} }
+        isActive={ geolocation.longitude !== null && geolocation.latitude !== null }
+        onSubmit={ (data) => {
+          debugger
+        } }
         onCancel={ back }
       />
 

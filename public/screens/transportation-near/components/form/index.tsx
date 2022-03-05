@@ -1,18 +1,20 @@
 import React, { FC } from 'react'
-import { Button, Form, Radio, Selector, Space, Stepper, Switch } from 'antd-mobile'
+import { Button, Form, Radio, Selector, Slider, Space, Stepper, Switch } from 'antd-mobile'
 import { useTranslation } from 'react-i18next'
 
-import { ITransportationRequestForm } from '../../../../common/interfaces'
+import { ITransportationNearMeRequestForm } from '../../../../common/interfaces'
 import { BaggageOption } from '../../../../common/enums'
 import styles from './styles.module.less'
 
 
 export interface IFormProps {
-  onSubmit: (data: ITransportationRequestForm) => void
+  isActive: boolean
+  onSubmit: (data: ITransportationNearMeRequestForm) => void
   onCancel: () => void
 }
 
 export const FormComponent: FC<IFormProps> = ({
+  isActive,
   onSubmit,
   onCancel,
 }) => {
@@ -32,6 +34,7 @@ export const FormComponent: FC<IFormProps> = ({
               type="submit"
               color="primary"
               size="large"
+              loading={ !isActive }
             >
               { t('requestsFind') }
             </Button>
@@ -47,6 +50,16 @@ export const FormComponent: FC<IFormProps> = ({
         }
       >
         <Form.Header>{ t('requestsFind') }</Form.Header>
+        <Form.Item
+          name="radius"
+          label={ t('seatsInMyCar') }
+          initialValue={ 40 }
+        >
+          <Slider
+            min={ 20 }
+            max={ 200 }
+          />
+        </Form.Item>
         <Form.Item
           name="languages"
           label={ t('myLanguages') }
