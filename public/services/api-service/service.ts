@@ -23,6 +23,7 @@ import {
   ISearchInRadiusResponseContract,
   ISearchRequestContract,
   ISearchResponseContract,
+  IUserSessionRequest,
   IWaitingPassengerRequestContract,
   IWaitingPassengerResponseContract,
   IWaitingPassengersRequestContract,
@@ -90,8 +91,10 @@ export class ApiService {
   }
 
   deleteRequest = async (id: string): Promise<boolean> => {
+    const params: IUserSessionRequest = { user_session: this.idProvider.getUid() }
+
     try {
-      await this.apiClient.delete(`${API_VERSION}/trips/passenger/requested-trips/${id}/cancel/`)
+      await this.apiClient.delete(`${API_VERSION}/trips/passenger/requested-trips/${id}/cancel/`, { params })
     } catch (e) {
       return false
     }
@@ -100,8 +103,10 @@ export class ApiService {
   }
 
   completeRequest = async (id: string): Promise<boolean> => {
+    const params: IUserSessionRequest = { user_session: this.idProvider.getUid() }
+
     try {
-      await this.apiClient.post(`${API_VERSION}/trips/passenger/requested-trips/${id}/complete/`)
+      await this.apiClient.post(`${API_VERSION}/trips/passenger/requested-trips/${id}/complete/`, { params })
     } catch (e) {
       return false
     }

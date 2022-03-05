@@ -1,6 +1,7 @@
 export * from './api-service'
 export * from './state-service'
 export * from './api-client.service'
+export * from './evacuation-state.service'
 export * from './geospatial.service'
 export * from './id.service'
 export * from './my-requests-state.service'
