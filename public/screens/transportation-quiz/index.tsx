@@ -42,6 +42,7 @@ export const TransportationQuizScreen: FC = () => {
         <Button
           block
           color="primary"
+          onClick={ () => navigate('/evacuation-map') }
         >
           { t('onTheMap') }
         </Button>

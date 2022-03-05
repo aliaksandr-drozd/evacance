@@ -11,6 +11,7 @@ import { HelpScreen } from './help'
 import { TransportationQuizScreen } from './transportation-quiz'
 import { TransportationNearScreen } from './transportation-near'
 import { SearchNearScreen } from './search-near'
+import { EvacuationMapScreen } from './evacuation-map'
 
 import './styles.module.less'
 
@@ -26,9 +27,9 @@ export const App: FC = () => {
           <Route path="/transportation-quiz" element={ <TransportationQuizScreen /> } />
           <Route path="/transportation-near" element={ <TransportationNearScreen /> } />
 
-
           <Route path="/evacuate" element={ <EvacuateScreen /> } />
           <Route path="/evacuate/:lat1/:lng1/:lat2/:lng2" element={ <EvacuateScreen /> } />
+          <Route path="/evacuation-map" element={ <EvacuationMapScreen /> } />
 
           <Route path="/search" element={ <SearchScreen /> } />
           <Route path="/search-near" element={ <SearchNearScreen /> } />
