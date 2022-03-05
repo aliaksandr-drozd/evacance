@@ -8,6 +8,7 @@ import { SearchScreen } from './search'
 import { TransportationScreen } from './transportation'
 import { GDPRScreen } from './gdpr'
 import { HelpScreen } from './help'
+import { TransportationQuizScreen } from './transportation-quiz'
 
 import './styles.module.less'
 
@@ -20,6 +21,8 @@ export const App: FC = () => {
           <Route path="/" element={ <MainScreen /> } />
           <Route path="/transportation" element={ <TransportationScreen /> } />
           <Route path="/transportation/:lat1/:lng1/:lat2/:lng2/:tolerance" element={ <TransportationScreen /> } />
+          <Route path="/transportation-quiz" element={ <TransportationQuizScreen /> } />
+
 
           <Route path="/evacuate" element={ <EvacuateScreen /> } />
           <Route path="/evacuate/:lat1/:lng1/:lat2/:lng2" element={ <EvacuateScreen /> } />
