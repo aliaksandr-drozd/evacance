@@ -106,7 +106,7 @@ export class ApiService {
     const params: IUserSessionRequest = { user_session: this.idProvider.getUid() }
 
     try {
-      await this.apiClient.post(`${API_VERSION}/trips/passenger/requested-trips/${id}/complete/`, { params })
+      await this.apiClient.delete(`${API_VERSION}/trips/passenger/requested-trips/${id}/complete/`, { params })
     } catch (e) {
       return false
     }
