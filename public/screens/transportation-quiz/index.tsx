@@ -15,7 +15,7 @@ export const TransportationQuizScreen: FC = () => {
       <NavBar onBack={ () => navigate('/') } />
 
       {
-        geolocation.latitude !== null && geolocation.latitude &&
+        geolocation.latitude !== null && geolocation.longitude !== null &&
         <>
           <Card>
             <Button
