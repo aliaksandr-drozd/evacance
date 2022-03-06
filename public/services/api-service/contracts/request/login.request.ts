@@ -1,3 +1,3 @@
-export interface ILoginRequest {
+export interface ILoginRequestContract {
   id: string
 }

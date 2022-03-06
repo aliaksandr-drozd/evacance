@@ -54,7 +54,7 @@ export class MyRequestsStateService extends StateService<IRequestsState> {
   get = async () => {
     const apiService = Container.get(ApiService)
 
-    const result = await apiService.searchMyRequests()
+    const result = await apiService.getMyRequests()
     const requests = result.results
 
     this.push({ requests })

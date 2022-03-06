@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react'
 import { LatLngTuple } from 'leaflet'
 import { useNavigate, useParams } from 'react-router'
-import { Button, Card, FloatingBubble, FloatingPanel, NavBar, Popup, Space, Toast } from 'antd-mobile'
+import { Button, Card, FloatingBubble, FloatingPanel, NavBar, Popup, Toast } from 'antd-mobile'
 import { Container } from 'typedi'
 import { useTranslation } from 'react-i18next'
 
@@ -11,11 +11,12 @@ import { LocationMarker } from '../../common/components'
 import { Form, Map } from './components'
 
 
+let route: LatLngTuple[] = []
+
 export const EvacuateScreen: FC = () => {
   const isGeoLocationAvailable = 'geolocation' in navigator
   const [isGettingGeolocationPending, setIsGettingGeolocationPending] = useState(false)
   const { t } = useTranslation()
-  const [route, setRoute] = useState<LatLngTuple[]>([])
   const [isFormVisible, setIsFormVisible] = useState(false)
   const [isSubmitAvailable, setIsSubmitAvailable] = useState(true)
   const navigate = useNavigate()
@@ -57,7 +58,7 @@ export const EvacuateScreen: FC = () => {
       </FloatingPanel>
       <Map
         waypoints={ waypoints }
-        onRoutesFound={ (route) => setRoute(route) }
+        onRoutesFound={ (_route) => route = _route }
         onWaypointsChanges={ onWaypointsChanges }
       />
       {

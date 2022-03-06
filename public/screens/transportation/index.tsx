@@ -64,7 +64,7 @@ export const TransportationScreen: FC = () => {
 
   return (
     <>
-      <NavBar onBack={ () => navigate('/') }>
+      <NavBar onBack={ () => navigate('/transportation-quiz') }>
         <Button
           onClick={ () => setIsFormVisible(true) }
           color="primary"

@@ -2,6 +2,7 @@ import 'reflect-metadata'
 import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only'
 import React from 'react'
 import { render } from 'react-dom'
+import './common/utils/sentry.ts'
 import 'leaflet-arrowheads'
 
 // FIX LEAFLET MARKERS
@@ -22,6 +23,8 @@ L.Icon.Default.mergeOptions({
 // END FIX LEAFLET MARKERS
 
 import 'leaflet/dist/leaflet.css'
+import 'react-leaflet-markercluster/dist/styles.min.css'
+import './markers.css'
 
 import './boot'
 

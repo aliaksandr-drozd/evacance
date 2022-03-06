@@ -2,17 +2,19 @@ import React, { FC } from 'react'
 import { Badge, Card, Divider, Space } from 'antd-mobile'
 import { useTranslation } from 'react-i18next'
 
-import { IEvacuationResponse } from '../../interfaces'
+import { IEvacuationResponse, ISearchInRadiusResponse } from '../../interfaces'
 import { MapPoint } from '../map-point'
 import { BaggageMatch } from "../baggage-match";
 import { LanguageMatch } from "../languages-match";
 
 
 export interface IRequestProps {
-  request: IEvacuationResponse
+  isFromHidden?: boolean
+  request: IEvacuationResponse | ISearchInRadiusResponse
 }
 
 export const Request: FC<IRequestProps> = ({
+  isFromHidden,
   request,
   children,
 }) => {
@@ -26,7 +28,7 @@ export const Request: FC<IRequestProps> = ({
             <tbody>
             <tr>
               <td>
-                <Badge content={ t('from') } />
+                { !isFromHidden && <Badge content={ t('from') } /> }
               </td>
               <td>
                 <Badge content={ t('to') } />
@@ -34,7 +36,7 @@ export const Request: FC<IRequestProps> = ({
             </tr>
             <tr>
               <td>
-                <MapPoint center={ request.waypoints[0] } />
+                { !isFromHidden && <MapPoint center={ request.waypoints[0] } /> }
               </td>
               <td>
                 <MapPoint center={ request.waypoints[1] } />

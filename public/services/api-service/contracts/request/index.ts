@@ -1,3 +1,7 @@
 export * from './create-request.request'
 export * from './login.request'
 export * from './search.request'
+export * from './search-in-radius.request'
+export * from './user-session.request'
+export * from './waiting-passenger.request'
+export * from './waiting-passengers.request'
