@@ -58,7 +58,7 @@ export const EvacuationMapScreenComponent: FC<IEvacuationMapScreenComponentProps
               } }
               icon={
                 divIcon({
-                  className: 'custom-marker',
+                  className: 'custom-marker first-priority',
                   html: `<span>${passenger.peopleCount}</span>`,
                   iconSize: [20, 20],
                   iconAnchor: [10, 10]

@@ -2,9 +2,9 @@ import React, { FC } from 'react'
 import { useNavigate } from 'react-router'
 import { Button, Card, Divider, NavBar } from 'antd-mobile'
 import { useTranslation } from 'react-i18next'
-import useGeolocation from 'react-hook-geolocation'
-import { Container } from "typedi";
-import { EvacuationStateService } from "../../services";
+import { Container } from 'typedi'
+
+import { EvacuationStateService } from '../../services'
 
 
 export const TransportationQuizScreen: FC = () => {

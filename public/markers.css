@@ -1,5 +1,6 @@
 .custom-marker {
   top: -15px;
+  filter: none !important;
 }
 
 .custom-marker div {
@@ -41,15 +42,17 @@
 }
 
 .shipping-point.custom-marker span {
-  border-color: #000;
+  border-color: #0000ff;
 }
 
 .first-priority.custom-marker div {
-  background: #FF0000;
+  border-color: #0000ff;
 }
 
 .first-priority.custom-marker span {
-  border-color: #FF0000;
+  border-color: #0000ff;
+  background: #0000ff;
+  color: white;
 }
 
 .last-priority.custom-marker div {
