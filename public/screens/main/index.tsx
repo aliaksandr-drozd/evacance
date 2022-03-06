@@ -3,7 +3,7 @@ import { Button, Divider, Space } from 'antd-mobile'
 import { useNavigate } from 'react-router'
 import { useTranslation } from 'react-i18next'
 
-import { LanguageSwitch, TelegramIcon } from '../../common/components'
+import { ICanHelpIcon, LanguageSwitch, TelegramIcon } from '../../common/components'
 import { useLocalStorage } from '../../common/hooks'
 import { HELP_LOCALSTORAGE_KEY } from '../../common/consts'
 import { MyRequests } from './components'
@@ -58,6 +58,13 @@ export const MainScreen: FC = () => {
         <TelegramIcon size={ 32 } />
       </span>
 
+      <a
+        href="https://icanhelp.host/"
+        target="_blank"
+        style={ { marginLeft: '10px' } }
+      >
+        <ICanHelpIcon size={ 150 } />
+      </a>
       <Divider />
 
       <Space wrap>
