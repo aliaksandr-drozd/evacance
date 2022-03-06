@@ -6,6 +6,7 @@ import { Container } from 'typedi'
 
 import { EvacuationMapScreenComponent } from './component'
 import { EvacuationStateService } from '../../services'
+import styles from './styles.module.less'
 
 
 export const EvacuationMapScreenContainer: FC = () => {
@@ -15,13 +16,18 @@ export const EvacuationMapScreenContainer: FC = () => {
 
   return (
     <>
-      <NavBar onBack={ () => navigate('/') } />
-      <div style={{ fontSize: 124, textAlign: 'center' }}>
-        <DotLoading />
-      </div>
+      <NavBar onBack={ () => navigate('/transportation-quiz') } />
 
       <EvacuationMapScreenComponent
+        waitingPassengers={ results }
       />
+
+      {
+        isSearchPending &&
+        <div className={ styles.loader }>
+          <DotLoading color="primary" />
+        </div>
+      }
     </>
   )
 }

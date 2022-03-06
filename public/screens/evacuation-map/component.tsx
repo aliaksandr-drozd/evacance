@@ -1,20 +1,22 @@
 import React, { FC } from 'react'
-import { useObservableState } from 'observable-hooks'
-import { Container } from 'typedi'
 
-import { EvacuationStateService } from '../../services'
+import { IWaitingPassengersResponse } from '../../common/interfaces'
+import { Map } from '../../common/components'
+import { DEFAULT_MAP_CENTER } from '../../common/consts'
 
 
 export interface IEvacuationMapScreenComponentProps {
+  waitingPassengers: IWaitingPassengersResponse[]
 }
 
 export const EvacuationMapScreenComponent: FC<IEvacuationMapScreenComponentProps> = ({
+  waitingPassengers,
 }) => {
-  const { results, isSearchPending } = useObservableState(Container.get(EvacuationStateService).state$)
 
   return (
-    <>
-      Evacuation Map
-    </>
+    <Map
+      center={ DEFAULT_MAP_CENTER }
+      whenCreated={ () => {} }
+    />
   )
 }
