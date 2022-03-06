@@ -16,6 +16,8 @@ export const TransportationQuizScreen: FC = () => {
       <NavBar onBack={ () => navigate('/') } />
 
       <Card>
+        <h2>{ t('wherePickup') }</h2>
+
         <Button
           color="primary"
           block
@@ -23,11 +25,10 @@ export const TransportationQuizScreen: FC = () => {
         >
           { t('nextToMe') }
         </Button>
-      </Card>
 
-      <Divider />
 
-      <Card>
+        <Divider />
+
         <Button
           block
           color="primary"
