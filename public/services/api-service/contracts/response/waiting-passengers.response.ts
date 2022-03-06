@@ -7,6 +7,7 @@ export interface IWaitingPassengersResponseContract {
   next: string
   previous: string
   results: {
+    id: string
     starting_point: Point,
     number_of_people: number
   }[]

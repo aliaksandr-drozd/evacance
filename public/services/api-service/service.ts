@@ -164,6 +164,7 @@ export class ApiService {
         }
 
         result.results.push({
+          id: i.id,
           peopleCount: i.number_of_people,
           point: i.starting_point.coordinates.reverse() as [number, number]
         })
