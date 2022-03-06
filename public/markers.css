@@ -1,0 +1,171 @@
+.custom-marker {
+  top: -15px;
+}
+
+.custom-marker div {
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  border-radius: 50% 50% 50% 0;
+  border: 3px #3f6fb9 solid;
+  background: #fff;
+  position: absolute;
+  transform: rotate(-45deg);
+  left: 50%;
+  top: 50%;
+  margin: -10px 0 0 -10px;
+}
+
+.custom-marker span {
+  padding-right: 6px;
+  background: #fff;
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  padding-left: 6px;
+  border: 3px #3f6fb9 solid;
+  border-radius: 50%;
+}
+
+.custom-marker span::before {
+  content: '';
+  position: relative;
+  border-radius: 50%;
+}
+
+.shipping-point.custom-marker div {
+  background: #727272;
+  border-color: #000;
+}
+
+.shipping-point.custom-marker span {
+  border-color: #000;
+}
+
+.first-priority.custom-marker div {
+  background: #FF0000;
+}
+
+.first-priority.custom-marker span {
+  border-color: #FF0000;
+}
+
+.last-priority.custom-marker div {
+  background: #008000;
+}
+
+.last-priority.custom-marker span {
+  border-color: #008000;
+}
+
+.first-priority-cluster::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 20px;
+  width: 20px;
+  top: -2px;
+  background-color: #FF0000;
+  border-radius: 50%;
+}
+
+.last-priority-cluster::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 20px;
+  width: 20px;
+  top: 18px;
+  z-index: -1;
+  background-color: #008000;
+  border-radius: 50%;
+}
+
+/* Color 0 */
+.color0.custom-marker div {
+  background: #000;
+}
+
+/* Color 1 */
+.color1.custom-marker div {
+  background: #0000FF;
+}
+
+/* Color 2 */
+.color2.custom-marker div {
+  background: #00FFFF;
+}
+
+/* Color 3 */
+.color3.custom-marker div {
+  background: #FF00FF;
+}
+
+/* Color 4 */
+.color4.custom-marker div {
+  background: #808080;
+}
+
+/* Color 5 */
+.color5.custom-marker div {
+  background: #008000;
+}
+
+/* Color 6 */
+.color6.custom-marker div {
+  background: #00FF00;
+}
+
+/* Color 7 */
+.color7.custom-marker div {
+  background: #800000;
+}
+
+/* Color 8 */
+.color8.custom-marker div {
+  background: #000080;
+}
+
+/* Color 9 */
+.color9.custom-marker div {
+  background: #808000;
+}
+
+/* Color 10 */
+.color10.custom-marker div {
+  background: #800080;
+}
+
+/* Color 11 */
+.color11.custom-marker div {
+  background: #FF0000;
+}
+
+/* Color 12 */
+.color12.custom-marker div {
+  background: #C0C0C0;
+}
+
+/* Color 13 */
+.color13.custom-marker div {
+  background: #008080;
+}
+
+/* Color 14 */
+.color14.custom-marker div {
+  background: #FFFF00;
+}
+
+.pulse div::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  background: transparent;
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px #fc6069;
+}
