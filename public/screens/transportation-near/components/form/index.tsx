@@ -9,12 +9,14 @@ import styles from './styles.module.less'
 
 export interface IFormProps {
   isActive: boolean
+  isDisabled: boolean
   onSubmit: (data: ISearchInRadiusRequestForm) => void
   onCancel: () => void
 }
 
 export const FormComponent: FC<IFormProps> = ({
   isActive,
+  isDisabled,
   onSubmit,
   onCancel,
 }) => {
@@ -36,7 +38,8 @@ export const FormComponent: FC<IFormProps> = ({
               type="submit"
               color="primary"
               size="large"
-              loading={ !isActive }
+              loading={ !isActive && !isDisabled }
+              disabled={ isDisabled }
             >
               { t('requestsFind') }
             </Button>
