@@ -2,6 +2,7 @@ import 'reflect-metadata'
 import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only'
 import React from 'react'
 import { render } from 'react-dom'
+import './common/utils/sentry.ts'
 import 'leaflet-arrowheads'
 
 // FIX LEAFLET MARKERS
