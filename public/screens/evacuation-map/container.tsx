@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import { DotLoading, NavBar } from 'antd-mobile'
 import { useNavigate } from 'react-router'
 import { useObservableState } from 'observable-hooks'
@@ -14,6 +14,9 @@ export const EvacuationMapScreenContainer: FC = () => {
   const { results, isSearchPending } = useObservableState(Container.get(EvacuationStateService).state$)
   const { data, isLoading } = useObservableState(Container.get(WaitingPassengerState).state$)
 
+  useEffect(() => {
+    Container.get(EvacuationStateService).startSearch()
+  }, [])
 
   return (
     <>
