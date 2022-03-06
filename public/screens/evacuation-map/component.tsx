@@ -1,19 +1,29 @@
 import React, { FC } from 'react'
 import MarkerClusterGroup from 'react-leaflet-markercluster'
-import { Marker } from 'react-leaflet'
+import { Marker, Popup } from 'react-leaflet'
 import { divIcon, point } from 'leaflet'
 
-import { IWaitingPassengersResponse } from '../../common/interfaces'
-import { Map } from '../../common/components'
+import { IWaitingPassengerResponse, IWaitingPassengersResponse } from '../../common/interfaces'
+import { Map, Request } from '../../common/components'
 import { DEFAULT_MAP_CENTER } from '../../common/consts'
+import styles from "./styles.module.less";
+import { DotLoading } from "antd-mobile";
 
 
 export interface IEvacuationMapScreenComponentProps {
   waitingPassengers: IWaitingPassengersResponse[]
+  isPassengerDataLoading: boolean
+  passengerData?: IWaitingPassengerResponse
+  onPassengerDataOpen: (id: string) => void
+  onPassengerDataClose: () => void
 }
 
 export const EvacuationMapScreenComponent: FC<IEvacuationMapScreenComponentProps> = ({
   waitingPassengers,
+  isPassengerDataLoading,
+  passengerData,
+  onPassengerDataOpen,
+  onPassengerDataClose,
 }) => {
 
   return (
@@ -40,6 +50,12 @@ export const EvacuationMapScreenComponent: FC<IEvacuationMapScreenComponentProps
               position={ passenger.point }
               key={ passenger.id }
               title={ passenger.peopleCount.toString() }
+              eventHandlers={ {
+                popupopen: () => {
+                  onPassengerDataOpen(passenger.id)
+                },
+                popupclose: onPassengerDataClose
+              } }
               icon={
                 divIcon({
                   className: 'custom-marker',
@@ -48,7 +64,23 @@ export const EvacuationMapScreenComponent: FC<IEvacuationMapScreenComponentProps
                   iconAnchor: [10, 10]
                 })
               }
-            />
+            >
+              <Popup>
+                {
+                  isPassengerDataLoading &&
+                  <span style={ { fontSize: '60px' } }>
+                    <DotLoading color="primary" />
+                  </span>
+                }
+                {
+                  !!passengerData &&
+                  <Request
+                    isFromHidden
+                    request={ passengerData }
+                  />
+                }
+              </Popup>
+            </Marker>
           )
         }
       </MarkerClusterGroup>

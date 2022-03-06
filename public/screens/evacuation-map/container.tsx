@@ -5,13 +5,14 @@ import { useObservableState } from 'observable-hooks'
 import { Container } from 'typedi'
 
 import { EvacuationMapScreenComponent } from './component'
-import { EvacuationStateService } from '../../services'
+import { EvacuationStateService, WaitingPassengerState } from '../../services'
 import styles from './styles.module.less'
 
 
 export const EvacuationMapScreenContainer: FC = () => {
   const navigate = useNavigate()
   const { results, isSearchPending } = useObservableState(Container.get(EvacuationStateService).state$)
+  const { data, isLoading } = useObservableState(Container.get(WaitingPassengerState).state$)
 
 
   return (
@@ -20,6 +21,10 @@ export const EvacuationMapScreenContainer: FC = () => {
 
       <EvacuationMapScreenComponent
         waitingPassengers={ results }
+        passengerData={ data }
+        isPassengerDataLoading={ isLoading }
+        onPassengerDataClose={ () => Container.get(WaitingPassengerState).close() }
+        onPassengerDataOpen={ (id) => Container.get(WaitingPassengerState).open(id) }
       />
 
       {

@@ -9,10 +9,12 @@ import { LanguageMatch } from "../languages-match";
 
 
 export interface IRequestProps {
+  isFromHidden?: boolean
   request: IEvacuationResponse | ISearchInRadiusResponse
 }
 
 export const Request: FC<IRequestProps> = ({
+  isFromHidden,
   request,
   children,
 }) => {
@@ -26,7 +28,7 @@ export const Request: FC<IRequestProps> = ({
             <tbody>
             <tr>
               <td>
-                <Badge content={ t('from') } />
+                { !isFromHidden && <Badge content={ t('from') } /> }
               </td>
               <td>
                 <Badge content={ t('to') } />
@@ -34,7 +36,7 @@ export const Request: FC<IRequestProps> = ({
             </tr>
             <tr>
               <td>
-                <MapPoint center={ request.waypoints[0] } />
+                { !isFromHidden && <MapPoint center={ request.waypoints[0] } /> }
               </td>
               <td>
                 <MapPoint center={ request.waypoints[1] } />

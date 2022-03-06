@@ -115,10 +115,8 @@ export class ApiService {
   }
 
   getWaitingPassengerData = async (id: string): Promise<IWaitingPassengerResponse | undefined> => {
-    const params: IWaitingPassengerRequestContract = { id }
-
     try {
-      const result = await this.apiClient.get<IWaitingPassengerResponseContract>(`${API_VERSION}/trips/driver/waiting-passengers/`, {params})
+      const result = await this.apiClient.get<IWaitingPassengerResponseContract>(`${API_VERSION}/trips/driver/waiting-passengers/${id}/`)
 
       const waypoints = result.data.waypoints.sort((i, j) => i.order - j.order)
       const point1 = waypoints[0].point.coordinates.reverse() as LatLngTuple
