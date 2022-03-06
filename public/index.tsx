@@ -22,6 +22,7 @@ L.Icon.Default.mergeOptions({
 // END FIX LEAFLET MARKERS
 
 import 'leaflet/dist/leaflet.css'
+import 'react-leaflet-markercluster/dist/styles.min.css'
 
 import './boot'
 
