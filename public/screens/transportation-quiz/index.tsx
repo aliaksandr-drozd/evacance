@@ -10,35 +10,22 @@ import { EvacuationStateService } from "../../services";
 export const TransportationQuizScreen: FC = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const geolocation = useGeolocation()
 
   return (
     <>
       <NavBar onBack={ () => navigate('/') } />
 
-      {
-        geolocation.latitude !== null && geolocation.longitude !== null &&
-        <>
-          <Card>
-            <Button
-              color="primary"
-              block
-              onClick={ () => navigate('/transportation-near') }
-            >
-              { t('nextToMe') }
-            </Button>
-          </Card>
-          <Divider />
-        </>
-      }
-      {/*{
-        !geolocation.error && geolocation.latitude === null &&
-        <>
+      <Card>
+        <Button
+          color="primary"
+          block
+          onClick={ () => navigate('/transportation-near') }
+        >
+          { t('nextToMe') }
+        </Button>
+      </Card>
 
-
-          <Divider />
-        </>
-      }*/}
+      <Divider />
 
       <Card>
         <Button

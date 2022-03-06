@@ -1,7 +1,7 @@
 {
   "name": "freeseat-frontend",
   "author": "Alexander Drozd <itahmea@gmail.com>",
-  "version": "0.0.85",
+  "version": "0.0.86",
   "scripts": {
     "build": "rimraf ./dist && rimraf ./.parcel-cache && parcel build public/index.html --no-source-maps",
     "serve": "PORT=8000 node serve.js ",
