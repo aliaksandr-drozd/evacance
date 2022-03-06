@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@react-leaflet/core": "^1.1.1",
+    "@sentry/react": "^6.18.1",
+    "@sentry/tracing": "^6.18.1",
     "@turf/helpers": "^6.5.0",
     "@turf/turf": "^6.5.0",
     "@types/geojson": "^7946.0.8",
