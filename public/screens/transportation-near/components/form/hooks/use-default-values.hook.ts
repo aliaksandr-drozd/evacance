@@ -9,7 +9,7 @@ import { BaggageOption } from '../../../../../common/enums'
 type SetValue<T> = Dispatch<SetStateAction<T>>
 
 export function useDefaultValues(): [ISearchInRadiusRequestForm, SetValue<ISearchInRadiusRequestForm>] {
-  const [storedValue, setStoredValue] = useLocalStorage<ISearchInRadiusRequestForm>('TRANSPORTATION_NEAR', {
+  const [storedValue, setStoredValue] = useLocalStorage<ISearchInRadiusRequestForm>('T1', {
     radius: DEFAULT_SEARCH_RADIUS,
     languages: [DEFAULT_APP_LANGUAGE],
     peopleCount: 1,

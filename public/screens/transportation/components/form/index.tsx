@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { ITransportationRequestForm } from '../../../../common/interfaces'
 import { BaggageOption } from '../../../../common/enums'
 import { LOCALE_MAP } from '../../../../common/components'
+import { useDefaultValues } from './hooks'
 import styles from './styles.module.less'
 
 
@@ -18,11 +19,15 @@ export const FormComponent: FC<IFormProps> = ({
   onCancel,
 }) => {
   const { t } = useTranslation()
+  const [DEFAULT_VALUES, changeDefaultValues] = useDefaultValues()
 
   return (
     <div className={ styles.wrapper }>
       <Form
         onFinish={ onSubmit }
+        onValuesChange={ (_, data) => {
+          changeDefaultValues({ ...data, withPets: !!data.withPets })
+        } }
         footer={
           <Space
             block
@@ -51,7 +56,7 @@ export const FormComponent: FC<IFormProps> = ({
         <Form.Item
           name="languages"
           label={ t('myLanguages') }
-          initialValue={ ['pl'] }
+          initialValue={ DEFAULT_VALUES.languages }
         >
           <Selector
             multiple={ true }
@@ -61,7 +66,7 @@ export const FormComponent: FC<IFormProps> = ({
         <Form.Item
           name="peopleCount"
           label={ t('seatsInMyCar') }
-          initialValue={ 1 }
+          initialValue={ DEFAULT_VALUES.peopleCount }
         >
           <Stepper min={ 0 } />
         </Form.Item>
@@ -69,12 +74,14 @@ export const FormComponent: FC<IFormProps> = ({
           name="withPets"
           label={ t('allowPets') }
         >
-          <Switch />
+          <Switch
+            checked={ DEFAULT_VALUES.withPets }
+          />
         </Form.Item>
         <Form.Item
           name="withBaggage"
           label={ t('luggage') }
-          initialValue={ BaggageOption.SMALL_CAR }
+          initialValue={ DEFAULT_VALUES.withBaggage }
         >
           <Radio.Group>
             <Space direction="vertical">
