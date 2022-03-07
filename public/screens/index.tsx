@@ -26,8 +26,8 @@ export const App: FC = () => {
         <Routes>
           <Route path="/" element={ <MainScreen /> } />
 
-          <Route path="/transportation" element={ <TransportationScreen /> } />
-          <Route path="/transportation/:lat1/:lng1/:lat2/:lng2/:tolerance" element={ <TransportationScreen /> } />
+          <Route path="/transportation" element={ <WithGeolocation><TransportationScreen /></WithGeolocation> } />
+          <Route path="/transportation/:lat1/:lng1/:lat2/:lng2/:tolerance" element={ <WithGeolocation><TransportationScreen /></WithGeolocation> } />
           <Route path="/transportation-quiz" element={ <TransportationQuizScreen /> } />
           <Route path="/transportation-near" element={ <TransportationNearScreen /> } />
 

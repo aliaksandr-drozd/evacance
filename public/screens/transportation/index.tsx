@@ -14,7 +14,11 @@ import { Form, Map, PickRouteDeviation } from './components'
 
 let segment: LatLngTuple[] = []
 
-export const TransportationScreen: FC = () => {
+export interface ITransportationScreenProps {
+  position?: LatLngTuple
+}
+
+export const TransportationScreen: FC<ITransportationScreenProps> = ({ position }) => {
   const isGeoLocationAvailable = 'geolocation' in navigator
   const [isGettingGeolocationPending, setIsGettingGeolocationPending] = useState(false)
   const { t } = useTranslation()
@@ -22,8 +26,10 @@ export const TransportationScreen: FC = () => {
   const { lat1, lng1, lat2, lng2, tolerance } = useParams()
   const [cTolerance, setCTolerance] = useState(DEFAULT_TOLERANCE)
   const setSegment = (newSegment: LatLngTuple[]) => {segment = newSegment}
-  const [waypoints, setWaypoints] = useState(DEFAULT_ROUTE)
+  const defaultRoute: [LatLngTuple, LatLngTuple] = position ? [position, DEFAULT_ROUTE[1]] : DEFAULT_ROUTE
+  const [waypoints, setWaypoints] = useState(defaultRoute)
   const navigate = useNavigate()
+  const center = waypoints[0]
 
   if (tolerance && cTolerance !== +tolerance) {
     setCTolerance(+tolerance)
@@ -51,8 +57,8 @@ export const TransportationScreen: FC = () => {
 
   const onGetGeolocation = () => {
     setIsGettingGeolocationPending(true)
-    navigator.geolocation.getCurrentPosition((position) => {
-      setWaypoints([[position.coords.latitude, position.coords.longitude], [waypoints[1][0], waypoints[1][1]]])
+    navigator.geolocation.getCurrentPosition((pos) => {
+      setWaypoints([[pos.coords.latitude, pos.coords.longitude], [waypoints[1][0], waypoints[1][1]]])
 
       setIsGettingGeolocationPending(false)
     })
@@ -74,6 +80,7 @@ export const TransportationScreen: FC = () => {
       </NavBar>
 
       <Map
+        center={ center }
         waypoints={ waypoints }
         tolerance={ cTolerance }
         onSegment={ setSegment }

@@ -2,13 +2,13 @@ import React, { FC, memo, useEffect, useState } from 'react'
 import { LatLng, LatLngTuple, Map as LeafletMap, Polygon, polygon } from 'leaflet'
 import { Container } from 'typedi'
 
-import { DEFAULT_MAP_CENTER } from '../../../../common/consts'
 import { GeospatialService } from '../../../../services'
 import { MapComponent } from './component'
 
 
 export interface IMapContainerProps {
   tolerance: number
+  center: LatLngTuple
   waypoints: [LatLngTuple, LatLngTuple]
   onSegment: (segment: LatLngTuple[]) => void
   onWaypointsChanges: (info: [LatLngTuple, LatLngTuple]) => void
@@ -19,6 +19,7 @@ export const MapContainer: FC<IMapContainerProps> = memo(({
   waypoints,
   onSegment,
   onWaypointsChanges,
+  center,
 }) => {
   const [map, setMap] = useState<LeafletMap>()
   const [zone, setZone] = useState<Polygon>()
@@ -66,7 +67,7 @@ export const MapContainer: FC<IMapContainerProps> = memo(({
 
   return (
     <MapComponent
-      center={ DEFAULT_MAP_CENTER }
+      center={ center }
       waypoints={ waypoints }
       onRoutesFound={ onFound }
       onWaypointsChanges={ onWaypointsChanges }
