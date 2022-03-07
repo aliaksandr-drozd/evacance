@@ -1,5 +1,7 @@
 {
   "translation": {
+    "gettingLocationMessage": "Próbujemy ustalić Twoją lokację.",
+    "gettingLocationError": "Nie udało się uzyskać informacji o Twojej lokacji. Używane są wartości domyślne.",
     "howToUse": "Jak używać?",
     "support": "Pomoc techniczna",
     "otherVolunteerOrganizations": "Inne organizacje wolontariackie",

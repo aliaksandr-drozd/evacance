@@ -18,7 +18,7 @@ export interface IEvacuateScreenProps {
 }
 
 export const EvacuateScreen: FC<IEvacuateScreenProps> = ({ position }) => {
-  const isGeoLocationAvailable = !!position
+  const isGeoLocationAvailable = 'geolocation' in navigator
   const [isGettingGeolocationPending, setIsGettingGeolocationPending] = useState(false)
   const { t } = useTranslation()
   const [isFormVisible, setIsFormVisible] = useState(false)

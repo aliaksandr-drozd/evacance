@@ -14,7 +14,7 @@ export const WithGeolocation: FC = ({ children }) => {
   const position: LatLngTuple = [geolocation.latitude, geolocation.longitude]
 
   if (geolocation.error) {
-    Toast.show({ content: 'Geolocation obtain error! Used default values.' })
+    Toast.show({ content: t('gettingLocationError') })
   }
 
   const childrenWithProps = React.Children.map(children, child => {
@@ -33,7 +33,7 @@ export const WithGeolocation: FC = ({ children }) => {
       {
         isGeolocationPending &&
         <div className={styles.loader}>
-          <h1>Trying to get your location</h1>
+          <h1>{ t('gettingLocationMessage') }</h1>
           <DotLoading color="primary"/>
         </div>
       }
