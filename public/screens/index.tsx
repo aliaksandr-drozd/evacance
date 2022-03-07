@@ -12,6 +12,7 @@ import { TransportationQuizScreen } from './transportation-quiz'
 import { TransportationNearScreen } from './transportation-near'
 import { SearchNearScreen } from './search-near'
 import { EvacuationMapScreen } from './evacuation-map'
+import { OtherVolunteerOrganizations } from './other-volunteer-organizations'
 
 import './styles.module.less'
 
@@ -33,8 +34,11 @@ export const App: FC = () => {
 
           <Route path="/search" element={ <SearchScreen /> } />
           <Route path="/search-near" element={ <SearchNearScreen /> } />
+
+          <Route path="/other-volunteer-organizations" element={ <OtherVolunteerOrganizations /> } />
         </Routes>
       </BrowserRouter>
+
       <GDPRScreen />
       <HelpScreen />
     </>

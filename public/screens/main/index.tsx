@@ -58,15 +58,6 @@ export const MainScreen: FC = () => {
         <TelegramIcon size={ 32 } />
       </span>
 
-      <a
-        href="https://icanhelp.host/"
-        target="_blank"
-        style={ { marginLeft: '10px' } }
-      >
-        <ICanHelpIcon size={ 150 } />
-      </a>
-      <Divider />
-
       <Space wrap>
         <Button
           color="primary"
@@ -75,12 +66,20 @@ export const MainScreen: FC = () => {
         >
           { t('iCanDeliver') }
         </Button>
+
         <Button
           color="primary"
           size="large"
           onClick={ () => navigate('/evacuate') }
         >
           { t('iNeedToGet') }
+        </Button>
+
+        <Button
+          size="large"
+          onClick={ () => navigate('/other-volunteer-organizations') }
+        >
+          Other volunteer organizations
         </Button>
       </Space>
 
