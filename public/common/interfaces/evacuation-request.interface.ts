@@ -2,11 +2,11 @@ import { LatLngTuple } from 'leaflet'
 
 import { IUser } from './user.interface'
 import { BaggageOption } from '../enums'
-import { LANGUAGE_TYPE } from '../types'
+import { LOCALE_MAP } from '../components'
 
 
 export interface IEvacuationRequestForm {
-  languages: LANGUAGE_TYPE[]
+  languages: (keyof typeof LOCALE_MAP)[]
   peopleCount: number
   contactData: string
   withPets: boolean

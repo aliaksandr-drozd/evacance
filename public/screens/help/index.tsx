@@ -62,33 +62,90 @@ export const HelpScreen: FC = () => {
             <h1>How to use freeseat.me?</h1>
 
             <h2>● Briefly for drivers</h2>
-            <p>Drivers, you rule! You choose where and with whom you will go. We want to make a trip most effective, that’s why firstly show you someone, who goes farthest.</p>
-            <p>If you have an opportunity, use the function “Deviate from route” (runner unde the map). It helps you to cover a large area and increase the quantity of people for the trip.</p>
-            <p>If you have “No results”, please, try to expand the radius of deviation or try again later.</p>
 
-            <h2>● Direction has matter</h2>
-            <p>We take into account the direction of your trip. If you go from point A to B, you will not see the tickets in the opposite direction. The direction is shown on the map with red arrows.</p>
+            <p>Drivers, you rule! You choose where and whom you go with. We want to make trips most effective, that’s why you'll see people who are further away.</p>
+            <p>If you have an opportunity, use the function “Deviate from route”. It helps you to cover a large area and assist more people.</p>
+            <p>If you get “No results”, please, try expanding the deviation range or try again later.</p>
 
-            <h2>Your ticket is connected with one browser</h2>
-            <p>Your account on freeseat.me is linked to one browser and one device from which you used our service. If you have several devices, your tickets will only be visible where you created them. Other device = other account. This step had to be taken to reduce development time.</p>
+            <h2>● Direction you're going to is considered</h2>
 
-            <h2>● Access to ticket in 24 hours</h2>
-            <p>Your ticket will be automatically deleted in 24 hours after it was created. BUT, if you return to freeseat.me from the same device and browser before this time expires, your ticket will be extended for another 24 hours. This can be repeated as many times as needed to find the transport. Thus, tickets will always be up-to-date.</p>
+            <p>We take into account the direction of your trip. If you go from point A to B, you will not see requests in
+              the opposite direction. The direction is shown on the map with red arrows.</p>
+            <p>Each request is tied to a specific device.</p>
 
-            <h2>● Don’t forget to inform if you found the transport</h2>
-            <p>If you’ve found a driver, let us know by clicking "Transport Found" and confirm your choice. Or delete your ticket if it is no longer relevant. In this way, you will help us keep the data up-to-date and will be freed from calls from drivers who want to help you.</p>
+            <p>Your session on freeseat.me is tied to a single device. If you have several devices, each one will have a
+              different session. This is made to remove registration procedure and save your time.</p>
 
-            <h2>● More likely to find a regular passenger car</h2>
-            <p>If you are looking for transportation for a large group of people, create several tickets, each of which indicate 3-4 people (car capacity), instead of creating one request for 20 people.</p>
-            <p>If you have tagged a large number of people or a large amount of luggage, only truck/bus drivers will see you.</p>
+            <h2>● Requests are active for 24 hours after your last visit.</h2>
 
-            <h2>● Choose language to keep time</h2>
-            <p>Driver search results will display only those tickets whose languages match his request. You have the option to select multiple languages.</p>
+            <p>Your ticket will be automatically deleted in 24 hours after it was created. BUT, if you return to
+              freeseat.me from the same device before this time expires, your ticket will be extended for another 24
+              hours. This can be repeated as many times as needed to find the transport.</p>
+
+            <h2>● Don’t forget to inform us if you have found the transport</h2>
+
+            <p>If you’ve found a driver, let us know by clicking "Transport found" and confirm your choice. Or delete your
+              ticket if it is no longer relevant. This way, you will help us keep the data up-to-date and you will not
+              receive calls from other drivers.</p>
+
+            <h2>● Chance to find a regular passenger car is bigger</h2>
+
+            <p>If you are looking for a transport for a large group of people, create several ticketsfor groups of 3-4
+              people (regular car capacity), instead of creating one request for 20 people.</p>
+
+            <p>If you create a request with big number of people or big amount of luggage, only truck/bus drivers will see
+              you.</p>
+
+            <h2>● Choose language to save time</h2>
+
+            <p>Drivers will only see requests with their language. You can select multiple languages.</p>
 
             <h2>● Map markers</h2>
-            <p>There is no need to accurately hit the marker on the map in a specific house or street where you need to go. It will be enough to put a marker in the approximate center of the desired locality, and you can negotiate with the driver about a trip to a specific point.</p>
-            <p>You should click on “Location button” to help a driver to pick you up from your current location (the red marker will move to the desired point).</p>
 
+            <p>There is no need to pinpoint specific street address. It will be sufficient to select your approximate
+              destination, then you can tell the driver where you would like to go to specifically.</p>
+
+            <p>You can click "location" button in the bottom right corner of the map to select your current location.</p>
+          </>
+        }{
+          lang === 'de' && <>
+            <h1>Wie benutzt man freeseat.me?</h1>
+
+            <h2>● Kurz und knapp für Autofahrer</h2>
+
+            <p>Autofahrer, ihr habt das Sagen! Sie entscheiden, wo und mit wem Sie fahren. Wir wollen die Fahrten so effektiv wie möglich gestalten, deshalb siehst du auch Leute, die weiter weg sind.</p>
+            <p>Wenn Sie die Möglichkeit haben, nutzen Sie die Funktion "Von der Route abweichen". Sie hilft Ihnen, ein großes Gebiet abzudecken und mehr Menschen zu helfen.</p>
+            <p>Wenn Sie "Keine Ergebnisse" erhalten, versuchen Sie bitte, den Abweichungsbereich zu erweitern oder es später erneut zu versuchen.</p>
+
+            <h2>● Die Richtung, in die Sie gehen, wird berücksichtigt</h2>
+
+            <p>Wir berücksichtigen die Richtung Ihrer Reise. Wenn Sie von Punkt A nach B fahren, werden Sie keine Anfragen in der Gegenrichtung sehen. Die Richtung wird auf der Karte mit roten Pfeilen angezeigt.
+              Jede Anfrage ist an ein bestimmtes Gerät gebunden.</p>
+            <p>Ihre Sitzung auf freeseat.me ist an ein einziges Gerät gebunden. Wenn Sie mehrere Geräte haben, hat jedes Gerät eine andere Sitzung. Dies dient dazu, das Registrierungsverfahren abzuschaffen und Ihre Zeit zu sparen.</p>
+
+            <h2>● Anfragen sind 24 Stunden nach Ihrem letzten Besuch aktiv.</h2>
+
+            <p>Ihr Ticket wird automatisch innerhalb von 24 Stunden nach seiner Erstellung gelöscht. ABER, wenn Sie freeseat.me von demselben Gerät aus erneut besuchen, bevor diese Zeit abläuft, wird Ihr Ticket um weitere 24 Stunden verlängert. Dies kann so oft wiederholt werden, wie es nötig ist, um den Transport zu finden.</p>
+
+            <h2>● Vergessen Sie nicht, uns zu informieren, wenn Sie den Transport gefunden haben</h2>
+
+            <p>Wenn Sie einen Fahrer gefunden haben, informieren Sie uns, indem Sie auf "Transport gefunden" klicken und Ihre Wahl bestätigen. Oder löschen Sie Ihr Ticket, wenn es nicht mehr relevant ist. Auf diese Weise helfen Sie uns, die Daten auf dem neuesten Stand zu halten, und Sie erhalten keine Anrufe von anderen Fahrern.</p>
+
+            <h2>● Die Chance, einen regulären Pkw zu finden, ist größer</h2>
+
+            <p>Wenn Sie einen Transport für eine große Gruppe von Personen suchen, erstellen Sie mehrere Tickets für Gruppen von 3 bis 4 Personen (reguläre Pkw-Kapazität), anstatt eine Anfrage für 20 Personen zu erstellen.</p>
+
+            <p>Wenn Sie eine Anfrage mit einer großen Anzahl von Personen oder einer großen Menge an Gepäck erstellen, werden Sie nur von LKW-/Busfahrern gesehen.</p>
+
+            <h2>● Wählen Sie eine Sprache, um Zeit zu sparen</h2>
+
+            <p>Die Fahrer sehen nur Anfragen in ihrer Sprache. Sie können mehrere Sprachen auswählen.</p>
+
+            <h2>● Kartenmarkierungen</h2>
+
+            <p>Es ist nicht notwendig, eine bestimmte Adresse anzugeben. Es reicht aus, wenn Sie Ihr ungefähres Ziel auswählen, dann können Sie dem Fahrer sagen, wohin Sie genau fahren möchten.</p>
+
+            <p>Sie können auf die Schaltfläche "Standort" in der unteren rechten Ecke der Karte klicken, um Ihren aktuellen Standort auszuwählen.</p>
           </>
         }
         {
@@ -125,7 +182,7 @@ export const HelpScreen: FC = () => {
           </>
         }
         {
-          lang === 'ua' && <>
+          lang === 'uk' && <>
             <h1>Як використовувати freeseat.me?</h1>
 
             <h2>● Коротко для водіїв</h2>

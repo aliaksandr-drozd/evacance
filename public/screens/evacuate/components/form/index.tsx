@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 
 import { IEvacuationRequestForm } from '../../../../common/interfaces'
 import { BaggageOption } from '../../../../common/enums'
+import { LOCALE_MAP } from '../../../../common/components'
 import styles from './styles.module.less'
 
 
@@ -58,24 +59,7 @@ export const FormComponent: FC<IFormProps> = ({
         >
           <Selector
             multiple={ true }
-            options={[
-              {
-                label: <>Polski</>,
-                value: 'pl',
-              },
-              {
-                label: <>Українськa</>,
-                value: 'uk',
-              },
-              {
-                label: <>English</>,
-                value: 'en',
-              },
-              {
-                label: <>Русский</>,
-                value: 'ru',
-              },
-            ]}
+            options={ Object.entries(LOCALE_MAP).map(([value, label]) => ({ label, value })) }
           />
         </Form.Item>
         <Form.Item

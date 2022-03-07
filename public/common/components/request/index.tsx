@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next'
 
 import { IEvacuationResponse, ISearchInRadiusResponse } from '../../interfaces'
 import { MapPoint } from '../map-point'
-import { BaggageMatch } from "../baggage-match";
-import { LanguageMatch } from "../languages-match";
+import { BaggageMatch } from '../baggage-match'
+import { LanguageMatch } from '../languages-match'
 
 
 export interface IRequestProps {

@@ -4,6 +4,7 @@ import { Button, Space } from 'antd-mobile'
 
 import { useLocalStorage } from '../../../../hooks'
 import { DEFAULT_APP_LANGUAGE, LANGUAGE_LOCALSTORAGE_KEY } from '../../../../consts'
+import { LOCALE_MAP } from '../../locale-map'
 
 
 export const LanguageSwitch: FC = () => {
@@ -18,37 +19,17 @@ export const LanguageSwitch: FC = () => {
   return (
     <div>
       <Space wrap>
-        <Button
-          onClick={ setLanguage('ua') }
-          color={ i18n.language === 'ua' ? 'primary' : 'default' }
-          size="small"
-        >
-          Українськa
-        </Button>
-
-        <Button
-          onClick={ setLanguage('pl') }
-          color={ i18n.language === 'pl' ? 'primary' : 'default' }
-          size="small"
-        >
-          Polski
-        </Button>
-
-        <Button
-          onClick={ setLanguage('en') }
-          color={ i18n.language === 'en' ? 'primary' : 'default' }
-          size="small"
-        >
-          English
-        </Button>
-
-        <Button
-          onClick={ setLanguage('ru') }
-          color={ i18n.language === 'ru' ? 'primary' : 'default' }
-          size="small"
-        >
-          Русский
-        </Button>
+        {
+          Object.entries(LOCALE_MAP).map(([code, name]) =>
+            <Button
+              onClick={ setLanguage(code) }
+              color={ i18n.language === code ? 'primary' : 'default' }
+              size="small"
+            >
+              { name }
+            </Button>
+          )
+        }
       </Space>
     </div>
   )

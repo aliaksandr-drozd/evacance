@@ -1,13 +1,13 @@
 import { Point } from 'geojson'
 
-import { LANGUAGE_TYPE } from '../../../../common/types'
 import { BaggageOption } from '../../../../common/enums'
+import { LOCALE_MAP } from '../../../../common/components'
 
 
 export interface IWaitingPassengerResponseContract {
   id: string
   last_active_at: string
-  spoken_languages: LANGUAGE_TYPE[]
+  spoken_languages: (keyof typeof LOCALE_MAP)[]
   number_of_people: number
   with_pets: boolean
   comment: string
