@@ -1,5 +1,6 @@
 {
   "translation": {
+    "otherVolunteerOrganizations": "Other volunteer organizations",
     "geolocationDisabled": "No access to geolocation. Please enable it on your device and try again.",
     "wherePickup": "Where to pick up passenger?",
     "radiusInKm": "Maximum distance from me: {{ radius }} km",
