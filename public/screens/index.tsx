@@ -33,7 +33,7 @@ export const App: FC = () => {
 
           <Route path="/evacuate" element={ <WithGeolocation><EvacuateScreen /></WithGeolocation> } />
           <Route path="/evacuate/:lat1/:lng1/:lat2/:lng2" element={ <EvacuateScreen /> } />
-          <Route path="/evacuation-map" element={ <EvacuationMapScreen /> } />
+          <Route path="/evacuation-map" element={ <WithGeolocation><EvacuationMapScreen /></WithGeolocation> } />
 
           <Route path="/search" element={ <SearchScreen /> } />
           <Route path="/search-near" element={ <SearchNearScreen /> } />

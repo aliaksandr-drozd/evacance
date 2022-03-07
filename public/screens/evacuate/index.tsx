@@ -18,6 +18,7 @@ export interface IEvacuateScreenProps {
 }
 
 export const EvacuateScreen: FC<IEvacuateScreenProps> = ({ position }) => {
+  const center = position ? position : DEFAULT_MAP_CENTER
   const isGeoLocationAvailable = 'geolocation' in navigator
   const [isGettingGeolocationPending, setIsGettingGeolocationPending] = useState(false)
   const { t } = useTranslation()
@@ -62,7 +63,7 @@ export const EvacuateScreen: FC<IEvacuateScreenProps> = ({ position }) => {
         </Card>
       </FloatingPanel>
       <Map
-        center={ DEFAULT_MAP_CENTER }
+        center={ center }
         waypoints={ waypoints }
         onRoutesFound={ (_route) => route = _route }
         onWaypointsChanges={ onWaypointsChanges }
