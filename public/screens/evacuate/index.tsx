@@ -5,7 +5,7 @@ import { Button, Card, FloatingBubble, FloatingPanel, NavBar, Popup, Toast } fro
 import { Container } from 'typedi'
 import { useTranslation } from 'react-i18next'
 
-import { DEFAULT_ROUTE } from '../../common/consts'
+import { DEFAULT_MAP_CENTER, DEFAULT_ROUTE } from '../../common/consts'
 import { ApiService, IDService, MyRequestsStateService } from '../../services'
 import { LocationMarker } from '../../common/components'
 import { Form, Map } from './components'
@@ -13,15 +13,20 @@ import { Form, Map } from './components'
 
 let route: LatLngTuple[] = []
 
-export const EvacuateScreen: FC = () => {
-  const isGeoLocationAvailable = 'geolocation' in navigator
+export interface IEvacuateScreenProps {
+  position?: LatLngTuple
+}
+
+export const EvacuateScreen: FC<IEvacuateScreenProps> = ({ position }) => {
+  const isGeoLocationAvailable = !!position
   const [isGettingGeolocationPending, setIsGettingGeolocationPending] = useState(false)
   const { t } = useTranslation()
   const [isFormVisible, setIsFormVisible] = useState(false)
   const [isSubmitAvailable, setIsSubmitAvailable] = useState(true)
   const navigate = useNavigate()
   const { lat1, lng1, lat2, lng2 } = useParams()
-  const waypoints: [LatLngTuple, LatLngTuple] = (lat1 && lng1 && lat2 && lng2) ? [[+lat1, +lng1], [+lat2, +lng2]] : DEFAULT_ROUTE
+  const defaultRoute: [LatLngTuple, LatLngTuple] = position ? [position, DEFAULT_ROUTE[1]] : DEFAULT_ROUTE
+  const waypoints: [LatLngTuple, LatLngTuple] = (lat1 && lng1 && lat2 && lng2) ? [[+lat1, +lng1], [+lat2, +lng2]] : defaultRoute
 
   const onWaypointsChanges = (_waypoint: LatLngTuple[]) => {
     navigate(`/evacuate/${_waypoint[0][0]}/${_waypoint[0][1]}/${_waypoint[1][0]}/${_waypoint[1][1]}`, { replace: true })
@@ -57,6 +62,7 @@ export const EvacuateScreen: FC = () => {
         </Card>
       </FloatingPanel>
       <Map
+        center={ DEFAULT_MAP_CENTER }
         waypoints={ waypoints }
         onRoutesFound={ (_route) => route = _route }
         onWaypointsChanges={ onWaypointsChanges }

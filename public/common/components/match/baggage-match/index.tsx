@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { BaggageOption } from '../../enums'
+import { BaggageOption } from '../../../enums'
 
 
 export interface IBaggageMatchProps {

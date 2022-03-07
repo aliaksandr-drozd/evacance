@@ -2,12 +2,11 @@ import React, { FC } from 'react'
 import MarkerClusterGroup from 'react-leaflet-markercluster'
 import { Marker, Popup } from 'react-leaflet'
 import { divIcon, point } from 'leaflet'
+import { DotLoading } from 'antd-mobile'
 
 import { IWaitingPassengerResponse, IWaitingPassengersResponse } from '../../common/interfaces'
 import { Map, Request } from '../../common/components'
 import { DEFAULT_MAP_CENTER } from '../../common/consts'
-import styles from "./styles.module.less";
-import { DotLoading } from "antd-mobile";
 
 
 export interface IEvacuationMapScreenComponentProps {
