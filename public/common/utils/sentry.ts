@@ -1,7 +1,8 @@
-import * as Sentry from "@sentry/react";
-import { BrowserTracing } from "@sentry/tracing";
+import * as Sentry from '@sentry/react'
+import { BrowserTracing } from '@sentry/tracing'
 
-if (process.env.NODE_ENV === 'production')
+
+if (process.env.NODE_ENV === 'production') {
   Sentry.init({
     dsn: process.env.FRONTEND_SENTRY_DSN,
     integrations: [new BrowserTracing()],
@@ -11,4 +12,5 @@ if (process.env.NODE_ENV === 'production')
     // We recommend adjusting this value in production
     tracesSampleRate: process.env.FRONTEND_SENTRY_TRACE_SAMPLE_RATE,
     environment: process.env.NODE_ENV,
-  });
+  })
+}

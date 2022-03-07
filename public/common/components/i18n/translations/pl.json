@@ -1,5 +1,9 @@
 {
   "translation": {
+    "howToUse": "Jak używać?",
+    "support": "Pomoc techniczna",
+    "otherVolunteerOrganizations": "Inne organizacje wolontariackie",
+    "geolocationDisabled": "Brak dostępu do geolokalizacji. Włącz ją w urządzeniu i spróbuj ponownie.",
     "wherePickup": "Gdzie odebrać pasażera?",
     "radiusInKm": "Maksymalna odległość od mnie {{ radius }} km",
     "nextToMe": "Kto jest w pobliżu?",

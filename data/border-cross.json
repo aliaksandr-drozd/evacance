@@ -1,0 +1,300 @@
+[
+  {
+    "name": "Будомєж - Грушів",
+    "resource_url": "",
+    "description": "Польша - Украина",
+    "point": {
+      "type": "Point",
+      "coordinates": [50.096803, 23.278580]
+    }
+  },
+  {
+    "name": "Медыка — Шегини",
+    "resource_url": "",
+    "description": "Польша - Украина",
+    "point": {
+      "type": "Point",
+      "coordinates": [49.799726, 22.947718]
+    }
+  },
+  {
+    "name": "Зосин — Устилуг",
+    "resource_url": "",
+    "description": "Польша - Украина",
+    "point": {
+      "type": "Point",
+      "coordinates": [50.856802, 24.141484]
+    }
+  },
+  {
+    "name": "Долбучев - Угринов",
+    "resource_url": "",
+    "description": "Польша - Украина",
+    "point": {
+      "type": "Point",
+      "coordinates": [50.578111, 24.090102]
+    }
+  },
+  {
+    "name": "Кросценко — Смильница",
+    "resource_url": "",
+    "description": "Польша - Украина",
+    "point": {
+      "type": "Point",
+      "coordinates": [49.481117, 22.701383]
+    }
+  },
+  {
+    "name": "Корчёва — Краковец",
+    "resource_url": "",
+    "description": "Польша - Украина",
+    "point": {
+      "type": "Point",
+      "coordinates": [49.954844, 23.114068]
+    }
+  },
+  {
+    "name": "Гребенне — Рава-Русская",
+    "resource_url": "",
+    "description": "Польша - Украина",
+    "point": {
+      "type": "Point",
+      "coordinates": [50.274428, 23.588674]
+    }
+  },
+  {
+    "name": "Дорогуск — Ягодин",
+    "resource_url": "",
+    "description": "Польша - Украина",
+    "point": {
+      "type": "Point",
+      "coordinates": [51.185416, 23.808001]
+    }
+  },
+  {
+    "name": "Вышне Немецке - Ужгород",
+    "resource_url": "",
+    "description": "Словакия - Украина",
+    "point": {
+      "type": "Point",
+      "coordinates": [48.654110, 22.265351]
+    }
+  },
+  {
+    "name": "Убля - Малый Березный",
+    "resource_url": "",
+    "description": "Словакия - Украина",
+    "point": {
+      "type": "Point",
+      "coordinates": [48.883878, 22.420246]
+    }
+  },
+  {
+    "name": "Вельке Слеменце - Малые Селменцы",
+    "resource_url": "",
+    "description": "Словакия - Украина",
+    "point": {
+      "type": "Point",
+      "coordinates": [48.511120, 22.154059]
+    }
+  },
+  {
+    "name": "Чоп - Захонь",
+    "resource_url": "",
+    "description": "Украина - Венгрия",
+    "point": {
+      "type": "Point",
+      "coordinates": [48.413565, 22.171794]
+    }
+  },
+  {
+    "name": "Лужанка - Берегшурань",
+    "resource_url": "",
+    "description": "Украина - Венгрия",
+    "point": {
+      "type": "Point",
+      "coordinates": [48.164997, 22.573165]
+    }
+  },
+  {
+    "name": "Косино - Косонь",
+    "resource_url": "",
+    "description": "Украина - Венгрия",
+    "point": {
+      "type": "Point",
+      "coordinates": [48.245790, 22.445818]
+    }
+  },
+  {
+    "name": "Вилок - Тісабеч",
+    "resource_url": "",
+    "description": "Украина - Венгрия",
+    "point": {
+      "type": "Point",
+      "coordinates": [48.093273, 22.834257]
+    }
+  },
+  {
+    "name": "Дякове - Халмеу",
+    "resource_url": "",
+    "description": "Украина - Румыния",
+    "point": {
+      "type": "Point",
+      "coordinates": [47.996442, 23.001771]
+    }
+  },
+  {
+    "name": "Солотвино - Сігету Мармацієй",
+    "resource_url": "",
+    "description": "Украина - Румыния",
+    "point": {
+      "type": "Point",
+      "coordinates": [47.939928, 23.874190]
+    }
+  },
+  {
+    "name": "Порубне - Сірет",
+    "resource_url": "",
+    "description": "Украина - Румыния",
+    "point": {
+      "type": "Point",
+      "coordinates": [47.987972, 26.061225]
+    }
+  },
+  {
+    "name": "Маяки-Удобне - Паланка",
+    "resource_url": "",
+    "description": "Украина - Молдова",
+    "point": {
+      "type": "Point",
+      "coordinates": [46.385294, 30.087862]
+    }
+  },
+  {
+    "name": "Рені - Джюрджюлешть",
+    "resource_url": "",
+    "description": "Украина - Молдова",
+    "point": {
+      "type": "Point",
+      "coordinates": [45.481717, 28.228053]
+    }
+  },
+  {
+    "name": "Виноградівка - Вулкенєшть",
+    "resource_url": "",
+    "description": "Украина - Молдова",
+    "point": {
+      "type": "Point",
+      "coordinates": [45.697769, 28.534770]
+    }
+  },
+  {
+    "name": "Табаки - Мирне",
+    "resource_url": "",
+    "description": "Украина - Молдова",
+    "point": {
+      "type": "Point",
+      "coordinates": [45.728210, 28.583250]
+    }
+  },
+  {
+    "name": "Нові Трояни - Чадир-Лунга",
+    "resource_url": "",
+    "description": "Украина - Молдова",
+    "point": {
+      "type": "Point",
+      "coordinates": [45.981093, 28.843966]
+    }
+  },
+  {
+    "name": "Серпневе - Басараб'яска",
+    "resource_url": "",
+    "description": "Украина - Молдова",
+    "point": {
+      "type": "Point",
+      "coordinates": [46.319215, 29.000738]
+    }
+  },
+  {
+    "name": "Паланка - Маяки - Удобнoе",
+    "resource_url": "",
+    "description": "Украина - Молдова",
+    "point": {
+      "type": "Point",
+      "coordinates": [46.384518, 30.088290]
+    }
+  },
+  {
+    "name": "Кучурган - Первомайськ",
+    "resource_url": "",
+    "description": "Украина - Молдова",
+    "point": {
+      "type": "Point",
+      "coordinates": [46.737550, 29.972259]
+    }
+  },
+  {
+    "name": "Платонове - Гоянул Ноу",
+    "resource_url": "",
+    "description": "Украина - Молдова",
+    "point": {
+      "type": "Point",
+      "coordinates": [47.403134, 29.329467]
+    }
+  },
+  {
+    "name": "Болган - Хрістова",
+    "resource_url": "",
+    "description": "Украина - Молдова",
+    "point": {
+      "type": "Point",
+      "coordinates": [48.134122, 28.740885]
+    }
+  },
+  {
+    "name": "Могилів-Подільський - Отач",
+    "resource_url": "",
+    "description": "Украина - Молдова",
+    "point": {
+      "type": "Point",
+      "coordinates": [48.444208, 27.790387]
+    }
+  },
+  {
+    "name": "Сокиряни - Окниця",
+    "resource_url": "",
+    "description": "Украина - Молдова",
+    "point": {
+      "type": "Point",
+      "coordinates": [48.438172, 27.463585]
+    }
+  },
+  {
+    "name": "Россошани - Брічень",
+    "resource_url": "",
+    "description": "Украина - Молдова",
+    "point": {
+      "type": "Point",
+      "coordinates": [48.376037, 27.045866]
+    }
+  },
+  {
+    "name": "Кельменці - Ларга",
+    "resource_url": "",
+    "description": "Украина - Молдова",
+    "point": {
+      "type": "Point",
+      "coordinates": [48.414595, 26.842491]
+    }
+  },
+  {
+    "name": "Мамалига - Крива",
+    "resource_url": "",
+    "description": "Украина - Молдова",
+    "point": {
+      "type": "Point",
+      "coordinates": [48.264574, 26.625099]
+    }
+  }
+
+]

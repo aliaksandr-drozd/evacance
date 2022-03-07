@@ -1,32 +1,16 @@
 import React, { FC } from 'react'
 import { Badge } from 'antd-mobile'
 
+import { LOCALE_MAP } from '../i18n'
+
 
 export interface ILanguageMatchProps {
-  languageCode: string
+  languageCode: keyof typeof LOCALE_MAP
 }
 
-export const LanguageMatch: FC<ILanguageMatchProps> = ({ languageCode }) => {
-  let text
+export const LanguageMatch: FC<ILanguageMatchProps> = ({ languageCode }) =>
+  <Badge
+    color="teal"
+    content={ LOCALE_MAP[languageCode] }
+  />
 
-  switch (languageCode.toUpperCase()) {
-    case 'EN':
-      text = 'English'
-      break
-    case 'PL':
-      text = 'Polski'
-      break
-    case 'RU':
-      text = 'Русский'
-      break
-    default:
-      text = 'Українськa'
-  }
-
-  return (
-    <Badge
-      color="teal"
-      content={ text }
-    />
-  )
-}

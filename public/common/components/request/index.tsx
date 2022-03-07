@@ -4,17 +4,15 @@ import { useTranslation } from 'react-i18next'
 
 import { IEvacuationResponse, ISearchInRadiusResponse } from '../../interfaces'
 import { MapPoint } from '../map-point'
-import { BaggageMatch } from "../baggage-match";
-import { LanguageMatch } from "../languages-match";
+import { BaggageMatch } from '../baggage-match'
+import { LanguageMatch } from '../languages-match'
 
 
 export interface IRequestProps {
-  isFromHidden?: boolean
   request: IEvacuationResponse | ISearchInRadiusResponse
 }
 
 export const Request: FC<IRequestProps> = ({
-  isFromHidden,
   request,
   children,
 }) => {
@@ -28,7 +26,7 @@ export const Request: FC<IRequestProps> = ({
             <tbody>
             <tr>
               <td>
-                { !isFromHidden && <Badge content={ t('from') } /> }
+                <Badge content={ t('from') } />
               </td>
               <td>
                 <Badge content={ t('to') } />
@@ -36,7 +34,7 @@ export const Request: FC<IRequestProps> = ({
             </tr>
             <tr>
               <td>
-                { !isFromHidden && <MapPoint center={ request.waypoints[0] } /> }
+                <MapPoint center={ request.waypoints[0] } />
               </td>
               <td>
                 <MapPoint center={ request.waypoints[1] } />

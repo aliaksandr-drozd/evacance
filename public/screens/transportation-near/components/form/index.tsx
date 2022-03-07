@@ -5,16 +5,19 @@ import { useTranslation } from 'react-i18next'
 import { ISearchInRadiusRequestForm } from '../../../../common/interfaces'
 import { BaggageOption } from '../../../../common/enums'
 import styles from './styles.module.less'
+import { LOCALE_MAP } from "../../../../common/components";
 
 
 export interface IFormProps {
   isActive: boolean
+  isDisabled: boolean
   onSubmit: (data: ISearchInRadiusRequestForm) => void
   onCancel: () => void
 }
 
 export const FormComponent: FC<IFormProps> = ({
   isActive,
+  isDisabled,
   onSubmit,
   onCancel,
 }) => {
@@ -36,7 +39,8 @@ export const FormComponent: FC<IFormProps> = ({
               type="submit"
               color="primary"
               size="large"
-              loading={ !isActive }
+              loading={ !isActive && !isDisabled }
+              disabled={ isDisabled }
             >
               { t('requestsFind') }
             </Button>
@@ -70,24 +74,7 @@ export const FormComponent: FC<IFormProps> = ({
         >
           <Selector
             multiple={ true }
-            options={[
-              {
-                label: <>Polski</>,
-                value: 'pl',
-              },
-              {
-                label: <>Українськa</>,
-                value: 'uk',
-              },
-              {
-                label: <>English</>,
-                value: 'en',
-              },
-              {
-                label: <>Русский</>,
-                value: 'ru',
-              },
-            ]}
+            options={ Object.entries(LOCALE_MAP).map(([value, label]) => ({ label, value })) }
           />
         </Form.Item>
         <Form.Item

@@ -3,7 +3,7 @@ import { Button, Divider, Space } from 'antd-mobile'
 import { useNavigate } from 'react-router'
 import { useTranslation } from 'react-i18next'
 
-import { ICanHelpIcon, LanguageSwitch, TelegramIcon } from '../../common/components'
+import { LanguageSwitch, TelegramIcon } from '../../common/components'
 import { useLocalStorage } from '../../common/hooks'
 import { HELP_LOCALSTORAGE_KEY } from '../../common/consts'
 import { MyRequests } from './components'
@@ -20,51 +20,26 @@ export const MainScreen: FC = () => {
 
       <Divider />
 
-      <span
-        style={{
-          width: '32px',
-          height: '32px',
-          display: 'inline-block',
-          borderRadius: '50%',
-          background: 'cadetblue',
-          lineHeight: '30px',
-          textAlign: 'center',
-          fontSize: '27px',
-          cursor: "pointer",
-          color: "white"
-        }}
-        onClick={ () => setIsHelpVisible(true) }
-      >
-        ?
-      </span>
+      <Space wrap>
+        <Button
+          onClick={ () => setIsHelpVisible(true) }
+          size="mini"
+          color="warning"
+        >
+          { t('howToUse') }
+        </Button>
 
-      <span
-        style={{
-          width: '32px',
-          height: '32px',
-          display: 'inline-block',
-          borderRadius: '50%',
-          background: 'cadetblue',
-          lineHeight: '30px',
-          textAlign: 'center',
-          fontSize: '27px',
-          cursor: "pointer",
-          color: "white",
-          verticalAlign: 'bottom',
-          marginLeft: '10px'
-        }}
-        onClick={ () => { window.open('https://t.me/freeseat') } }
-      >
-        <TelegramIcon size={ 32 } />
-      </span>
+        <Button
+          onClick={ () => { window.open('https://t.me/freeseat') } }
+          size="mini"
+          color="warning"
+          style={ { display: "flex", verticalAlign: 'center', gap: '10px' } }
+        >
+          { t('support') }
+          <TelegramIcon size={ 18 } />
+        </Button>
+      </Space>
 
-      <a
-        href="https://icanhelp.host/"
-        target="_blank"
-        style={ { marginLeft: '10px' } }
-      >
-        <ICanHelpIcon size={ 150 } />
-      </a>
       <Divider />
 
       <Space wrap>
@@ -75,12 +50,20 @@ export const MainScreen: FC = () => {
         >
           { t('iCanDeliver') }
         </Button>
+
         <Button
           color="primary"
           size="large"
           onClick={ () => navigate('/evacuate') }
         >
           { t('iNeedToGet') }
+        </Button>
+
+        <Button
+          size="large"
+          onClick={ () => navigate('/other-volunteer-organizations') }
+        >
+          { t('otherVolunteerOrganizations') }
         </Button>
       </Space>
 

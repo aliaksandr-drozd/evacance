@@ -3,10 +3,11 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import { initReactI18next } from 'react-i18next'
 
 import { DEFAULT_APP_LANGUAGE, LANGUAGE_LOCALSTORAGE_KEY } from '../../consts'
-import languageEN from './translations/en/translate.json'
-import languagePL from './translations/pl/translate.json'
-import languageRU from './translations/ru/translate.json'
-import languageUA from './translations/ua/translate.json'
+import en from './translations/en.json'
+import pl from './translations/pl.json'
+import ru from './translations/ru.json'
+import uk from './translations/uk.json'
+import de from './translations/de.json'
 
 
 let selectedLanguage = DEFAULT_APP_LANGUAGE
@@ -26,10 +27,5 @@ export default i18n
     lng: selectedLanguage,
     fallbackLng: DEFAULT_APP_LANGUAGE,
     keySeparator: '.',
-    resources: {
-      en: languageEN,
-      pl: languagePL,
-      ru: languageRU,
-      ua: languageUA,
-    }
+    resources: { en, pl, ru, uk, de }
   })

@@ -65,7 +65,7 @@ export const EvacuationMapScreenComponent: FC<IEvacuationMapScreenComponentProps
                 })
               }
             >
-              <Popup>
+              <Popup minWidth={ 330 }>
                 {
                   isPassengerDataLoading &&
                   <span style={ { fontSize: '60px' } }>
@@ -75,7 +75,6 @@ export const EvacuationMapScreenComponent: FC<IEvacuationMapScreenComponentProps
                 {
                   !!passengerData &&
                   <Request
-                    isFromHidden
                     request={ passengerData }
                   />
                 }
