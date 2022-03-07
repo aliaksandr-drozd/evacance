@@ -20,43 +20,27 @@ export const MainScreen: FC = () => {
 
       <Divider />
 
-      <span
-        style={{
-          width: '32px',
-          height: '32px',
-          display: 'inline-block',
-          borderRadius: '50%',
-          background: 'cadetblue',
-          lineHeight: '30px',
-          textAlign: 'center',
-          fontSize: '27px',
-          cursor: "pointer",
-          color: "white"
-        }}
-        onClick={ () => setIsHelpVisible(true) }
-      >
-        ?
-      </span>
+      <Space wrap>
+        <Button
+          onClick={ () => setIsHelpVisible(true) }
+          size="mini"
+          color="warning"
+        >
+          { t('howToUse') }
+        </Button>
 
-      <span
-        style={{
-          width: '32px',
-          height: '32px',
-          display: 'inline-block',
-          borderRadius: '50%',
-          background: 'cadetblue',
-          lineHeight: '30px',
-          textAlign: 'center',
-          fontSize: '27px',
-          cursor: "pointer",
-          color: "white",
-          verticalAlign: 'bottom',
-          marginLeft: '10px'
-        }}
-        onClick={ () => { window.open('https://t.me/freeseat') } }
-      >
-        <TelegramIcon size={ 32 } />
-      </span>
+        <Button
+          onClick={ () => { window.open('https://t.me/freeseat') } }
+          size="mini"
+          color="warning"
+          style={ { display: "flex", verticalAlign: 'center', gap: '10px' } }
+        >
+          { t('support') }
+          <TelegramIcon size={ 18 } />
+        </Button>
+      </Space>
+
+      <Divider />
 
       <Space wrap>
         <Button

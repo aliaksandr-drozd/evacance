@@ -1,6 +1,8 @@
 {
   "translation": {
-    "otherVolunteerOrganizations": "Інші волонтерські організації",
+    "howToUse": "Как пользоваться?",
+    "support": "Техническая поддержка",
+    "otherVolunteerOrganizations": "Другие волонтерские организации",
     "geolocationDisabled": "Нет доступа к геолокации. Включите ее на вашем устройстве и попробуйте снова.",
     "wherePickup": "Где забрать пассажира?",
     "radiusInKm": "Максимальная дистанция от меня {{ radius }} км",

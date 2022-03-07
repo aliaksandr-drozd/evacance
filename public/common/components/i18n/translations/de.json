@@ -1,5 +1,7 @@
 {
   "translation": {
+    "howToUse": "Wie benutzt man?",
+    "support": "Unterstützung",
     "otherVolunteerOrganizations": "Andere Freiwilligenorganisationen",
     "geolocationDisabled": "Geolokalisierung nich gefunden. Bitte erlauben dies auf Ihrem Gerät und versuchen Sie es erneut.",
     "wherePickup": "Wo soll der Fahrgast abgeholt werden?",
