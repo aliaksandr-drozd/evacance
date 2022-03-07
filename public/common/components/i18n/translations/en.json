@@ -1,5 +1,7 @@
 {
   "translation": {
+    "gettingLocationMessage": "We're trying to get your location.",
+    "gettingLocationError": "Failed to get your location. Default values are used.",
     "howToUse": "How to use?",
     "support": "Support",
     "otherVolunteerOrganizations": "Other volunteer organizations",

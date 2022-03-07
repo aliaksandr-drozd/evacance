@@ -1,5 +1,7 @@
 {
   "translation": {
+    "gettingLocationMessage": "Wir versuchen, Ihren Standort zu ermitteln.",
+    "gettingLocationError": "Ihr Standort konnte nicht ermittelt werden. Es werden Standardwerte verwendet.",
     "howToUse": "Wie benutzt man?",
     "support": "Unterstützung",
     "otherVolunteerOrganizations": "Andere Freiwilligenorganisationen",

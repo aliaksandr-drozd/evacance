@@ -1,8 +1,7 @@
 import React, { FC } from 'react'
-import { LineString } from 'geojson'
 import { LatLng, LatLngTuple, Map as LeafletMap } from 'leaflet'
 
-import { Map, RoutineMachine } from '../../../../common/components'
+import { LeafletControlGeocoder, Map, RoutineMachine } from '../../../../common/components'
 
 
 export interface IMapComponentProps {
@@ -35,6 +34,7 @@ export const MapComponent: FC<IMapComponentProps> = ({
       center={ center }
       whenCreated={ whenCreated ? whenCreated : () => {} }
     >
+      <LeafletControlGeocoder />
       <RoutineMachine
         key={ JSON.stringify(waypoints) }
         onWaypointsChanges={ onWaypointsChanges }

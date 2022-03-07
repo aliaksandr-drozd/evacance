@@ -3,13 +3,20 @@ import { DotLoading, NavBar } from 'antd-mobile'
 import { useNavigate } from 'react-router'
 import { useObservableState } from 'observable-hooks'
 import { Container } from 'typedi'
+import { LatLngTuple } from 'leaflet'
 
-import { EvacuationMapScreenComponent } from './component'
+import { DEFAULT_MAP_CENTER } from '../../common/consts'
 import { EvacuationStateService, WaitingPassengerState } from '../../services'
+import { EvacuationMapScreenComponent } from './component'
 import styles from './styles.module.less'
 
 
-export const EvacuationMapScreenContainer: FC = () => {
+export interface IEvacuationMapScreenContainerProps {
+  position?: LatLngTuple
+}
+
+export const EvacuationMapScreenContainer: FC<IEvacuationMapScreenContainerProps> = ({ position }) => {
+  const center = position ? position : DEFAULT_MAP_CENTER
   const navigate = useNavigate()
   const { results, isSearchPending } = useObservableState(Container.get(EvacuationStateService).state$)
   const { data, isLoading } = useObservableState(Container.get(WaitingPassengerState).state$)
@@ -23,6 +30,7 @@ export const EvacuationMapScreenContainer: FC = () => {
       <NavBar onBack={ () => navigate('/transportation-quiz') } />
 
       <EvacuationMapScreenComponent
+        center={ center }
         waitingPassengers={ results }
         passengerData={ data }
         isPassengerDataLoading={ isLoading }

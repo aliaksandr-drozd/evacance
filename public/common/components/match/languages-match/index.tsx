@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { Badge } from 'antd-mobile'
 
-import { LOCALE_MAP } from '../i18n'
+import { LOCALE_MAP } from '../../i18n'
 
 
 export interface ILanguageMatchProps {

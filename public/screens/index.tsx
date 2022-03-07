@@ -2,6 +2,8 @@ import React, { FC } from 'react'
 import { BrowserRouter, Routes } from 'react-router-dom'
 import { Route } from 'react-router'
 
+import { WithGeolocation } from '../common/components'
+
 import { EvacuateScreen } from './evacuate'
 import { MainScreen } from './main'
 import { SearchScreen } from './search'
@@ -23,14 +25,15 @@ export const App: FC = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={ <MainScreen /> } />
-          <Route path="/transportation" element={ <TransportationScreen /> } />
-          <Route path="/transportation/:lat1/:lng1/:lat2/:lng2/:tolerance" element={ <TransportationScreen /> } />
+
+          <Route path="/transportation" element={ <WithGeolocation><TransportationScreen /></WithGeolocation> } />
+          <Route path="/transportation/:lat1/:lng1/:lat2/:lng2/:tolerance" element={ <WithGeolocation><TransportationScreen /></WithGeolocation> } />
           <Route path="/transportation-quiz" element={ <TransportationQuizScreen /> } />
           <Route path="/transportation-near" element={ <TransportationNearScreen /> } />
 
-          <Route path="/evacuate" element={ <EvacuateScreen /> } />
+          <Route path="/evacuate" element={ <WithGeolocation><EvacuateScreen /></WithGeolocation> } />
           <Route path="/evacuate/:lat1/:lng1/:lat2/:lng2" element={ <EvacuateScreen /> } />
-          <Route path="/evacuation-map" element={ <EvacuationMapScreen /> } />
+          <Route path="/evacuation-map" element={ <WithGeolocation><EvacuationMapScreen /></WithGeolocation> } />
 
           <Route path="/search" element={ <SearchScreen /> } />
           <Route path="/search-near" element={ <SearchNearScreen /> } />

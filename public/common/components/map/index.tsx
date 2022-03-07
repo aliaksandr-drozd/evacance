@@ -7,7 +7,7 @@ import styles from './styles.module.less'
 
 export interface IMapProps {
   center: LatLngTuple
-  whenCreated: (map: LeafletMap) => void
+  whenCreated?: (map: LeafletMap) => void
 }
 
 export const Map: FC<IMapProps> = ({
@@ -19,7 +19,7 @@ export const Map: FC<IMapProps> = ({
   const onCreate = (map: LeafletMap) => {
     setIsCreated(true)
 
-    whenCreated(map)
+    whenCreated && whenCreated(map)
   }
 
   return (

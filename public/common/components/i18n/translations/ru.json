@@ -1,5 +1,7 @@
 {
   "translation": {
+    "gettingLocationMessage": "Пытаемся получить ваше местоположение.",
+    "gettingLocationError": "Не удалось получить ваше местоположение. Используются значения по умолчанию.",
     "howToUse": "Как пользоваться?",
     "support": "Техническая поддержка",
     "otherVolunteerOrganizations": "Другие волонтерские организации",

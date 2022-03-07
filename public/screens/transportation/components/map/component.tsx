@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { LatLngTuple, Map as LeafletMap } from 'leaflet'
 
-import { Map, RoutineMachine } from '../../../../common/components'
+import { LeafletControlGeocoder, Map, RoutineMachine } from '../../../../common/components'
 
 
 export interface IMapComponentProps {
@@ -24,6 +24,7 @@ export const MapComponent: FC<IMapComponentProps> = ({
       center={ center }
       whenCreated={ whenCreated }
     >
+      <LeafletControlGeocoder />
       <RoutineMachine
         key={ JSON.stringify(waypoints) }
         onRoutesFound={ onRoutesFound }

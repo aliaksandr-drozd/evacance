@@ -1,24 +1,25 @@
 import React, { FC } from 'react'
 import { LatLngTuple } from 'leaflet'
-import { MapComponent } from './component'
 
-import { DEFAULT_MAP_CENTER } from '../../../../common/consts'
+import { MapComponent } from './component'
 
 
 export interface IMapContainerProps {
+  center: LatLngTuple
   waypoints: [LatLngTuple, LatLngTuple]
   onWaypointsChanges: (info: [LatLngTuple, LatLngTuple]) => void
   onRoutesFound: (route: LatLngTuple[]) => void
 }
 
 export const MapContainer: FC<IMapContainerProps> = ({
+  center,
   waypoints,
   onWaypointsChanges,
   onRoutesFound,
 }) => {
   return (
     <MapComponent
-      center={ DEFAULT_MAP_CENTER }
+      center={ center }
       waypoints={ waypoints }
       onWaypointsChanges={ onWaypointsChanges }
       onRoutesFound={ onRoutesFound }

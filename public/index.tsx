@@ -4,6 +4,8 @@ import React from 'react'
 import { render } from 'react-dom'
 import './common/utils/sentry.ts'
 import 'leaflet-arrowheads'
+import 'leaflet-control-geocoder/dist/Control.Geocoder'
+import 'leaflet-control-geocoder/dist/Control.Geocoder.css'
 
 // FIX LEAFLET MARKERS
 import L from 'leaflet'
