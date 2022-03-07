@@ -31,7 +31,15 @@ export const MapContainer: FC<IMapContainerProps> = memo(({
       return
     }
 
-    const poly = Container.get(GeospatialService).lineToSegment(path, tolerance)
+    let poly
+
+    try {
+      poly = Container.get(GeospatialService).lineToSegment(path, tolerance)
+
+    } catch (e) {
+      return
+    }
+
     const lpoly = polygon(poly)
 
     if (JSON.stringify(poly) != zoneHash) {

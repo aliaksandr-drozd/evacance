@@ -5,7 +5,7 @@ import { divIcon, LatLngTuple, point } from 'leaflet'
 import { DotLoading } from 'antd-mobile'
 
 import { IWaitingPassengerResponse, IWaitingPassengersResponse } from '../../common/interfaces'
-import { Map, Request } from '../../common/components'
+import { LeafletControlGeocoder, Map, Request } from '../../common/components'
 
 
 export interface IEvacuationMapScreenComponentProps {
@@ -43,6 +43,7 @@ export const EvacuationMapScreenComponent: FC<IEvacuationMapScreenComponentProps
           }
         }
       >
+        <LeafletControlGeocoder />
         {
           waitingPassengers.map((passenger) =>
             <Marker

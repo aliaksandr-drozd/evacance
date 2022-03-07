@@ -40,7 +40,7 @@ export const TransportationScreen: FC<ITransportationScreenProps> = ({ position 
   }
 
 
-  const onWaypointsChanges = (_waypoint: LatLngTuple[]) => {
+  const onWaypointsChanges = (_waypoint: [LatLngTuple, LatLngTuple]) => {
     // piece of shit/hack?
     let __tolerance: number = +(window.location.pathname
       .split('/')
