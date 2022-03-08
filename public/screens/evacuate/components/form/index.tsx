@@ -100,6 +100,20 @@ export const FormComponent: FC<IFormProps> = ({
             rows={ 4 }
           />
         </Form.Item>
+        <Form.Item
+          name="lifetime"
+          label={ t('requestLifetime') }
+          description={ t('requestLifetimeLegend') }
+          initialValue={ 10800 }
+        >
+          <Radio.Group>
+            <Space direction="vertical">
+              <Radio value={ 10800 }>{ t('3h') }</Radio>
+              <Radio value={ 86400 }>{ t('24h') }</Radio>
+              <Radio value={ 31536000 }>{ t('indefinitely') }</Radio>
+            </Space>
+          </Radio.Group>
+        </Form.Item>
       </Form>
     </div>
   )

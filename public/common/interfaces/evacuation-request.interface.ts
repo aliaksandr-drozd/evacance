@@ -6,6 +6,7 @@ import { LOCALE_MAP } from '../components'
 
 
 export interface IEvacuationRequestForm {
+  lifetime: number
   languages: (keyof typeof LOCALE_MAP)[]
   peopleCount: number
   contactData: string

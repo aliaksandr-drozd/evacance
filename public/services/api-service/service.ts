@@ -24,7 +24,6 @@ import {
   ISearchRequestContract,
   ISearchResponseContract,
   IUserSessionRequest,
-  IWaitingPassengerRequestContract,
   IWaitingPassengerResponseContract,
   IWaitingPassengersRequestContract,
   IWaitingPassengersResponseContract
@@ -57,6 +56,7 @@ export class ApiService {
   createRequest = async (request: IEvacuationRequest): Promise<boolean> => {
     const body: ICreateRequestContact = {
       route_length: this.geo.distance(request.waypoints[0], request.waypoints[1]),
+      active_for: request.lifetime,
       comment: request.contactData,
       luggage_size: request.withBaggage,
       number_of_people: request.peopleCount,

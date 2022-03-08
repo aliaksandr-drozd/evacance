@@ -5,6 +5,7 @@ import { LOCALE_MAP } from '../../../../common/components'
 
 
 export interface ICreateRequestContact {
+  active_for: number
   spoken_languages: (keyof typeof LOCALE_MAP)[]
   number_of_people: number
   with_pets: boolean
