@@ -1,10 +1,12 @@
-import React, { FC } from 'react'
-import { Button, Dialog, Form, Space } from 'antd-mobile'
+import React, { FC, useState } from 'react'
+import { Button, Card, Dialog, Form, Popup } from 'antd-mobile'
 import { useTranslation } from 'react-i18next'
 
 import { IEvacuationResponse } from '../../../../common/interfaces'
 import { Request } from '../../../../common/components'
 import styles from './styles.module.less'
+import { Container } from "typedi";
+import { ApiService, MyRequestsStateService } from "../../../../services";
 
 
 export interface IMyRequestsComponentProps {
@@ -21,6 +23,8 @@ export const MyRequestsComponent: FC<IMyRequestsComponentProps> = ({
   onComplete,
 }) => {
   const { t } = useTranslation()
+  const [isPopupVisible, setIsPopupVisible] = useState(false)
+  const [id, setId] = useState('')
 
   return (
     <Form className={ styles.title }>
@@ -29,7 +33,19 @@ export const MyRequestsComponent: FC<IMyRequestsComponentProps> = ({
         requests.map((request) =>
           <div key={ request.id }>
             <Request request={ request }>
-              <Space block>
+              <div style={ { display: 'flex', gap: '10px' } }>
+                <Button
+                  color="primary"
+                  loading={ isRequestPending }
+                  onClick={
+                    () => {
+                      setId(request.id)
+                      setIsPopupVisible(true)
+                    }
+                  }
+                >
+                  { t('requestExtend') }
+                </Button>
                 <Button
                   color="primary"
                   loading={ isRequestPending }
@@ -56,8 +72,64 @@ export const MyRequestsComponent: FC<IMyRequestsComponentProps> = ({
                 >
                   { t('delete') }
                 </Button>
-              </Space>
+              </div>
             </Request>
+
+            <Popup
+              visible={ isPopupVisible }
+              onMaskClick={ () => setIsPopupVisible(false) }
+              bodyStyle={{
+                borderTopLeftRadius: '8px',
+                borderTopRightRadius: '8px',
+                minHeight: '40vh',
+              }}
+            >
+              <Card extra={ t('requestExtend') }>
+                <Button
+                  block
+                  color="primary"
+                  loading={ isRequestPending }
+                  onClick={
+                    async () => {
+                      await Container.get(ApiService).extendRequest(id, 10800)
+                      await Container.get(MyRequestsStateService).get()
+
+                      setIsPopupVisible(false)
+                    }
+                  }
+                >
+                  { t('3h') }
+                </Button>
+                <br/>
+                <Button
+                  block
+                  color="primary"
+                  loading={ isRequestPending }
+                  onClick={
+                    async () => {
+                      await Container.get(ApiService).extendRequest(id, 86400)
+                      await Container.get(MyRequestsStateService).get()
+
+                      setIsPopupVisible(false)
+                    }
+                  }
+                >
+                  { t('24h') }
+                </Button>
+                <br/>
+                <Button
+                  block
+                  color="warning"
+                  loading={ isRequestPending }
+                  onClick={
+                    () => setIsPopupVisible(false)
+                  }
+                >
+                  { t('cancel') }
+                </Button>
+              </Card>
+            </Popup>
+
           </div>
         )
       }

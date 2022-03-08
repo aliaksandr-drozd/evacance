@@ -1,5 +1,8 @@
 {
   "translation": {
+    "updatedAt": "Updated:",
+    "activeUntil": "Active until:",
+    "requestExtend": "Renew application",
     "3h": "3 hours",
     "24h": "24 hours",
     "indefinitely": "Indefinitely",

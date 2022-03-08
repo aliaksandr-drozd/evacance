@@ -11,7 +11,8 @@ export interface ISearchResponseContract {
   previous: string
   results: {
     id: string
-    last_active_at: string
+    active_until: string
+    updated_at: string
     spoken_languages: (keyof typeof LOCALE_MAP)[]
     number_of_people: number
     with_pets: boolean

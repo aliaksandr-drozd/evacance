@@ -1,5 +1,8 @@
 {
   "translation": {
+    "updatedAt": "Aktualisiert:",
+    "activeUntil": "Aktiv bis:",
+    "requestExtend": "Antrag erneuern",
     "3h": "3 Std.",
     "24h": "24 Std.",
     "indefinitely": "Unbefristet",

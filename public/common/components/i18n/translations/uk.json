@@ -1,5 +1,8 @@
 {
   "translation": {
+    "updatedAt": "Оновлено:",
+    "activeUntil": "Активно до:",
+    "requestExtend": "Продовжити заявку",
     "3h": "3 години",
     "24h": "24 години",
     "indefinitely": "Безтерміново",

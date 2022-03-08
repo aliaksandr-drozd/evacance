@@ -11,7 +11,8 @@ export interface ISearchInRadiusResponseContract {
   previous: string
   results: {
     id: string
-    last_active_at: string
+    active_until: string
+    updated_at: string
     distance_in_km: number
     spoken_languages: (keyof typeof LOCALE_MAP)[]
     number_of_people: number
