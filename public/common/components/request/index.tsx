@@ -17,6 +17,7 @@ export const Request: FC<IRequestProps> = ({
   children,
 }) => {
   const { t } = useTranslation()
+  const isIndefinitely = DateTime.now().plus({ month: 1 }) < request.activeUntil
 
   return (
     <div key={ request.id }>
@@ -48,14 +49,12 @@ export const Request: FC<IRequestProps> = ({
                 <strong><BaggageMatch option={ request.withBaggage } /></strong><br />
                 <strong>{ t('description') }</strong> { request.contactData }<br />
 
-                {
-                  (DateTime.now().plus({ month: 1 }) < request.activeUntil)
-                    ?
-                      <>
-                        <strong>{ t('updatedAt') }</strong> { request.updatedAt.toFormat(`HH:mm dd-MM-yyyy`) }<br />
-                        <strong>{ t('activeUntil') }</strong> { request.activeUntil.toFormat(`HH:mm dd-MM-yyyy`) }<br />
-                      </>
-                    : <strong>{ t('indefinitely') }</strong>
+                { isIndefinitely && <strong>{ t('indefinitely') }</strong> }
+                { !isIndefinitely &&
+                  <>
+                    <strong>{ t('updatedAt') }</strong> { request.updatedAt.toFormat(`HH:mm dd-MM-yyyy`) }<br />
+                    <strong>{ t('activeUntil') }</strong> { request.activeUntil.toFormat(`HH:mm dd-MM-yyyy`) }<br />
+                  </>
                 }
 
               </td>

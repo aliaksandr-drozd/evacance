@@ -22,6 +22,7 @@ export const LanguageSwitch: FC = () => {
         {
           Object.entries(LOCALE_MAP).map(([code, name]) =>
             <Button
+              key={ code }
               onClick={ setLanguage(code) }
               color={ i18n.language === code ? 'primary' : 'default' }
               size="small"
