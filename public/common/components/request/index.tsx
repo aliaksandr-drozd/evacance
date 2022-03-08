@@ -1,6 +1,7 @@
-import React, { FC } from 'react'
-import { Badge, Card, Divider, Space } from 'antd-mobile'
+import React, { FC, useState } from 'react'
+import { Badge, Card, Divider, Popup, Space } from 'antd-mobile'
 import { useTranslation } from 'react-i18next'
+import { DateTime } from 'luxon'
 
 import { IEvacuationResponse, ISearchInRadiusResponse } from '../../interfaces'
 import { MapPoint } from '../map-point'
@@ -16,6 +17,7 @@ export const Request: FC<IRequestProps> = ({
   children,
 }) => {
   const { t } = useTranslation()
+  const isIndefinitely = DateTime.now().plus({ month: 1 }) < request.activeUntil
 
   return (
     <div key={ request.id }>
@@ -46,6 +48,15 @@ export const Request: FC<IRequestProps> = ({
                 <strong>{ t('withPets') }</strong> { request.withPets ? t('yes') : t('no') }<br />
                 <strong><BaggageMatch option={ request.withBaggage } /></strong><br />
                 <strong>{ t('description') }</strong> { request.contactData }<br />
+
+                { isIndefinitely && <strong>{ t('indefinitely') }</strong> }
+                { !isIndefinitely &&
+                  <>
+                    <strong>{ t('updatedAt') }</strong> { request.updatedAt.toFormat(`HH:mm dd-MM-yyyy`) }<br />
+                    <strong>{ t('activeUntil') }</strong> { request.activeUntil.toFormat(`HH:mm dd-MM-yyyy`) }<br />
+                  </>
+                }
+
               </td>
             </tr>
             </tbody>

@@ -1,5 +1,13 @@
 {
   "translation": {
+    "updatedAt": "Zaktualizowano:",
+    "activeUntil": "Aktywne do:",
+    "requestExtend": "Odnów wniosek",
+    "3h": "3 godziny",
+    "24h": "24 godziny",
+    "indefinitely": "Bezterminowo",
+    "requestLifetime": "Termin ważności prośby",
+    "requestLifetimeLegend": "Prosimy o pomoc w aktualizowaniu danych. Wniosek można przedłużyć w dowolnym momencie. Zdecyduj, jak długo możesz czekać. Usuń wniosek, jeśli nie jest on już istotny.",
     "gettingLocationMessage": "Próbujemy ustalić Twoją lokację.",
     "gettingLocationError": "Nie udało się uzyskać informacji o Twojej lokacji. Używane są wartości domyślne.",
     "howToUse": "Jak używać?",

@@ -1,3 +1,3 @@
-export interface IUserSessionRequest {
+export interface IUserSessionRequestContract {
   user_session: string
 }

@@ -1,5 +1,13 @@
 {
   "translation": {
+    "updatedAt": "Updated:",
+    "activeUntil": "Active until:",
+    "requestExtend": "Renew application",
+    "3h": "3 hours",
+    "24h": "24 hours",
+    "indefinitely": "Indefinitely",
+    "requestLifetime": "Request duration",
+    "requestLifetimeLegend": "Please help us keep your data up to date. The request can be renewed at any time. Choose how long you can wait. Delete the request if it is no longer relevant.",
     "gettingLocationMessage": "We're trying to get your location.",
     "gettingLocationError": "Failed to get your location. Default values are used.",
     "howToUse": "How to use?",

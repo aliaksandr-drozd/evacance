@@ -1,5 +1,13 @@
 {
   "translation": {
+    "updatedAt": "Aktualisiert:",
+    "activeUntil": "Aktiv bis:",
+    "requestExtend": "Antrag erneuern",
+    "3h": "3 Std.",
+    "24h": "24 Std.",
+    "indefinitely": "Unbefristet",
+    "requestLifetime": "Frist für den Antrag",
+    "requestLifetimeLegend": "Bitte helfen Sie uns, die Daten auf dem neuesten Stand zu halten. Der Antrag kann jederzeit verlängert werden. Wählen Sie, wie lange Sie warten können. Löschen Sie die Anfrage, wenn sie nicht mehr relevant ist.",
     "gettingLocationMessage": "Wir versuchen, Ihren Standort zu ermitteln.",
     "gettingLocationError": "Ihr Standort konnte nicht ermittelt werden. Es werden Standardwerte verwendet.",
     "howToUse": "Wie benutzt man?",

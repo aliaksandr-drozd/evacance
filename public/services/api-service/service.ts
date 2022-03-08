@@ -17,14 +17,13 @@ import { ApiClientService } from '../api-client.service'
 import { IDService } from '../id.service'
 import { GeospatialService } from '../geospatial.service'
 import {
-  ICreateRequestContact,
+  ICreateRequestContact, IExtendRequestContract,
   ILoginRequestContract,
   ISearchInRadiusRequestContract,
   ISearchInRadiusResponseContract,
   ISearchRequestContract,
   ISearchResponseContract,
-  IUserSessionRequest,
-  IWaitingPassengerRequestContract,
+  IUserSessionRequestContract,
   IWaitingPassengerResponseContract,
   IWaitingPassengersRequestContract,
   IWaitingPassengersResponseContract
@@ -57,6 +56,7 @@ export class ApiService {
   createRequest = async (request: IEvacuationRequest): Promise<boolean> => {
     const body: ICreateRequestContact = {
       route_length: this.geo.distance(request.waypoints[0], request.waypoints[1]),
+      active_for: request.lifetime,
       comment: request.contactData,
       luggage_size: request.withBaggage,
       number_of_people: request.peopleCount,
@@ -91,7 +91,7 @@ export class ApiService {
   }
 
   deleteRequest = async (id: string): Promise<boolean> => {
-    const body: IUserSessionRequest = { user_session: this.idProvider.getUid() }
+    const body: IUserSessionRequestContract = { user_session: this.idProvider.getUid() }
 
     try {
       await this.apiClient.post(`${API_VERSION}/trips/passenger/requested-trips/${id}/cancel/`, JSON.stringify(body))
@@ -103,10 +103,25 @@ export class ApiService {
   }
 
   completeRequest = async (id: string): Promise<boolean> => {
-    const body: IUserSessionRequest = { user_session: this.idProvider.getUid() }
+    const body: IUserSessionRequestContract = { user_session: this.idProvider.getUid() }
 
     try {
       await this.apiClient.post(`${API_VERSION}/trips/passenger/requested-trips/${id}/complete/`, JSON.stringify(body))
+    } catch (e) {
+      return false
+    }
+
+    return true
+  }
+
+  extendRequest = async (id: string, time: number): Promise<boolean> => {
+    const body: IExtendRequestContract = {
+      user_session: this.idProvider.getUid(),
+      extend_for: time
+    }
+
+    try {
+      await this.apiClient.post(`${API_VERSION}/trips/passenger/requested-trips/${id}/extend/`, JSON.stringify(body))
     } catch (e) {
       return false
     }
@@ -137,7 +152,8 @@ export class ApiService {
         peopleCount: result.data.number_of_people,
         languages: result.data.spoken_languages,
         contactData: result.data.comment,
-        timestamp: DateTime.fromISO(result.data.last_active_at).toMillis(),
+        activeUntil: DateTime.fromISO(result.data.active_until),
+        updatedAt: DateTime.fromISO(result.data.updated_at),
         waypoints: [point1, point2],
       }
     } catch (e) {}
@@ -177,10 +193,12 @@ export class ApiService {
       results: []
     }
     const params: ISearchRequestContract = {
-      ...condition ? { luggage_size: condition.withBaggage } : {},
-      ...condition ? { number_of_people: condition.peopleCount } : {},
-      ...condition ? { spoken_languages: condition.languages.join(',') } : {},
-      ...condition ? { with_pets: condition.withPets ? 'true' : 'false' } : {},
+      ...condition ? {
+        luggage_size: condition.withBaggage,
+        number_of_people: condition.peopleCount,
+        spoken_languages: condition.languages.join(','),
+        with_pets: condition.withPets ? 'true' : 'false'
+      } : {},
       user_session: this.idProvider.getUid(),
       page,
     }
@@ -204,7 +222,8 @@ export class ApiService {
 
         result.results.push({
           id: i.id,
-          timestamp: DateTime.fromISO(i.last_active_at).toMillis(),
+          activeUntil: DateTime.fromISO(i.active_until),
+          updatedAt: DateTime.fromISO(i.updated_at),
           contactData: i.comment,
           languages: i.spoken_languages,
           peopleCount: i.number_of_people,
@@ -255,6 +274,8 @@ export class ApiService {
 
         result.results.push({
           id: i.id,
+          activeUntil: DateTime.fromISO(i.active_until),
+          updatedAt: DateTime.fromISO(i.updated_at),
           distance: i.distance_in_km,
           contactData: i.comment,
           languages: i.spoken_languages,
@@ -302,7 +323,8 @@ export class ApiService {
 
         result.results.push({
           id: i.id,
-          timestamp: DateTime.fromISO(i.last_active_at).toMillis(),
+          activeUntil: DateTime.fromISO(i.active_until),
+          updatedAt: DateTime.fromISO(i.updated_at),
           contactData: i.comment,
           languages: i.spoken_languages,
           peopleCount: i.number_of_people,
