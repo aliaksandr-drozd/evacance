@@ -7,6 +7,8 @@ import { IEvacuationResponse, ISearchInRadiusResponse } from '../../interfaces'
 import { MapPoint } from '../map-point'
 import { BaggageMatch, LanguageMatch } from '../match'
 
+import styles from './styles.module.less'
+
 
 export interface IRequestProps {
   request: IEvacuationResponse | ISearchInRadiusResponse
@@ -20,7 +22,10 @@ export const Request: FC<IRequestProps> = ({
   const isIndefinitely = DateTime.now().plus({ month: 1 }) < request.activeUntil
 
   return (
-    <div key={ request.id }>
+    <div
+      key={ request.id }
+      className={ styles.wrapper }
+    >
       <Card>
         <Space direction="vertical">
           <table>
