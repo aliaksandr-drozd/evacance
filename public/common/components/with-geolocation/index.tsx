@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, memo } from 'react'
 import useGeolocation from 'react-hook-geolocation'
 import { DotLoading, Toast } from 'antd-mobile'
 import { LatLngTuple } from 'leaflet'
@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next'
 import styles from './styles.module.less'
 
 
-export const WithGeolocation: FC = ({ children }) => {
+export const WithGeolocation: FC = memo(({ children }) => {
   const { t } = useTranslation()
   const geolocation = useGeolocation()
   const isGeolocationPending = (geolocation.latitude === null || geolocation.longitude === null) && !geolocation.error
@@ -41,4 +41,4 @@ export const WithGeolocation: FC = ({ children }) => {
       { !isGeolocationPending && childrenWithProps }
     </>
   )
-}
+})

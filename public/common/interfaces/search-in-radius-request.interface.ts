@@ -5,7 +5,6 @@ import { LOCALE_MAP } from '../components'
 
 
 export interface ISearchInRadiusRequestForm {
-  radius: number
   languages: (keyof typeof LOCALE_MAP)[]
   peopleCount: number
   withPets: boolean
@@ -14,6 +13,7 @@ export interface ISearchInRadiusRequestForm {
 
 export interface ISearchInRadiusRequestLocation {
   location: LatLngTuple
+  radius: number
 }
 
 export type ISearchInRadiusRequest = ISearchInRadiusRequestLocation & ISearchInRadiusRequestForm

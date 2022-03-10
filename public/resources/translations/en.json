@@ -1,5 +1,7 @@
 {
   "translation": {
+    "noFurtherLegend": "Choose how far you are willing to go. And we'll look for applications that meet your requirements.",
+    "noFurther": "No further than {{ radius }} km from me.",
     "updatedAt": "Updated:",
     "activeUntil": "Active until:",
     "requestExtend": "Renew application",

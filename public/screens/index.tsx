@@ -29,7 +29,7 @@ export const App: FC = () => {
           <Route path="/transportation" element={ <WithGeolocation><TransportationScreen /></WithGeolocation> } />
           <Route path="/transportation/:lat1/:lng1/:lat2/:lng2/:tolerance" element={ <WithGeolocation><TransportationScreen /></WithGeolocation> } />
           <Route path="/transportation-quiz" element={ <TransportationQuizScreen /> } />
-          <Route path="/transportation-near" element={ <TransportationNearScreen /> } />
+          <Route path="/transportation-near" element={ <WithGeolocation><TransportationNearScreen /></WithGeolocation> } />
 
           <Route path="/evacuate" element={ <WithGeolocation><EvacuateScreen /></WithGeolocation> } />
           <Route path="/evacuate/:lat1/:lng1/:lat2/:lng2" element={ <EvacuateScreen /> } />

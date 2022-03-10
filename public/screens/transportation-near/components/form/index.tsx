@@ -1,5 +1,5 @@
-import React, { FC, useState } from 'react'
-import { Button, Form, Radio, Selector, Slider, Space, Stepper, Switch } from 'antd-mobile'
+import React, { FC } from 'react'
+import { Button, Form, Radio, Selector, Space, Stepper, Switch } from 'antd-mobile'
 import { useTranslation } from 'react-i18next'
 
 import { ISearchInRadiusRequestForm } from '../../../../common/interfaces'
@@ -10,21 +10,16 @@ import styles from './styles.module.less'
 
 
 export interface IFormProps {
-  isActive: boolean
-  isDisabled: boolean
   onSubmit: (data: ISearchInRadiusRequestForm) => void
   onCancel: () => void
 }
 
 export const FormComponent: FC<IFormProps> = ({
-  isActive,
-  isDisabled,
   onSubmit,
   onCancel,
 }) => {
   const [DEFAULT_VALUES, changeDefaultValues] = useDefaultValues()
   const { t } = useTranslation()
-  const [radius, setRadius] = useState(DEFAULT_VALUES.radius)
 
   return (
     <div className={ styles.wrapper }>
@@ -43,8 +38,6 @@ export const FormComponent: FC<IFormProps> = ({
               type="submit"
               color="primary"
               size="large"
-              loading={ !isActive && !isDisabled }
-              disabled={ isDisabled }
             >
               { t('requestsFind') }
             </Button>
@@ -60,17 +53,6 @@ export const FormComponent: FC<IFormProps> = ({
         }
       >
         <Form.Header>{ t('requestsFind') }</Form.Header>
-        <Form.Item
-          name="radius"
-          label={ t('radiusInKm', { replace: { radius } }) }
-          initialValue={ DEFAULT_VALUES.radius }
-        >
-          <Slider
-            min={ 20 }
-            max={ 200 }
-            onChange={ (value) => setRadius(value as number) }
-          />
-        </Form.Item>
         <Form.Item
           name="languages"
           label={ t('myLanguages') }

@@ -1,5 +1,7 @@
 {
   "translation": {
+    "noFurtherLegend": "Wybierz, jak daleko jesteś gotów wyruszyć. Poszukamy aplikacji, które spełnią Twoje wymagania.",
+    "noFurther": "Nie dalej niż {{ radius }} km ode mnie",
     "updatedAt": "Zaktualizowano:",
     "activeUntil": "Aktywne do:",
     "requestExtend": "Odnów wniosek",
